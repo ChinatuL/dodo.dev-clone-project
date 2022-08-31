@@ -28,3 +28,13 @@ accent(links): #4ec9b0
 accent:hover #4e94ce
     
 
+FONT PROPERTIES
+
+Body font
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet"/>
+font-family: Fira Code, monospace;
+
+Navbar font
+-apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, sans-serif
