@@ -1,0 +1,123 @@
+:root {
+    --background-color: #1e1f1c;
+    --editor-background: #272822;
+    --navbar-text: #ccccc7;
+    --inactive-navbar-background: #34352f;
+    --active-navbar-text: #ffffff;
+    --body-text: #f8f8f2;
+    --secondary-text: #cfcfc2;
+    --editor-line-number: #90908a;
+    --editor-line-number-hover: #c2c2bf;
+    --highlighted-line: #3e3d32;
+    --line-break: #88846f;
+    --accent: #a6e22e;
+    --accent-hover: #4e94ce;
+    --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
+        system-ui, Ubuntu, sans-serif;
+    --font-mono: Fira Code, monospace;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--body-text);
+    font-family: var(--font-mono);
+    line-height: 1.5rem;
+}
+
+.container {
+    max-width: 81ch;
+    margin: 5rem auto;
+}
+
+.nav-list {
+    display: flex;
+    margin: 0 auto;
+}
+
+.nav-item {
+    width: 8rem;
+    padding: 0.3rem 0.5rem;
+    background-color: var(--editor-background);
+}
+.nav-item:not(:nth-of-type(3)) {
+    margin-right: 0.1rem;
+}
+
+.nav-item:nth-of-type(2),
+.nav-item:nth-of-type(3) {
+    background-color: var(--inactive-navbar-background);
+}
+
+.nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--navbar-text);
+    text-decoration: none;
+}
+
+main {
+    font-weight: 500;
+}
+
+.editor {
+    padding: 2rem 8ch 5rem;
+    background-color: var(--editor-background);
+}
+
+header {
+    display: flex;
+}
+
+.profile-pic {
+    width: 17.5ch;
+    height: 10.5rem;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.header-text h1 {
+    font-size: 1.3rem;
+}
+
+.occupation {
+    padding-bottom: 1.5rem;
+}
+
+.accent {
+    border-bottom: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.accent:hover {
+    border-bottom: 1px solid var(--accent-hover);
+    color: var(--accent-hover);
+}
+
+.line-break {
+    margin: 1.5rem 0;
+    border-width: 0px;
+    color: var(--line-break);
+}
+
+.line-break::before {
+    content: "//";
+    padding-right: 0.5rem;
+}
+
+.line-break::after {
+    content: "--------------------------------------------------------------";
+    font-variant-ligatures: none;
+}

@@ -9,6 +9,7 @@ secondary-text (article dates, etc): #cfcfc2
 editor-line-number: #90908a
 editor-line-number-hover: #c2c2bf
 highlighted-line: #3e3d32
+line-break: #88846f
 accent(links): #a6e22e
 accent-hover: #4e94ce
 
