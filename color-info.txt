@@ -34,8 +34,13 @@ FONT PROPERTIES
 Body font
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap" rel="stylesheet"/>
 font-family: Fira Code, monospace;
+font-weight(bold text): 700
+font-weight(normal text): 500
+font-size(h1): 20px
+font-size(h2 and article title): 18px
+font-size(dates): 13px
 
 Navbar font
 -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, sans-serif
