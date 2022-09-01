@@ -25,13 +25,19 @@
                 <nav>
                     <ul class="nav-list">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">home</a>
+                            <a href="#" class="nav-link">
+                                <div>home</div>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">blog</a>
+                            <a href="#" class="nav-link">
+                                <div>blog</div>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">projects</a>
+                            <a href="#" class="nav-link">
+                                <div>projects</div>
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -62,26 +68,167 @@
                     </header>
                     <hr class="line-break" />
                     <section class="articles">
-                        <h2>Latest Articles</h2>
+                        <h2 class="section-header">Latest Articles</h2>
                         <article>
                             <a href="#">
                                 <img
                                     src="./images/number-of-ones.png"
                                     alt="Number 1 to 38 with all 1s highlighted"
+                                    class="article-img"
                                 />
                             </a>
-                            <div>
-                                <h3>
+                            <div class="article-text">
+                                <h3 class="article-title">
                                     <a href="#">Number of Ones</a>
                                 </h3>
-                                <p>Calculating the digits in numbers.</p>
-                                <p>
+                                <p class="article-description">
+                                    Calculating digits in a series of numbers.
+                                </p>
+                                <p class="date-published">
                                     <span class="sr-only">Published on</span>
                                     06 Aug 2022
                                 </p>
                             </div>
                         </article>
+                        <article>
+                            <a href="#">
+                                <img
+                                    src="./images/rm-rf-git.png"
+                                    alt="Random characters with the command rm -rf .git highlighted in the middle"
+                                    class="article-img"
+                                />
+                            </a>
+                            <div class="article-text">
+                                <h3 class="article-title">
+                                    <a href="#">
+                                        Don't Build Your Own Framework
+                                    </a>
+                                </h3>
+                                <p class="article-description">
+                                    Delusions of having the ability to solve
+                                    something once and for all.
+                                </p>
+                                <p class="date-published">
+                                    <span class="sr-only">Published on</span>
+                                    19 Jun 2022
+                                </p>
+                            </div>
+                        </article>
+                        <article>
+                            <a href="#">
+                                <img
+                                    src="./images/browser-edge-cache.png"
+                                    alt="Random characters with browser, random and edge highlighted in the middle"
+                                    class="article-img"
+                                />
+                            </a>
+                            <div class="article-text">
+                                <h3 class="article-title">
+                                    <a href="#"
+                                        >Browser Cache and Edge Cache
+                                        Explained</a
+                                    >
+                                </h3>
+                                <p class="article-description">
+                                    You updated it? Well, yes, but not really.
+                                </p>
+                                <p class="date-published">
+                                    <span class="sr-only">Published on</span>
+                                    08 Feb 2022
+                                </p>
+                            </div>
+                        </article>
+                        <a href="#" class="more-articles">
+                            Read More
+                            <span class="arrow">→</span>
+                        </a>
                     </section>
+                    <hr class="line-break" />
+                    <section>
+                        <h2 class="section-header">Projects</h2>
+                        <article>
+                            <a href="#">
+                                <img
+                                    src="./images/nexo-logo.svg"
+                                    alt="Nexo crypto bank logo"
+                                    class="project-img"
+                                />
+                            </a>
+                            <div class="article-text">
+                                <h3 class="article-title">
+                                    <a href="#">Nexo</a>
+                                </h3>
+                                <p class="article-description">
+                                    Developing and maintaining the product
+                                    marketing website of the world's first
+                                    crypto-backed loans.
+                                    <a
+                                        href="https://nexo.io/"
+                                        class="project-link"
+                                        >nexo.io</a
+                                    >
+                                </p>
+                            </div>
+                        </article>
+                        <article>
+                            <a href="#">
+                                <img
+                                    src="./images/rundown-logo.svg"
+                                    alt="Rundown chrome extension logo"
+                                    class="project-img"
+                                />
+                            </a>
+                            <div class="article-text">
+                                <h3 class="article-title">
+                                    <a href="#">Rundown</a>
+                                </h3>
+                                <p class="article-description">
+                                    Turns your browser's new-tab page into a
+                                    simple markdown editor with to-do lists and
+                                    summaries.
+                                    <a
+                                        href="https://chrome.google.com/webstore/detail/rundown/opjjddkgmphhkjlgocopmeolmmibiphb"
+                                        class="project-link"
+                                        >chrome.google.com</a
+                                    >
+                                </p>
+                            </div>
+                        </article>
+                        <a href="#" class="more-articles">
+                            View More
+                            <span class="arrow">→</span>
+                        </a>
+                    </section>
+                    <hr class="line-break" />
+                    <footer>
+                        <ul class="social-links">
+                            <li class="social-link">
+                                <a href="https://github.com/hdodov">Github</a>
+                                <span class="bullet">&bull;</span>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://twitter.com/yandodov"
+                                    >Twitter</a
+                                >
+                                <span class="bullet">&bull;</span>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://www.linkedin.com/in/yandodov/">
+                                    LinkedIn</a
+                                >
+                                <span class="bullet">&bull;</span>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://www.instagram.com/yandodov/">
+                                    Instagram</a
+                                >
+                                <span class="bullet">&bull;</span>
+                            </li>
+                        </ul>
+                        <div class="color-theme">
+                            Monokai <span>&darr;</span>
+                        </div>
+                    </footer>
                 </div>
             </main>
         </div>

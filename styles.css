@@ -29,6 +29,15 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+h1,
+h2 {
+    font-weight: 700;
+}
+
 body {
     background-color: var(--background-color);
     color: var(--body-text);
@@ -38,7 +47,7 @@ body {
 
 .container {
     max-width: 81ch;
-    margin: 5rem auto;
+    margin: 4.5rem auto;
 }
 
 .nav-list {
@@ -47,8 +56,6 @@ body {
 }
 
 .nav-item {
-    width: 8rem;
-    padding: 0.3rem 0.5rem;
     background-color: var(--editor-background);
 }
 .nav-item:not(:nth-of-type(3)) {
@@ -64,7 +71,11 @@ body {
     font-family: var(--font-sans);
     font-size: 0.8rem;
     color: var(--navbar-text);
-    text-decoration: none;
+}
+
+.nav-link div {
+    width: 7.5rem;
+    padding: 0.3rem 0 0.3rem 0.5rem;
 }
 
 main {
@@ -98,7 +109,6 @@ header {
 .accent {
     border-bottom: 1px solid var(--accent);
     color: var(--accent);
-    text-decoration: none;
 }
 
 .accent:hover {
@@ -120,4 +130,108 @@ header {
 .line-break::after {
     content: "--------------------------------------------------------------";
     font-variant-ligatures: none;
+}
+
+.section-header {
+    padding-bottom: 1.5rem;
+    font-size: 1.125rem;
+}
+
+article {
+    display: flex;
+    padding-bottom: 1rem;
+}
+
+.article-img {
+    width: 17.5ch;
+    height: 6rem;
+    margin-right: 1rem;
+}
+
+.article-title a {
+    color: var(--body-text);
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.article-title a:hover {
+    color: var(--accent-hover);
+}
+
+.article-description {
+    min-height: 3rem;
+}
+
+.date-published {
+    color: var(--secondary-text);
+    font-size: 0.8rem;
+}
+
+.more-articles {
+    display: inline-block;
+    color: var(--body-text);
+    font-weight: 700;
+}
+
+.arrow {
+    color: var(--accent);
+    font-size: 1.4rem;
+    vertical-align: top;
+}
+
+.more-articles:hover,
+.more-articles:hover .arrow {
+    color: var(--accent-hover);
+}
+
+.project-img {
+    width: 10ch;
+    height: 6rem;
+    margin-right: 1rem;
+}
+
+.project-link {
+    border-bottom: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.project-link:hover {
+    border-bottom: 1px solid var(--accent-hover);
+    color: var(--accent-hover);
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-links {
+    display: flex;
+}
+
+.social-link {
+    padding-right: 0.7rem;
+}
+
+.social-link a {
+    border-bottom: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.social-link a:hover {
+    border-bottom: 1px solid var(--accent-hover);
+    color: var(--accent-hover);
+}
+
+.color-theme {
+    font-weight: 700;
+}
+
+.color-theme span {
+    color: var(--accent);
+}
+
+.color-theme:hover,
+.color-theme:hover span {
+    color: var(--accent-hover);
 }
