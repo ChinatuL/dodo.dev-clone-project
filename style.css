@@ -140,10 +140,15 @@ header{
 }
 
 hr{
-    border-top: 2px dotted rgb(136, 132, 111);
-    /* border-bottom-width: none;  */
+    border: none;
     margin: 40px 0;
-    border-width: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+hr::after {
+    content: "//  ---------------------------------------------------------------------------------------------";
+    font-variant-ligatures: none;
 }
 
 footer{
@@ -166,6 +171,7 @@ footer ul a{
     text-decoration: underline;
     text-underline-position: under;
     letter-spacing: 1px;
+    font-size: 16px;
 }
 
 .arrow{
@@ -216,3 +222,25 @@ footer ul a{
     text-underline-position: under;
     letter-spacing: 1px;
 }
+
+.theme-picker {
+	background: transparent;
+	border: none;
+	color: #fff;
+    -webkit-appearance: none;
+    margin-right: -80px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Fira code', monospace;
+}
+
+.theme-picker > option {
+	color: #000;
+}
+
+
+.picker-arrow:hover * {
+   color: #4e94ce ;
+   cursor: pointer;
+}
+
