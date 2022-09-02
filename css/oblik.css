@@ -1,0 +1,197 @@
+:root {
+    --background-color: #1e1f1c;
+    --editor-background: #272822;
+    --navbar-text: #ccccc7;
+    --inactive-navbar-background: #34352f;
+    --active-navbar-text: #ffffff;
+    --body-text: #f8f8f2;
+    --secondary-text: #cfcfc2;
+    --editor-line-number: #90908a;
+    --editor-line-number-hover: #c2c2bf;
+    --highlighted-line: #3e3d32;
+    --line-break: #88846f;
+    --accent: #a6e22e;
+    --accent-hover: #4e94ce;
+    --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
+        system-ui, Ubuntu, sans-serif;
+    --font-mono: Fira Code, monospace;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--background-color);
+    font-family: "Fira Code", monospace;
+    width: 100%;
+    font-weight: 500;
+}
+
+li {
+    list-style-type: none;
+}
+header {
+    margin-top: 4.5rem;
+}
+.nav-list {
+    display: flex;
+    margin: 0 auto;
+}
+
+.nav-item {
+    background-color: var(--editor-background);
+    font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
+        system-ui, Ubuntu, sans-serif;
+}
+.nav-item a {
+    text-decoration: none;
+    font-weight: normal;
+}
+.nav-item a:hover {
+    color: var(--navbar-text);
+}
+
+.nav-item {
+    margin-right: 0.1rem;
+}
+
+.nav-item:nth-of-type(1),
+.nav-item:nth-of-type(2),
+.nav-item:nth-of-type(3) {
+    background-color: var(--inactive-navbar-background);
+}
+
+.nav-item:nth-of-type(4) a {
+    color: var(--active-navbar-text);
+    color: var(--active-navbar-text);
+}
+
+.nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--navbar-text);
+}
+
+.nav-link div {
+    width: 7.5rem;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.article-tab {
+    padding: 0.35rem 0.5rem 0;
+    font: italic 0.8rem var(--font-sans);
+}
+
+.article-tab span {
+    margin-right: 2rem;
+}
+
+.article-tab a {
+    margin-left: 0.2rem;
+    padding: 0.2rem 0.2rem 0;
+    color: var(--navbar-text);
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.article-tab a:hover {
+    border-radius: 5px;
+    background-color: var(--inactive-navbar-background);
+}
+main {
+    max-width: 81ch;
+    color: var(--body-text);
+    margin: auto;
+}
+.editor {
+    min-height: 100vh;
+    background-color: var(--editor-background);
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2rem;
+    gap: 20px;
+}
+p {
+    color: var(--secondary-text);
+    line-height: 1.5rem;
+    font-weight: 500;
+}
+.page-link {
+    color: var(--body-text);
+    text-decoration: none;
+}
+.project-link {
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    color: var(--accent);
+}
+.project-link:hover {
+    border-bottom: 1px solid var(--accent-hover);
+    color: var(--accent-hover);
+}
+
+.line-break {
+    margin: 1.5rem 0;
+    border-width: 0px;
+    color: var(--line-break);
+}
+
+.line-break::before {
+    content: "//";
+    padding-right: 0.5rem;
+    font-weight: 500;
+}
+
+.line-break::after {
+    content: "-------------------------------------------------------------";
+    font-variant-ligatures: none;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-links {
+    display: flex;
+    font-weight: 500;
+}
+
+.social-link {
+    padding-right: 0.7rem;
+}
+
+.social-link a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.social-link a:hover {
+    border-bottom: 1px solid var(--accent-hover);
+    color: var(--accent-hover);
+}
+
+.color-theme {
+    font-weight: 700;
+}
+
+.color-theme span {
+    color: var(--accent);
+}
+
+.color-theme:hover,
+.color-theme:hover span {
+    color: var(--accent-hover);
+}

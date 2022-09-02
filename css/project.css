@@ -1,0 +1,150 @@
+:root {
+    --background-color: #1e1f1c;
+    --editor-background: #272822;
+    --navbar-text: #ccccc7;
+    --inactive-navbar-background: #34352f;
+    --active-navbar-text: #ffffff;
+    --body-text: #f8f8f2;
+    --secondary-text: #cfcfc2;
+    --editor-line-number: #90908a;
+    --editor-line-number-hover: #c2c2bf;
+    --highlighted-line: #3e3d32;
+    --line-break: #88846f;
+    --accent: #a6e22e;
+    --accent-hover: #4e94ce;
+    --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
+        system-ui, Ubuntu, sans-serif;
+    --font-mono: Fira Code, monospace;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--background-color);
+    font-family: "Fira Code", monospace;
+    width: 100%;
+    color: var(--body-text);
+    font-weight: 500;
+}
+li {
+    list-style: none;
+}
+header {
+    margin-top: 4.5rem;
+}
+.nav-list {
+    display: flex;
+    margin: 0 auto;
+}
+
+.nav-item {
+    background-color: var(--editor-background);
+    font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
+        system-ui, Ubuntu, sans-serif;
+}
+.nav-item a {
+    text-decoration: none;
+    font-weight: normal;
+}
+.nav-item a:hover {
+    color: var(--navbar-text);
+}
+.nav-item:not(:nth-of-type(2)) {
+    margin-right: 0.1rem;
+}
+
+.nav-item:nth-of-type(1),
+.nav-item:nth-of-type(2) {
+    background-color: var(--inactive-navbar-background);
+}
+
+.nav-item:nth-of-type(3) {
+    background-color: var(--editor-background);
+}
+
+.nav-item:nth-of-type(3) a {
+    color: var(--active-navbar-text);
+}
+
+.nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--navbar-text);
+}
+
+.nav-link div {
+    width: 7.5rem;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+main {
+    max-width: 81ch;
+    color: var(--body-text);
+    margin: auto;
+}
+
+.editor {
+    background-color: var(--editor-background);
+    min-height: 100vh;
+}
+.first-paragraph {
+    margin-left: 3rem;
+    padding-left: 50px;
+}
+h1 {
+    font-size: 20px;
+    padding-top: 30px;
+    padding-left: 50px;
+    margin-left: 3rem;
+}
+h2 {
+    font-size: 18px;
+}
+
+h1,
+h2 {
+    font-weight: 700;
+}
+.image:hover {
+    cursor: pointer;
+}
+.flex {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: px;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    padding-left: 40px;
+}
+p {
+    line-height: 1.5rem;
+}
+.page-link {
+    color: var(--body-text);
+    cursor: pointer;
+    text-decoration: none;
+}
+.page-link:hover {
+    color: var(--accent-hover);
+}
+a {
+    color: var(--accent);
+}
+a:hover {
+    color: var(--accent-hover);
+}
+hr {
+    border-top: 3px dashed;
+}
+.social-media {
+    display: flex;
+    flex-direction: row;
+}
+.footer-part {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
