@@ -123,6 +123,10 @@ header {
     color: #fff;
 }
 
+.article-div a:hover {
+    color: #4e94ce;
+}
+
 .article img {
     margin: 0 20px;
     height: 96px;
@@ -173,6 +177,14 @@ footer ul a {
     font-size: 16px;
 }
 
+ul span {
+    padding-right: 0.5rem;
+}
+
+footer ul a:hover {
+    color: #4e94ce;
+}
+
 .arrow {
     color: rgb(166, 226, 46);
 }
@@ -220,6 +232,10 @@ footer ul a {
     color: rgb(166, 226, 46);
     text-underline-position: under;
     letter-spacing: 1px;
+}
+
+.green-link:hover {
+    color: #4e94ce;
 }
 
 .theme-picker {
