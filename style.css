@@ -1,0 +1,246 @@
+body{
+    box-sizing: border-box;
+    background-color: #1e1f1c;
+    font-family: "Fira code", monospace;
+    /* z-index: 30;
+    text-size-adjust: 100%; */
+    line-height: 24px;
+}
+
+
+.container{
+    z-index: 30;
+    text-size-adjust: 100%;
+}
+/* Nav */
+.nav-link{ 
+    /* margin-top: 72px; */
+    font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui, Ubuntu, sans-serif; 
+}
+
+.nav-link ul{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 8px;
+}
+
+ ul a{
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 0;
+    font-size: 13px;
+}
+
+.nav-link ul li{
+    margin-right: 2px;
+}
+
+.home {
+    background-color: rgb(52, 53, 47);
+    padding: 9px 63px 9px 12px;
+    color: rgb(207, 207, 194);
+}
+
+.blog{
+    background-color: rgb(39, 40, 34);
+    padding: 9px 72px 9px 12px ;
+}
+
+.projects{
+    background-color: rgb(52, 53, 47);
+    padding: 9px 60px 9px 12px;
+    color: rgb(207, 207, 194);
+}
+
+/* Content */
+.content{
+    width: 78ch; 
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.main-content{
+    width: 639px;
+    padding: 0 67px;
+    background-color: #272822;
+}
+
+/* Editor */
+
+.editor{
+    text-align: left;
+    color: #fff;
+    width: 640px;
+}
+/* Header */
+
+h1{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: rgb(248, 248, 242);
+    font-weight: 700px;
+    padding-top: 25px;
+}
+
+header p{
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: rgb(207, 207, 194);
+}
+
+h3{
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.article p{
+    margin-top: 0;
+    line-height: 24px;
+    width: 450px;
+    margin: 0; 
+    font-size: 16px;
+    
+}
+
+header{
+    margin-left: 30px;
+}
+
+/* Articles */
+.article{
+    display: flex;
+    margin: 0 10px 18px 0 ;
+}
+
+.article-div{
+    margin-top: -20px;
+}
+
+.article-div a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.article img{
+    margin: 0 20px;
+    height: 96px;
+}
+
+.article time{
+    font-size: 13px;
+    color: rgb(207, 207, 194);
+    padding-top: 10px;
+}
+
+.time {
+    padding-bottom: 25px;  
+}
+
+hr{
+    border: none;
+    margin: 40px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+hr::after {
+    content: "//  ---------------------------------------------------------------------------------------------";
+    font-variant-ligatures: none;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+footer ul{
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 8px;
+    margin-top: 5px;
+}
+
+footer ul a{
+    color: rgb(166, 226, 46);
+    text-decoration: underline;
+    text-underline-position: under;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.arrow{
+    color: rgb(166, 226, 46);
+}
+
+/* article1.html */
+.article1{
+    background-color: rgb(39, 40, 34);
+    padding: 9px 9px 9px 9px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+}
+
+.article1-blog{
+        background-color: rgb(52, 53, 47);
+        padding: 9px 72px 9px 12px ;
+    }
+
+.article1-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.x{
+    padding-left: 3px;
+    font-style: normal;
+}
+
+.article1-img{
+    width: 639px; 
+    height: 358px;
+}
+
+.time-nolines{
+    padding-top: 30px;
+    font-size: 13px;
+    color: rgb(207, 207, 194);
+    line-height: 1.5;
+}
+
+.line{
+    text-align: end;
+}
+
+.green-link{
+    color: rgb(166, 226, 46);
+    text-underline-position: under;
+    letter-spacing: 1px;
+}
+
+.theme-picker {
+	background: transparent;
+	border: none;
+	color: #fff;
+    -webkit-appearance: none;
+    margin-right: -80px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Fira code', monospace;
+}
+
+.theme-picker > option {
+	color: #000;
+}
+
+
+.picker-arrow:hover * {
+   color: #4e94ce ;
+   cursor: pointer;
+}
+

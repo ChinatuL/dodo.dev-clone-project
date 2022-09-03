@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon-monokai.png" type="image/x-icon">
+    <title>Number of Ones</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="content">
+            <nav class="nav-link">
+                <ul>
+                    <li><a class="home" href="">home</a></li>
+                    <li><a class="article1-blog" href="blog.html">blog</a></li>
+                    <li><a class="article1" href="">number-of-ones <span class="x">x</span></a></li>
+                    <li><a class="projects" href="">projects</a></li>
+                </ul>
+            </nav>
+            <div class="main-content">
+                <main class="editor">
+                    <header class="article1-header">
+                        <div>
+                            <h1>Number of Ones</h1>
+                            <p>Calculating digits in a series of numbers.</p>
+                        </div>
+                        <div class="time-nolines">
+                            <time datetime="2022-08-06T16:00:00+03:00" title="Saturday, August 6, 2022, 16:00 EEST">
+                                06 Aug 2022 </time>
+                            <div class="line">292 lines</div>
+                        </div>
+                    </header>
+                    <img class="article1-img" src="images/number-of-ones.png" alt="">
+
+                    <article>
+                        <p>In this post, I'll explain my solution to the programming puzzle from <a class="green-link" href="">the latest issue</a> of <a class="green-link" href="">@cassidoo</a>'s newsletter.</p>
+                        <p>The task is simple:</p>
+                        <blockquote>
+                            Given an integer n, count the total number of 1 digits appearing in all non-negative integers less than <br> or equal to n.
+                        </blockquote>
+                        <p>Perhaps the most obvious solution is to just loop over the numbers, convert them to strings, and count the digits. But the larger the input number, the slower it gets. So, rather than counting, we can calculate the result.</p>
+                        <h2>idea</h2>                   
+                        <p>Let's start with the number of times that the digit 1 appears in the 0-9 range. It's just one. The number 1.</p>
+                        <p>Now, let's try 0-99. Here we have the same thing, with the difference being that it's repeated 10 times:</p>
+                        
+                        <div>
+                            <code>1, 11, 21, 31, 41, 51, 61, 71, 81, 91 ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑ (10)</code>
+                        </div>
+                        <p>So, the units (rightmost digit) contributes to the sum with a total of 10 occurrences.</p>
+                        <p>However, the range 10-19 is special, because each number there always begins with 1:</p>
+                        <div>
+                            <code>10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+                                ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑ (10)</code>
+                        </div>
+                        <div>
+                            <div>10 times as a digit in the units column</div>
+                            <div>10 times as a digit in the tens column</div>
+                        </div>
+                        <hr></hr>
+                        <p>If we look at the numbers 0-999, we'll start to see patterns. Now, 1 appears in the units column not 10, but 100 times:</p>
+                        <div>
+                            <code>1, 11, 21... 131, 141, 151... 321, 641, 961... 991
+                                ↑   ↑   ↑      ↑    ↑    ↑      ↑    ↑    ↑ </code>
+                        </div>
+                        <p>Notice how we can just take the last digit off the number and get the number of times 1 will appear at the units position. For example, if we have 236, we can take the 6 out and know that 
+                           1 will surely appear 23 times as a units digit. In this case, however, we must add one, because 231 is also 
+                           part of the collection. If the end number was 230, we wouldn't have that.</p>
+                        <p>Now, we can do the same, but for the tens. If we remove the 36 from 236, we get 2. So we know that the digit 1 will cycle 2 times in the tens column:</p>
+                        <div>
+                            <code>10-19, 110-119
+                                ↑  ↑    ↑   ↑</code>
+                        </div>
+                        <p>But since the tens digit is 3, which is bigger than 1, we get one extra cycle, namely 210-219. If we had 206, 0 is less than 1, so we wouldn't get that extra cycle.</p>
+                        <p>The special case is when the digit is 1. If we have 216, then we get an incomplete extra cycle of only 7 repetitions, rather than 10. We go through 210-216, not 210-219. So the occurrences of 1 in the tens column depends on columns to the right. This time, we have to remove digits from the left side. For the number 216, we remove 21 from it and get 6. We then have to add 1, because even though 210 has
+                           0 in the units, it still counts. We end up with 7, which is the number of ones in the incomplete cycle. Here's the entire calculation:
+                        </p>
+                        <pre>
+                           <code>
+                            "236 ||└ mul = 1; 236/(mul*10) = 236/10 = 23.6;
+                            round(23.6) = 23; |└─ mul = 10; 236/(mul*10) = 236/100 =
+                            2.36; round(2.36) = 2; └── mul = 100; 236/(mul*10) = 
+                            236/1000 = 0.23; round(0.23) = 0;"
+                           </code>
+                        </pre>
+                        <p>Notice how we have a multiplier for each digit, and it increases exponentially: 1 for units, 10 for tens, 100 for hundreds.</p>
+                       
+                        <h2>Implementation</h2>
+                        <p>Let's start with the multiplier. In code, we can loop over the digits in reverse to get it:</p>
+
+                        <div>
+                           <code>
+                             [6, 3, 2].forEach((digit, i) => {
+	                         let mul = Math.pow(10, i); // 1, 10, 100});
+                           </code> 
+                        </div>
+
+                        <p>Now, we have to be able to take digits out of the number. In our first iteration, for the units, we have to take 23 out of 236.
+                             We can do that by dividing the number by 10, getting 23.6.
+                              We can then round it down with Math.floor() to get 23.
+                        </p>
+                        <p>
+                            For the tens, we have to get 2 out of 236. 
+                            We can do that by dividing by 100, getting 2.36, and rounding down to 2.  
+                        </p>
+                        <p>
+                            Basically, we multiply our multiplier by 10, divide, then floor, 
+                            and we have successfully taken out the necessary digits:
+                        </p>
+                        <pre>
+                            <code>
+                             "236 ||└ mul = 1; 236/(mul*10) = 236/10 = 23.6;
+                             round(23.6) = 23; |└─ mul = 10; 236/(mul*10) = 236/100 =
+                             2.36; round(2.36) = 2; └── mul = 100; 236/(mul*10) = 
+                             236/1000 = 0.23; round(0.23) = 0;"
+                            </code>
+                         </pre>
+                         <p>
+                            All that's left now is to apply the multiplier to those numbers and we 
+                            get the number of complete cycles with a 1 that each digit goes through:
+                         </p>
+
+
+
+                       
+                    </article>
+
+                    <hr>
+                    </hr>
+                    <footer>
+                        <ul>
+                            <li><a href="https://github.com/yandodov" target="_blank">Github</a>
+                                <span>•</span>
+                            </li>
+                            <li><a href="https://twitter.com/yandodov">Twitter</a>
+                                <span>•</span>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/yandodov/">LinkedIn</a>
+                                <span>•</span>
+                            </li>
+                            <li><a href="https://www.instagram.com/yandodov/" target="_blank">Instagram</a>
+                            </li>
+                        </ul>
+                        <div>
+                            <span>
+                                <span>Monokai</span>
+                                <span class="arrow">↓</span>
+                                <!-- <select name="" id="">
+                         <option value="">Dark+</option>
+                         <option value="">Light+</option>
+                         <option value="">Monokai</option>
+                         <option value="">Github Dark</option>
+                         <option value="">Github Light</option>
+                         <option value="">Solarized Light</option>
+                     </select> -->
+                            </span>
+                        </div>
+                    </footer>
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
