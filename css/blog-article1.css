@@ -155,6 +155,7 @@ hr::after {
 }
 
 footer {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -238,22 +239,36 @@ footer ul a:hover {
     color: #4e94ce;
 }
 
+.color-theme-name {
+    cursor: pointer;
+}
+
+.color-theme-name:hover,
+.color-theme-name:hover .arrow {
+    color: #4e94ce;
+}
+
 .theme-picker {
-    background: transparent;
+    position: absolute;
+    right: 2rem;
+    top: 8px;
+    background: none;
+    opacity: 0;
     border: none;
     color: #fff;
     -webkit-appearance: none;
-    margin-right: -80px;
+    margin-right: -70px;
     font-size: 16px;
     font-weight: 500;
     font-family: "Fira code", monospace;
 }
 
-.theme-picker > option {
-    color: #000;
+.theme-picker:focus,
+.theme-picker:active {
+    outline: none;
 }
 
-.picker-arrow:hover * {
-    color: #4e94ce;
-    cursor: pointer;
+.theme-picker > option {
+    background-color: #1e1f1c;
+    color: #cfcfc2;
 }
