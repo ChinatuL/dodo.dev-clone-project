@@ -1,437 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Browser Cache and Edge Cache Explained</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../css/article_3.css" />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../images/favicon-monokai.png"
-        />
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <nav>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="../index.html" class="nav-link">
-                                <div>home</div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./blog.html" class="nav-link">
-                                <div>blog</div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <div class="article-tab">
-                                <span class="article-name"
-                                    >browser-cache-and-edge-cache-explained</span
-                                >
-                                <a href="./blog.html"
-                                    ><svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
-                                        ></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./project.html" class="nav-link">
-                                <div>projects</div>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <main>
-                <div class="editor">
-                    <div id="heading">
-                        <div>
-                            <h1>Browser Cache and Edge Cache Explained</h1>
-                            <p class="heading-text">
-                                You updated it? Well, yes, but not really.
-                            </p>
-                        </div>
-                        <div class="date">
-                            <p class="time">
-                                <time>08 Feb 2022 </time>
-                            </p>
-                            <p class="time1">182 lines</p>
-                        </div>
-                    </div>
-                    <div class="image-container">
-                        <img
-                            src="../images/browser-edge-cache-cover-1280x.png"
-                            alt=""
-                            class="image"
-                        />
-                    </div>
-                    <div class="content">
-                        <p class="text-1">Does the following sound familiar?</p>
-                        <div class="text-1-content">
-                            <div class="text-2-content">
-                                <p>></p>
-                                <p>></p>
-                                <p>></p>
-                                <p>></p>
-                                <p>></p>
-                            </div>
-                            <div class="text-3-content">
-                                <p>"The new feature is live."</p>
-                                <p>"I can't see it."</p>
-                                <p>"Have you cleared your browser cache?"</p>
-                                <p>"Yes. It's still not visible."</p>
-                                <p><i>"Hmmm…"</i></p>
-                            </div>
-                        </div>
-                        <div class="text-1">
-                            <p>
-                                This could happen when there are multiple layers
-                                of
-                                <a
-                                    href="https://www.cloudflare.com/en-gb/learning/cdn/what-is-caching/"
-                                    target="_blank"
-                                    class="anchortag-1"
-                                    >caching</a
-                                >
-                                in play and one of them has not expired. If
-                                you've used something like
-                                <a
-                                    href="https://www.cloudflare.com/en-gb/cdn/"
-                                    class="anchortag-1"
-                                    target="_blank"
-                                    >Cloudflare CDN</a
-                                >, you've likely ran into this.
-                            </p>
-                        </div>
-                        <div>
-                            <h2>What is Browser Caching?</h2>
-                            <p class="text-2">
-                                Let's say your website has a logo in the header
-                                and it appears on all pages. When users land on
-                                your website and start browsing, they'll be
-                                downloading the <strong>same</strong> logo on
-                                <strong>every</strong> page load. This
-                                inefficiency increases bandwidth costs and load
-                                times.
-                            </p>
-                            <p class="text-4">
-                                When sending the logo to the user, your server
-                                can also provide the
-                                <a
-                                    href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"
-                                    target="_blank"
-                                    class="anchortag-1"
-                                    ><span>Cache-Control</span> response
-                                    header</a
-                                >
-                                with an expiration value like
-                                <span>max-ssage=604800</span>. This will tell
-                                the browser to store the logo locally, on the
-                                user's hard drive, for 604800 seconds, which is
-                                7 days. Until that time passes, whenever your
-                                website references the logo through the same
-                                URL, the user's browser will use its cached
-                                version. After that, the browser will request
-                                the logo from your server once again and cache
-                                it for another 7 days.
-                            </p>
-                            <div class="text-4-content">
-                                <h2>What is an Edge?</h2>
-                                <p class="text-2">
-                                    If your audience is mainly European, it
-                                    would probably make sense to put your server
-                                    in London, for example. But if your website
-                                    starts receiving traffic from America, those
-                                    requests would have to travel an entire
-                                    ocean, which can make them several times
-                                    slower, due to
-                                    <a
-                                        href="https://www.cloudflare.com/en-gb/learning/performance/glossary/what-is-latency/"
-                                        target="_blank"
-                                        class="anchortag-1"
-                                        >latency</a
-                                    >. With a
-                                    <a
-                                        href="https://www.cloudflare.com/en-gb/learning/cdn/what-is-a-cdn/"
-                                        target="_blank"
-                                        class="anchortag-1"
-                                        >CDN</a
-                                    >, you have a system of servers spread
-                                    throughout the world that
-                                    <a
-                                        href="https://www.cloudflare.com/en-gb/learning/cdn/glossary/reverse-proxy/"
-                                        target="_blank"
-                                        class="anchortag-1"
-                                        >proxy</a
-                                    >
-                                    user traffic to your server and
-                                    <a
-                                        href="https://www.cloudflare.com/en-gb/learning/cdn/performance/"
-                                        target="_blank"
-                                        class="anchortag-1"
-                                        >solve this performance issue</a
-                                    >.
-                                </p>
-                                <p class="text-4">
-                                    Among the
-                                    <a
-                                        href="https://www.cloudflare.com/en-gb/network/"
-                                        class="anchortag-1"
-                                        target="_blank"
-                                        >hundreds of servers</a
-                                    >
-                                    in a CDN, the geographically closest one to
-                                    a user is called an edge and is the one that
-                                    this user's browser directly communicates
-                                    with:
-                                </p>
-                            </div>
-                        </div>
-                        <figure class="image-container">
-                            <img
-                                src="../images/cdn-diagram-1280x.png"
-                                alt=""
-                                class="image"
-                            />
-                            <figcaption>
-                                Response flow from server to user over a CDN
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="text-4">
-                        <h2>What is Edge Caching?</h2>
-                        <p class="text-2">
-                            While browser caching helps with many requests by
-                            the same user, it doesn't solve the issue of many
-                            users making requests, because each user has their
-                            own browser with their own cache. To fix this, you
-                            need a shared cache.
-                        </p>
-                        <p class="text-3">
-                            With a CDN, all user requests are funneled through
-                            the closest edge server. If that server caches the
-                            responses, it'll be able to serve those users
-                            without having to bother your own server. This means
-                            that it no longer matters if you have 1 user or
-                            10000, because once that first response for a
-                            resource is served and cached, the load shifts from
-                            your server to the CDN, which can serve the other
-                            9999 by itself.
-                        </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser Cache and Edge Cache Explained</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/article_3.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-monokai.png"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">
+                <div>home</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./blog.html" class="nav-link">
+                <div>blog</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <div class="article-tab">
+                <span class="article-name"
+                  >browser-cache-and-edge-cache-explained</span
+                >
+                <a href="./blog.html"
+                  ><svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="./project.html" class="nav-link">
+                <div>projects</div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="editor">
+          <div id="heading">
+            <div>
+              <h1>Browser Cache and Edge Cache Explained</h1>
+              <p class="heading-text">
+                You updated it? Well, yes, but not really.
+              </p>
+            </div>
+            <div class="date">
+              <p class="time">
+                <time>08 Feb 2022 </time>
+              </p>
+              <p class="time1">182 lines</p>
+            </div>
+          </div>
+          <div class="image-container">
+            <img
+              src="../images/browser-edge-cache-cover-1280x.png"
+              alt=""
+              class="image"
+            />
+          </div>
+          <div class="content">
+            <p class="text-1">Does the following sound familiar?</p>
+            <div class="text-1-content">
+              <div class="text-3-content">
+                <p>
+                  Our Dynamic caching is a full-page caching mechanism powered
+                  by NGINX that's enabled and running by default on all
+                  SiteGround servers.
+                </p>
+              </div>
+            </div>
+            <div class="text-1">
+              <p>
+                This could happen when there are multiple layers of
+                <a
+                  href="https://www.cloudflare.com/en-gb/learning/cdn/what-is-caching/"
+                  target="_blank"
+                  class="anchortag-1"
+                  >caching</a
+                >
+                in play and one of them has not expired. If you've used
+                something like
+                <a
+                  href="https://www.cloudflare.com/en-gb/cdn/"
+                  class="anchortag-1"
+                  target="_blank"
+                  >Cloudflare CDN</a
+                >, you've likely ran into this.
+              </p>
+            </div>
+            <div>
+              <h2>What is Browser Caching?</h2>
+              <p class="text-2">
+                Let's say your website has a logo in the header and it appears
+                on all pages. When users land on your website and start
+                browsing, they'll be downloading the <strong>same</strong> logo
+                on <strong>every</strong> page load. This inefficiency increases
+                bandwidth costs and load times.
+              </p>
+              <p class="text-4">
+                When sending the logo to the user, your server can also provide
+                the
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"
+                  target="_blank"
+                  class="anchortag-1"
+                  ><span>Cache-Control</span> response header</a
+                >
+                with an expiration value like
+                <span>max-ssage=604800</span>. This will tell the browser to
+                store the logo locally, on the user's hard drive, for 604800
+                seconds, which is 7 days. Until that time passes, whenever your
+                website references the logo through the same URL, the user's
+                browser will use its cached version. After that, the browser
+                will request the logo from your server once again and cache it
+                for another 7 days.
+              </p>
+              <div class="text-4-content">
+                <h2>What is an Edge?</h2>
+                <p class="text-2">
+                  If your audience is mainly European, it would probably make
+                  sense to put your server in London, for example. But if your
+                  website starts receiving traffic from America, those requests
+                  would have to travel an entire ocean, which can make them
+                  several times slower, due to
+                  <a
+                    href="https://www.cloudflare.com/en-gb/learning/performance/glossary/what-is-latency/"
+                    target="_blank"
+                    class="anchortag-1"
+                    >latency</a
+                  >. With a
+                  <a
+                    href="https://www.cloudflare.com/en-gb/learning/cdn/what-is-a-cdn/"
+                    target="_blank"
+                    class="anchortag-1"
+                    >CDN</a
+                  >, you have a system of servers spread throughout the world
+                  that
+                  <a
+                    href="https://www.cloudflare.com/en-gb/learning/cdn/glossary/reverse-proxy/"
+                    target="_blank"
+                    class="anchortag-1"
+                    >proxy</a
+                  >
+                  user traffic to your server and
+                  <a
+                    href="https://www.cloudflare.com/en-gb/learning/cdn/performance/"
+                    target="_blank"
+                    class="anchortag-1"
+                    >solve this performance issue</a
+                  >.
+                </p>
+                <p class="text-4">
+                  Among the
+                  <a
+                    href="https://www.cloudflare.com/en-gb/network/"
+                    class="anchortag-1"
+                    target="_blank"
+                    >hundreds of servers</a
+                  >
+                  in a CDN, the geographically closest one to a user is called
+                  an edge and is the one that this user's browser directly
+                  communicates with:
+                </p>
+              </div>
+            </div>
+            <figure class="image-container">
+              <img src="../images/cdn-diagram-1280x.png" alt="" class="image" />
+              <figcaption>
+                Response flow from server to user over a CDN
+              </figcaption>
+            </figure>
+          </div>
+          <div class="text-4">
+            <h2>What is Edge Caching?</h2>
+            <p class="text-2">
+              While browser caching helps with many requests by the same user,
+              it doesn't solve the issue of many users making requests, because
+              each user has their own browser with their own cache. To fix this,
+              you need a shared cache.
+            </p>
+            <p class="text-3">
+              With a CDN, all user requests are funneled through the closest
+              edge server. If that server caches the responses, it'll be able to
+              serve those users without having to bother your own server. This
+              means that it no longer matters if you have 1 user or 10000,
+              because once that first response for a resource is served and
+              cached, the load shifts from your server to the CDN, which can
+              serve the other 9999 by itself.
+            </p>
 
-                        <p class="text-3">
-                            Cloudflare caches only static assets
-                            <a
-                                href="https://developers.cloudflare.com/cache/about/default-cache-behavior"
-                                target="_blank"
-                                class="anchortag-1"
-                                >by default</a
-                            >, such as images, fonts, scripts, etc. The HTML
-                            containing the page content is not cached, because
-                            if you have an e-commerce store, for example, each
-                            user will have their own shopping cart, and if you
-                            cache that, the next user will see the previous
-                            one's items. On the other hand, an image is expected
-                            to be the same for every user and can safely be
-                            cached.
-                        </p>
-                        <p class="text-3">
-                            Sites without shopping carts and other dynamic
-                            content, such as blogs, can opt in to
-                            <a
-                                href="https://developers.cloudflare.com/cache/how-to/create-page-rules#cache-everything"
-                                target="_blank"
-                                class="anchortag-1"
-                                >cache everything</a
-                            >. This makes it possible for an edge to serve
-                            entire pages all by itself, without having to
-                            contact your server, as long as everything is
-                            cached. This way, you can have a very weak server,
-                            yet handle thousands of requests per second, because
-                            the load is mainly on the CDN..
-                        </p>
-                    </div>
-                    <div class="text-4">
-                        <h2>Cache Invalidation</h2>
-                        <p class="text-6">
-                            The hard part in caching is picking a
-                            <a
-                                href="https://www.cloudflare.com/en-gb/learning/cdn/glossary/time-to-live-ttl/"
-                                target="_blank"
-                                class="anchortag-1"
-                                >time to live (TTL)</a
-                            >, which determines when an entry is stale and
-                            should be discarded.
-                        </p>
-                        <p class="text-3">
-                            Images and other assets can be cached for longer
-                            periods, because even if you pick a way too long
-                            TTL, you can change the URL to the resource and
-                            trigger a fresh request-response cycle:
-                        </p>
-                    </div>
-                </div>
-                <div class="editor-1">
-                    <p class="text-7">
-                        https://example.com/about-us/image.jpg<b>?version=2</b>
-                    </p>
-                </div>
-                <div class="editor">
-                    <p class="text-2">
-                        However, if you've chosen to cache the HTML content of
-                        your pages as well, you'd have to get around that too,
-                        since changing the image URL means changing the HTML. So
-                        you'd have to change the page URL as well:
-                    </p>
-                </div>
-                <div class="editor-1">
-                    <p class="text-7">
-                        class="text-7">https://example.com/about-us<b
-                            >?version=2</b
-                        >
-                    </p>
-                </div>
-                <div class="editor">
-                    <p class="text-2">
-                        This is where things get tricky, because even if your
-                        web framework can easily change all links to the updated
-                        page,
-                        <strong>every other site on the internet</strong> also
-                        has to do it. That's impossible, so you have to pick a
-                        window of time that you're comfortable with and in which
-                        users may see outdated content.
-                    </p>
-                    <p class="text-3">If you have the following setup:</p>
-                    <div class="text-8">
-                        <div>
-                            <p class="hyphen">-</p>
-                            <p class="hyphen">-</p>
-                        </div>
-                        <div>
-                            <p class="text-8-content">
-                                Browser cache TTL: <strong>30 minutes</strong>
-                            </p>
-                            <p class="text-8-content">
-                                Edge cache TTL: <strong>1 minute</strong>
-                            </p>
-                        </div>
-                    </div>
-                    <p class="text-3">…there are several possible outcomes:</p>
-
-                    <div class="counter">
-                        <p class="list">
-                            If a change happened
-                            <strong>over 30 minutes ago</strong>, both caches
-                            would have expired and its guaranteed that the user
-                            will see the updated version.
-                        </p>
-
-                        <p class="list">
-                            If a change happened
-                            <strong>over 1 minute ago</strong>, only the edge
-                            cache is guaranteed to have expired. If a user has
-                            seen the page within the last 30 minutes and is
-                            cached by their browser, they can see the change by
-                            clearing their browser cache, opening an incognito
-                            window, or doing a
-                            <a href="" class="anchortag-1">hard reload</a>.
-                        </p>
-
-                        <p class="list">
-                            If a change happened
-                            <strong>less than 1 minute ago</strong>, both caches
-                            would still be considered fresh. Users will not be
-                            able to see the update, even if they clear their
-                            browser cache, because the closest edge server would
-                            still return the old version. The only solution here
-                            is for the website owner to prematurely force the
-                            cache to become stale by
-                            <a href="" class="anchortag-1">purging it</a>.
-                        </p>
-                    </div>
-                    <div>
-                        <h2>Conclusion</h2>
-                        <p class="text-4">
-                            <strong>Browser cache</strong> helps with subsequent
-                            requests by the same user and makes your website
-                            feel snappy, because your assets don't have to
-                            travel over the internet.
-                        </p>
-                        <p class="text-3">
-                            <strong>Edge cache</strong> helps with requests by a
-                            geographically close group of users and can greatly
-                            reduce server load while improving response times in
-                            distant countries.
-                        </p>
-                        <p class="text-3">
-                            Pick a lower TTL to reduce the chance of outdated
-                            content, or a higher TTL for better cache
-                            effectiveness, but be ready to change URLs, open
-                            incognito windows, and purge cache.
-                        </p>
-                    </div>
-                    <hr class="line-break" />
-                    <footer>
-                        <ul class="social-links">
-                            <li class="social-link">
-                                <a
-                                    href="https://github.com/hdodov"
-                                    target="_blank"
-                                    >Github</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://twitter.com/yandodov"
-                                    target="_blank"
-                                    >Twitter</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://www.linkedin.com/in/yandodov/"
-                                    target="_blank"
-                                >
-                                    LinkedIn</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://www.instagram.com/yandodov/"
-                                    target="_blank"
-                                >
-                                    Instagram</a
-                                >
-                            </li>
-                        </ul>
-                        <div class="color-theme">
-                            Monokai <span>&darr;</span>
-                        </div>
-                    </footer>
-                </div>
-            </main>
+            <p class="text-3">
+              Cloudflare caches only static assets
+              <a
+                href="https://developers.cloudflare.com/cache/about/default-cache-behavior"
+                target="_blank"
+                class="anchortag-1"
+                >by default</a
+              >, such as images, fonts, scripts, etc. The HTML containing the
+              page content is not cached, because if you have an e-commerce
+              store, for example, each user will have their own shopping cart,
+              and if you cache that, the next user will see the previous one's
+              items. On the other hand, an image is expected to be the same for
+              every user and can safely be cached.
+            </p>
+            <p class="text-3">
+              Sites without shopping carts and other dynamic content, such as
+              blogs, can opt in to
+              <a
+                href="https://developers.cloudflare.com/cache/how-to/create-page-rules#cache-everything"
+                target="_blank"
+                class="anchortag-1"
+                >cache everything</a
+              >. This makes it possible for an edge to serve entire pages all by
+              itself, without having to contact your server, as long as
+              everything is cached. This way, you can have a very weak server,
+              yet handle thousands of requests per second, because the load is
+              mainly on the CDN..
+            </p>
+          </div>
+          <div class="text-4">
+            <h2>Cache Invalidation</h2>
+            <p class="text-6">
+              The hard part in caching is picking a
+              <a
+                href="https://www.cloudflare.com/en-gb/learning/cdn/glossary/time-to-live-ttl/"
+                target="_blank"
+                class="anchortag-1"
+                >time to live (TTL)</a
+              >, which determines when an entry is stale and should be
+              discarded.
+            </p>
+            <p class="text-3">
+              Images and other assets can be cached for longer periods, because
+              even if you pick a way too long TTL, you can change the URL to the
+              resource and trigger a fresh request-response cycle:
+            </p>
+          </div>
         </div>
-    </body>
+        <div class="editor-1">
+          <p class="text-7">
+            https://example.com/about-us/image.jpg<b>?version=2</b>
+          </p>
+        </div>
+        <div class="editor">
+          <p class="text-2">
+            However, if you've chosen to cache the HTML content of your pages as
+            well, you'd have to get around that too, since changing the image
+            URL means changing the HTML. So you'd have to change the page URL as
+            well:
+          </p>
+        </div>
+        <div class="editor-1">
+          <p class="text-7">
+            class="text-7">https://example.com/about-us<b>?version=2</b>
+          </p>
+        </div>
+        <div class="editor">
+          <p class="text-2">
+            This is where things get tricky, because even if your web framework
+            can easily change all links to the updated page,
+            <strong>every other site on the internet</strong> also has to do it.
+            That's impossible, so you have to pick a window of time that you're
+            comfortable with and in which users may see outdated content.
+          </p>
+          <p class="text-3">If you have the following setup:</p>
+          <div class="text-8">
+            <div>
+              <p class="hyphen">-</p>
+              <p class="hyphen">-</p>
+            </div>
+            <div>
+              <p class="text-8-content">
+                Browser cache TTL: <strong>30 minutes</strong>
+              </p>
+              <p class="text-8-content">
+                Edge cache TTL: <strong>1 minute</strong>
+              </p>
+            </div>
+          </div>
+          <p class="text-3">…there are several possible outcomes:</p>
+
+          <div class="counter">
+            <p class="list">
+              If a change happened
+              <strong>over 30 minutes ago</strong>, both caches would have
+              expired and its guaranteed that the user will see the updated
+              version.
+            </p>
+
+            <p class="list">
+              If a change happened
+              <strong>over 1 minute ago</strong>, only the edge cache is
+              guaranteed to have expired. If a user has seen the page within the
+              last 30 minutes and is cached by their browser, they can see the
+              change by clearing their browser cache, opening an incognito
+              window, or doing a <a href="" class="anchortag-1">hard reload</a>.
+            </p>
+
+            <p class="list">
+              If a change happened
+              <strong>less than 1 minute ago</strong>, both caches would still
+              be considered fresh. Users will not be able to see the update,
+              even if they clear their browser cache, because the closest edge
+              server would still return the old version. The only solution here
+              is for the website owner to prematurely force the cache to become
+              stale by <a href="" class="anchortag-1">purging it</a>.
+            </p>
+          </div>
+          <div>
+            <h2>Conclusion</h2>
+            <p class="text-4">
+              <strong>Browser cache</strong> helps with subsequent requests by
+              the same user and makes your website feel snappy, because your
+              assets don't have to travel over the internet.
+            </p>
+            <p class="text-3">
+              <strong>Edge cache</strong> helps with requests by a
+              geographically close group of users and can greatly reduce server
+              load while improving response times in distant countries.
+            </p>
+            <p class="text-3">
+              Pick a lower TTL to reduce the chance of outdated content, or a
+              higher TTL for better cache effectiveness, but be ready to change
+              URLs, open incognito windows, and purge cache.
+            </p>
+          </div>
+          <hr class="line-break" />
+          <footer>
+            <ul class="social-links">
+              <li class="social-link">
+                <a href="https://github.com/hdodov" target="_blank">Github</a>
+                <span class="bullet">&bull;</span>
+              </li>
+              <li class="social-link">
+                <a href="https://twitter.com/yandodov" target="_blank"
+                  >Twitter</a
+                >
+                <span class="bullet">&bull;</span>
+              </li>
+              <li class="social-link">
+                <a href="https://www.linkedin.com/in/yandodov/" target="_blank">
+                  LinkedIn</a
+                >
+                <span class="bullet">&bull;</span>
+              </li>
+              <li class="social-link">
+                <a href="https://www.instagram.com/yandodov/" target="_blank">
+                  Instagram</a
+                >
+              </li>
+            </ul>
+            <div class="color-theme">Monokai <span>&darr;</span></div>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
