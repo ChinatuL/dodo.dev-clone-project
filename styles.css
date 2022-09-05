@@ -12,6 +12,11 @@
     --line-break: #88846f;
     --accent: #a6e22e;
     --accent-hover: #4e94ce;
+    --color-scrollbar-border: #7f7f7f4d;
+    --color-scrollbar-thumb: #79797966;
+    --color-scrollbar-thumb-hover: #646464b3;
+    --color-scrollbar-thumb-active: #bfbfbf66;
+    --color-scrollbar-shadow: #000000;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -43,6 +48,16 @@ body {
     color: var(--body-text);
     font-family: var(--font-mono);
     line-height: 1.5rem;
+}
+body::-webkit-scrollbar {
+    border-left: 1px solid var(--color-scrollbar-border);
+}
+*::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-button {
+    display: none;
+}
+*::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar-thumb);
 }
 
 .container {
