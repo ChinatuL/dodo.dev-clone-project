@@ -17,6 +17,11 @@
     --article3-gray-text: rgb(136, 132, 111);
     --anchortag-orange-color: #fd971f;
     --example-text: #22231e;
+    --color-scrollbar-border: #7f7f7f4d;
+    --color-scrollbar-thumb: #79797966;
+    --color-scrollbar-thumb-hover: #646464b3;
+    --color-scrollbar-thumb-active: #bfbfbf66;
+    --color-scrollbar-shadow: #000000;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -28,6 +33,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+*::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-button {
+    display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar-thumb);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background: var(--color-scrollbar-thumb-active);
+}
+
 a {
     text-decoration: none;
 }
@@ -42,6 +64,9 @@ body {
     /* color: var(--body-text); */
     font-family: var(--font-mono);
     line-height: 1.5rem;
+}
+body::-webkit-scrollbar {
+    border-left: 1px solid var(--color-scrollbar-border);
 }
 .container {
     max-width: 81ch;

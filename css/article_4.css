@@ -64,6 +64,13 @@ body::-webkit-scrollbar {
 *::-webkit-scrollbar-thumb {
     background: var(--color-scrollbar-thumb);
 }
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background: var(--color-scrollbar-thumb-active);
+}
 .container {
     max-width: 81ch;
     margin: 5rem auto;

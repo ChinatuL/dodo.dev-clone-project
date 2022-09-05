@@ -1,3 +1,10 @@
+*::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-button {
+    display: none;
+}
+*::-webkit-scrollbar-thumb {
+    background: #79797966;
+}
 body {
     box-sizing: border-box;
     background-color: #1e1f1c;
@@ -5,6 +12,9 @@ body {
     /* z-index: 30;
     text-size-adjust: 100%; */
     line-height: 24px;
+}
+body::-webkit-scrollbar {
+    border-left: 1px solid var(--color-scrollbar-border);
 }
 
 .container {
