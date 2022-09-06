@@ -6,17 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hristiyan Dodov: Full-Stack Developer at Oblik Studio</title>
         <link rel="stylesheet" href="./styles.css" />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="./images/favicon-monokai.png"
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap"
             rel="stylesheet"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-monokai.png"
+            id="favicon"
         />
     </head>
     <body>
@@ -245,15 +246,36 @@
                         </ul>
                         <div class="color-theme">
                             <span class="color-theme-name">
-                                <span>Monokai</span>
+                                <span id="color-scheme-name">Monokai</span>
                                 <span class="arrow">↓</span>
-                                <select class="theme-picker">
-                                    <option value="">Dark+</option>
-                                    <option value="">Light+</option>
-                                    <option value="">Monokai</option>
-                                    <option value="">Github Dark</option>
-                                    <option value="">Github Light</option>
-                                    <option value="">Solarized Light</option>
+                                <select class="theme-picker" id="theme-select">
+                                    <option value="dark-plus" id="dark-plus">
+                                        Dark+
+                                    </option>
+                                    <option value="light-plus" id="light-plus">
+                                        Light+
+                                    </option>
+                                    <option value="monokai" id="monokai">
+                                        Monokai
+                                    </option>
+                                    <option
+                                        value="github-dark"
+                                        id="github-dark"
+                                    >
+                                        Github Dark
+                                    </option>
+                                    <option
+                                        value="github-light"
+                                        id="github-light"
+                                    >
+                                        Github Light
+                                    </option>
+                                    <option
+                                        value="solarized-light"
+                                        id="solarized-light"
+                                    >
+                                        Solarized Light
+                                    </option>
                                 </select>
                             </span>
                         </div>
@@ -261,5 +283,6 @@
                 </div>
             </main>
         </div>
+        <script src="index.js"></script>
     </body>
 </html>
