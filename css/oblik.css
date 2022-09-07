@@ -287,20 +287,24 @@ p {
 }
 
 .line-break {
+    display: flex;
+    height: 1.5rem;
     margin: 1.5rem 0;
     border-width: 0px;
     color: var(--line-break);
+    opacity: 80%;
+    overflow: hidden !important;
 }
 
 .line-break::before {
     content: "//";
     padding-right: 0.5rem;
-    font-weight: 500;
 }
 
 .line-break::after {
-    content: "-------------------------------------------------------------";
+    content: "--------------------------------------------------------------";
     font-variant-ligatures: none;
+    overflow-wrap: anywhere;
 }
 
 footer {
@@ -367,50 +371,115 @@ footer {
     background-color: #1e1f1c;
     color: #cfcfc2;
 }
-.mobile-view{
+.mobile-view {
     display: none;
 }
 
 /*mobile-view*/
-@media screen and (max-width:599px) {
-    .mobile-view{
-        display:block ;
+@media screen and (max-width: 599px) {
+    .mobile-view {
+        display: block;
+        margin-top: 0;
     }
-    .editor{
+    .desktop-view {
         display: none;
     }
-    .mobile-flex{
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    .editor {
+        padding-left: 2ch;
+    }
+    .editor-content {
+        max-width: 40ch;
+    }
+
+    .container {
+        margin-top: 1px;
+    }
+
+    header {
+        margin-top: 1px;
+    }
+
+    .nav-list {
+        flex: 0 0 auto;
+    }
+
+    .nav-item {
+        flex: 0 0 auto;
+        min-width: 25%;
+    }
+
+    .nav-link div {
+        min-width: 0;
+    }
+
+    h1 {
+        font-size: 17.5px;
+    }
+
+    h2 {
+        font-size: 15.5px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    .mobile-flex {
         display: flex;
         flex-direction: row;
-        padding-left: 20px;
+        padding-left: 10px;
         padding-top: 20px;
-      }
-      .mobile-image{
+    }
+    .mobile-image {
         padding-left: 25px;
         padding-right: 25px;
-      }
-      
-      .mobile-paragraph{
-        padding-left: 4rem;
-        padding-bottom:1rem;
+    }
+
+    .mobile-paragraph {
+        padding-left: 2rem;
+        padding-bottom: 1rem;
         padding-top: 1rem;
-      }
-      .second {
+    }
+    .second {
         font-size: 20px;
         padding-top: 30px;
         padding-left: 20px;
         margin-left: 1.5rem;
-      }
-      .second-paragraph {
+    }
+    .second-paragraph {
         margin-left: 1.5rem;
         padding-left: 20px;
-      }
-     
-      .mobile-link{
+    }
+
+    .mobile-link {
         color: var(--accent);
         text-decoration-line: underline;
     }
-    h3{
+    h3 {
+        font-size: 17.5px;
         color: var(--body-text);
+    }
+
+    .line-break {
+        padding-left: 4ch;
+    }
+
+    footer {
+        min-height: 0;
+        padding-left: 4ch;
+        padding-bottom: 5rem;
+        flex-direction: column;
+        font-size: 14px;
+    }
+    .social-links {
+        flex-direction: column;
+        padding-bottom: 1.5rem;
+    }
+
+    .bullet {
+        display: none;
     }
 }

@@ -501,6 +501,13 @@ footer {
     .nav-link div {
         min-width: 0;
     }
+    h1,
+    h2 {
+        font-size: 17.5px;
+    }
+    p {
+        font-size: 14px;
+    }
     #heading {
         display: block;
         justify-content: flex-start;
@@ -531,6 +538,7 @@ footer {
         padding-bottom: 5rem;
         min-height: 0;
         flex-direction: column;
+        font-size: 14px;
     }
 
     .social-links {

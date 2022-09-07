@@ -488,6 +488,10 @@ footer {
         background-color: var(--background-color);
     }
 
+    .article-subheading {
+        font-size: 1.09rem;
+    }
+
     blockquote div p {
         line-height: 1.5rem;
     }
