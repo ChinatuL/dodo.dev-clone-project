@@ -307,12 +307,17 @@ code {
 }
 
 blockquote {
-    padding-bottom: 1.5rem;
+    display: flex;
     color: var(--line-break);
+    overflow: hidden;
+    margin-bottom: 1rem;
 }
 
-blockquote div {
-    display: flex;
+blockquote::before {
+    content: "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >";
+    width: 1ch;
+    height: 1.5rem;
+    margin-right: 2ch;
 }
 
 .marker {
@@ -329,9 +334,13 @@ figure {
 }
 
 .line-break {
-    margin-bottom: 1.5rem;
+    display: flex;
+    height: 1.5rem;
+    margin: 1.5rem 0;
     border-width: 0px;
     color: var(--line-break);
+    opacity: 80%;
+    overflow: hidden !important;
 }
 
 .line-break::before {
@@ -340,8 +349,9 @@ figure {
 }
 
 .line-break::after {
-    content: "--------------------------------------------------------------";
+    content: "-------------------------------------------------------";
     font-variant-ligatures: none;
+    overflow-wrap: anywhere;
 }
 
 footer {
@@ -469,6 +479,10 @@ footer {
         height: 10.5rem;
         object-fit: contain;
         background-color: var(--background-color);
+    }
+
+    blockquote div p {
+        line-height: 1.5rem;
     }
 
     footer {

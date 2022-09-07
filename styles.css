@@ -265,9 +265,12 @@ main {
 }
 
 .line-break {
+    display: flex;
+    height: 1.5rem;
     margin: 1.5rem 0;
     border-width: 0px;
     color: var(--line-break);
+    opacity: 80%;
     overflow: hidden !important;
 }
 
@@ -279,7 +282,7 @@ main {
 .line-break::after {
     content: "-------------------------------------------------------";
     font-variant-ligatures: none;
-    overflow-wrap: anywhere !important;
+    overflow-wrap: anywhere;
 }
 
 .section-header {
@@ -423,7 +426,7 @@ footer {
         padding-right: 2ch;
     }
     .editor-content {
-        max-width: 44ch;
+        max-width: 40ch;
     }
 
     .container {
