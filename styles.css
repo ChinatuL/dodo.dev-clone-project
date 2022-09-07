@@ -218,7 +218,7 @@ body::-webkit-scrollbar {
 }
 
 .nav-link div {
-    width: 7.5rem;
+    min-width: 7.5rem;
     padding: 0.3rem 0 0.3rem 0.5rem;
 }
 
@@ -268,7 +268,7 @@ main {
     margin: 1.5rem 0;
     border-width: 0px;
     color: var(--line-break);
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .line-break::before {
@@ -277,9 +277,9 @@ main {
 }
 
 .line-break::after {
-    content: "--------------------------------------------------------------";
+    content: "-------------------------------------------------------";
     font-variant-ligatures: none;
-    overflow-x: hidden;
+    overflow-wrap: anywhere !important;
 }
 
 .section-header {
@@ -426,6 +426,23 @@ footer {
         max-width: 44ch;
     }
 
+    .container {
+        margin-top: 1px;
+    }
+
+    .nav-list {
+        flex: 0 0 auto;
+    }
+
+    .nav-item {
+        flex: 0 0 auto;
+        min-width: 25%;
+    }
+
+    .nav-link div {
+        min-width: 0;
+    }
+
     .profile-pic {
         width: 3.9rem;
         height: 3.9rem;
@@ -452,7 +469,8 @@ footer {
 
     p,
     .more-articles,
-    .project-link-mobile {
+    .project-link-mobile,
+    footer {
         font-size: 0.875rem;
     }
 
@@ -507,7 +525,7 @@ footer {
 
     .section-header,
     .article-title a {
-        font-size: 0.9rem;
+        font-size: 0.99rem;
     }
 
     footer {
