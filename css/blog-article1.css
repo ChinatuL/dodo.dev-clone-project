@@ -9,8 +9,7 @@ body {
     box-sizing: border-box;
     background-color: #1e1f1c;
     font-family: "Fira code", monospace;
-    /* z-index: 30;
-    text-size-adjust: 100%; */
+    margin: 0;
     line-height: 24px;
 }
 body::-webkit-scrollbar {
@@ -18,8 +17,8 @@ body::-webkit-scrollbar {
 }
 
 .container {
-    z-index: 30;
-    text-size-adjust: 100%;
+    max-width: 81ch;
+    margin: 4.5rem auto;
 }
 /* Nav */
 .nav-link {
@@ -32,7 +31,7 @@ body::-webkit-scrollbar {
     display: flex;
     list-style: none;
     padding-left: 0;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 ul a {
@@ -42,7 +41,7 @@ ul a {
     font-size: 13px;
 }
 
-.nav-link ul li {
+.nav-link li {
     margin-right: 2px;
 }
 
@@ -65,13 +64,10 @@ ul a {
 
 /* Content */
 .content {
-    width: 78ch;
-    margin: 0 auto;
-    padding-top: 60px;
+    padding-top: -3px;
 }
 
 .main-content {
-    width: 639px;
     padding: 0 67px;
     background-color: #272822;
 }
@@ -81,7 +77,6 @@ ul a {
 .editor {
     text-align: left;
     color: #fff;
-    width: 640px;
 }
 /* Header */
 
@@ -109,7 +104,7 @@ h3 {
 .article p {
     margin-top: 0;
     line-height: 24px;
-    width: 450px;
+    /* width: 450px; */
     margin: 0;
     font-size: 16px;
 }
@@ -154,9 +149,10 @@ header {
 
 hr {
     border: none;
-    margin: 40px 0;
+    margin: 40px 0 20px 0;
     overflow: hidden;
     white-space: nowrap;
+    color: rgb(136, 132, 111);
 }
 
 hr::after {
@@ -184,7 +180,6 @@ footer ul a {
     color: rgb(166, 226, 46);
     text-decoration: underline;
     text-underline-position: under;
-    letter-spacing: 1px;
     font-size: 16px;
 }
 
@@ -201,16 +196,16 @@ footer ul a:hover {
 }
 
 /* article1.html */
-.article1 {
+.article1-x {
     background-color: rgb(39, 40, 34);
-    padding: 9px 9px 9px 9px;
+    padding: 9px 12px 9px 9px;
     color: rgb(255, 255, 255);
     font-style: italic;
 }
 
 .article1-blog {
     background-color: rgb(52, 53, 47);
-    padding: 9px 72px 9px 12px;
+    padding: 9px 78px 9px 12px;
 }
 
 .article1-header {
@@ -218,14 +213,13 @@ footer ul a:hover {
     justify-content: space-between;
 }
 
-.x {
-    padding-left: 3px;
-    font-style: normal;
-}
-
 .article1-img {
-    width: 639px;
-    height: 358px;
+    width: 601px;
+    cursor: zoom-in;
+    display: block;
+    /* height: 360px; */
+   /* object-position: 50% 50%; */
+   max-width: 100%;
 }
 
 .time-nolines {
@@ -233,10 +227,6 @@ footer ul a:hover {
     font-size: 13px;
     color: rgb(207, 207, 194);
     line-height: 1.5;
-}
-
-.line {
-    text-align: end;
 }
 
 .green-link {
@@ -249,6 +239,130 @@ footer ul a:hover {
     color: #4e94ce;
 }
 
+.main-article p{
+    padding-bottom: 7px;
+}
+
+.main-article{
+    color: rgb(212, 212, 212);
+}
+
+.main-article h2{
+    padding: 17px 0  8px;
+    font-size: 22px;
+}
+
+.para-hyphen::before{
+        content: ">";
+        /* width: 9.8px;
+        height: 24pxpx;
+        margin-right: 19px; */
+        color: rgb(106, 153, 85);
+}
+
+.black-div{
+    padding: 30px 0;
+}
+
+blockquote{
+    margin-left: 0;
+}
+
+.hr-color{
+    color: rgb(106, 153, 85);
+}
+
+.comment{
+    color: rgb(106, 153, 85);
+}
+
+
+.codes {
+    background-color: rgb(28, 28, 28);
+    padding-left: -20px;
+    margin-left: -68px;
+    margin-right: -68px;
+
+}
+
+code{
+    padding-left: 0;
+    font-size: 16px;
+}
+
+.blue-text{
+    color: rgb(86, 156, 214);
+}
+
+.yellow-text{
+    color: rgb(220, 220, 170);
+}
+
+.red-text{
+    color: rgb(206, 145, 120);
+}
+
+.green-text{
+     color: rgb(181, 206, 168);
+}
+
+.reduce{
+    text-decoration-color: rgb(166, 226, 46);
+    color: rgb(206, 145, 120);
+    text-underline-position: under;
+}
+
+.reduce:hover {
+    text-decoration-color: #4e94ce;
+}
+
+.text-7 {
+    color: rgb(212, 212, 212);
+    /* padding: 1.5rem 0; */
+    white-space: nowrap;
+    /* background-color: var(--background-color); */
+}
+
+.scroll-bar {
+    border-left: 1px solid var(--scrollbar-border);
+    border-right: 1px solid var(--scrollbar-border);
+    width: 97%;
+    height: 100px;
+    overflow-x: auto;
+}
+
+.scroll-bar::-webkit-scrollbar {
+    border-left: 1px solid var(--color-scrollbar-border);
+}
+
+.scrollbar-text {
+    width: 650px;
+}
+.text-1-content::before {
+    content: "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >";
+    width: 1ch;
+    height: 0.5rem;
+    margin-right: 2ch;
+}
+
+.text-3-content p{
+    margin: 0;
+}
+
+.text-1-content {
+    display: flex;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--article3-gray-text);
+}
+
+
+
+
+
+
+/* Themes */
 .color-theme-name {
     cursor: pointer;
 }
@@ -281,4 +395,113 @@ footer ul a:hover {
 .theme-picker > option {
     background-color: #1e1f1c;
     color: #cfcfc2;
+}
+
+
+/* blog.html media query */
+@media only screen and (max-width: 600px) {
+    .container{
+        margin: 0;
+    }
+    .article {
+      display: block;
+    }
+    .article-div{
+        padding-bottom: 10px;
+    }
+    .article img{
+        width: 298.667px;
+        height: 168px;
+        margin: -10px 0 20px 0;
+        object-fit: contain;
+        max-width: 100%;
+    }
+    .article-div p{
+        font-size: 14.5px
+    }
+    header{
+        margin-left: 0;
+    }
+    .main-content{
+        padding: 0 45px;
+        line-height: 20px;
+    }
+    .content {
+        padding-top: 0;
+    }
+    ul{
+        margin: 0;
+    }
+    
+    h1{
+        font-size: 18px;
+    }
+    h3{
+      font-size: 16px;
+    }
+    header p{
+        font-size: 15px;
+    }
+    .time{
+        padding: 0;
+    }
+    hr{
+        margin-top: 0;
+    }
+   footer{
+        display: block; 
+    }
+    footer ul{
+        display: block;
+        padding-bottom: 7px;
+    }
+    footer li{
+       line-height: 21px;
+    }
+    footer ul a{
+        letter-spacing: none;
+        font-size: 14px;
+    }
+    .dot{
+        display: none;
+    }
+    .color-theme-name{
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+
+    }
+    .main-article{
+        font-size: 14px;
+    }
+    .article1-header{
+        display: block;
+    }
+    .line{
+        display: none;
+    }
+    .time-nolines{
+        padding-top: 0;
+    }
+    header p{
+        margin-bottom: 0;
+    }
+    .article1-x {
+        padding: 9px 10px 9px 8px;
+    }
+    
+    .article1-blog {
+        background-color: rgb(52, 53, 47);
+        padding: 9px 60px 9px 10px;
+    }
+    .article1-home {
+        padding: 9px 50px 9px 10px;
+    }
+    .article1-project {
+        padding: 9px 55px 9px 10px;
+    }
+    .article1-img{
+        width: 90%;
+        
+    }
 }
