@@ -363,3 +363,50 @@ footer {
     background-color: #1e1f1c;
     color: #cfcfc2;
 }
+.mobile-view{
+    display: none;
+}
+
+/*mobile-view*/
+@media screen and (max-width:599px) {
+    .mobile-view{
+        display:block ;
+    }
+    .editor{
+        display: none;
+    }
+    .mobile-flex{
+        display: flex;
+        flex-direction: row;
+        padding-left: 20px;
+        padding-top: 20px;
+      }
+      .mobile-image{
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+      
+      .mobile-paragraph{
+        padding-left: 2.5rem;
+        padding-bottom:1rem;
+        padding-top: 1rem;
+      }
+      .second {
+        font-size: 20px;
+        padding-top: 30px;
+        padding-left: 20px;
+        margin-left: 1.5rem;
+      }
+      .second-paragraph {
+        margin-left: 1.5rem;
+        padding-left: 20px;
+      }
+     
+      .mobile-link{
+        color: var(--accent);
+        text-decoration-line: underline;
+    }
+    h3{
+        color: var(--body-text);
+    }
+}
