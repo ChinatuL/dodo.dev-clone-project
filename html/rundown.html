@@ -9,6 +9,7 @@
             type="image/png"
             sizes="32x32"
             href="../images/favicon-monokai.png"
+            id="favicon"
         />
         <link rel="stylesheet" href="../css/rundown.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -113,20 +114,79 @@
                     </ul>
                     <div class="color-theme">
                         <span class="color-theme-name">
-                            <span>Monokai</span>
+                            <span id="color-scheme-name">Monokai</span>
                             <span class="arrow">↓</span>
-                            <select class="theme-picker">
-                                <option value="">Dark+</option>
-                                <option value="">Light+</option>
-                                <option value="">Monokai</option>
-                                <option value="">Github Dark</option>
-                                <option value="">Github Light</option>
-                                <option value="">Solarized Light</option>
+                            <select class="theme-picker" id="theme-select">
+                                <option value="dark-plus" id="dark-plus">
+                                    Dark+
+                                </option>
+                                <option value="light-plus" id="light-plus">
+                                    Light+
+                                </option>
+                                <option value="monokai" id="monokai">
+                                    Monokai
+                                </option>
+                                <option value="github-dark" id="github-dark">
+                                    Github Dark
+                                </option>
+                                <option value="github-light" id="github-light">
+                                    Github Light
+                                </option>
+                                <option
+                                    value="solarized-light"
+                                    id="solarized-light"
+                                >
+                                    Solarized Light
+                                </option>
                             </select>
                         </span>
                     </div>
                 </footer>
             </div>
+             <!--mobile-view-->
+             <div class="mobile-view">
+                <div class="mobile">
+                    <div  class="mobile-flex">
+                      <div class="rundown">
+                        <a href="./rundown.html">
+                          <img
+                            src="../images/rundown-logo.svg"
+                            alt="rundown-logo"
+                            width="100px"
+                            class="mobile-image"
+                          />
+                        </a>
+                      </div>
+                  
+                      <div  class="mobile-text">
+                        <h3>Rundown</h3>
+                        <p>
+                          <a
+                            href="https://chrome.google.com/webstore/detail/rundown/opjjddkgmphhkjlgocopmeolmmibiphb"
+                            target="_blank" class="mobile-link"
+                            >Chrome.google.com</a
+                          >
+                        </p>
+                      </div>
+                     </div>
+                     <p class="mobile-paragraph">
+                      Turns your browser's new-tab page into a <br> simple 
+                      markdown editor with to-do lists <br> and summaries.
+                    </p>
+                    
+                   </div>
+                  
+                
+    
+               </div>
+            
+
+
+
+
+
+
         </main>
+        <script src="../index.js"></script>
     </body>
 </html>

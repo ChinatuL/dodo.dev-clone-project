@@ -1,321 +1,489 @@
 /* -------------------------------------------GLOBAL STYLING------------------------------------------- */
-:root {
-    --background-color: #1e1f1c;
-    --editor-background: #272822;
-    --navbar-text: #ccccc7;
-    --inactive-navbar-background: #34352f;
-    --active-navbar-text: #ffffff;
-    --body-text: #f8f8f2;
-    --secondary-text: #cfcfc2;
-    --editor-line-number: #90908a;
-    --editor-line-number-hover: #c2c2bf;
-    --highlighted-line: #3e3d32;
-    --line-break: #88846f;
-    --accent: #a6e22e;
-    --accent-hover: #4e94ce;
-    --article3-heading-paragraph: #cacabe;
-    --article3-gray-text: rgb(136, 132, 111);
-    --anchortag-orange-color: #fd971f;
-    --example-text: #22231e;
-    --editor-text-2: #66d9ef;
-    --editor-1-text: #e6db74;
-    --text-red: #a12550;
-    --text-light-gray: #a6a79b;
-    --color-scrollbar-border: #7f7f7f4d;
-    --color-scrollbar-thumb: #79797966;
-    --color-scrollbar-thumb-hover: #646464b3;
-    --color-scrollbar-thumb-active: #bfbfbf66;
-    --color-scrollbar-shadow: #000000;
+:root,
+:root.monokai {
+  --background-color: #1e1f1c;
+  --editor-background: #272822;
+  --navbar-text: #ccccc7;
+  --inactive-navbar-background: #34352f;
+  --active-navbar-text: #ffffff;
+  --body-text: #f8f8f2;
+  --secondary-text: #cfcfc2;
+  --editor-line-number: #90908a;
+  --editor-line-number-hover: #c2c2bf;
+  --highlighted-line: #3e3d32;
+  --line-break: #88846f;
+  --accent: #a6e22e;
+  --accent-hover: #4e94ce;
+  --anchortag-orange-color: #fd971f;
+  --color-scrollbar-border: #7f7f7f4d;
+  --color-scrollbar-thumb: #79797966;
+  --color-scrollbar-thumb-hover: #646464b3;
+  --color-scrollbar-thumb-active: #bfbfbf66;
+  --color-scrollbar-shadow: #000000;
+  --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui,
+    Ubuntu, sans-serif;
+  --font-mono: Fira Code, monospace;
+}
 
-    --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
-        system-ui, Ubuntu, sans-serif;
-    --font-mono: Fira Code, monospace;
+:root.dark-plus {
+  --background-color: #252526;
+  --editor-background: #1e1e1e;
+  --navbar-text: #ffffff80;
+  --inactive-navbar-background: #2d2d2d;
+  --active-navbar-text: #ffffff;
+  --body-text: #d4d4d4;
+  --secondary-text: #bbbbbb;
+  --editor-line-number: #858585;
+  --editor-line-number-hover: #c6c6c6;
+  --highlighted-line: transparent;
+  --line-break: #6a9955;
+  --accent: #4ec9b0;
+  --accent-hover: #4e94ce;
+  --anchortag-orange-color: #ce9178;
+  --color-scrollbar-border: #7f7f7f4d;
+  --color-scrollbar-thumb: #79797966;
+  --color-scrollbar-thumb-hover: #646464b3;
+  --color-scrollbar-thumb-active: #bfbfbf66;
+  --color-scrollbar-shadow: #000000;
+  --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui,
+    Ubuntu, sans-serif;
+  --font-mono: Fira Code, monospace;
+}
+:root.light-plus {
+  --background-color: #f3f3f3;
+  --editor-background: #ffffff;
+  --navbar-text: #333333b3;
+  --inactive-navbar-background: #ececec;
+  --active-navbar-text: #333333;
+  --body-text: #000000;
+  --secondary-text: #444444;
+  --editor-line-number: #237893;
+  --editor-line-number-hover: #0b216f;
+  --highlighted-line: transparent;
+  --line-break: #008000;
+  --accent: #267f99;
+  --accent-hover: #0000ff;
+  --anchortag-orange-color: #800000;
+  --color-scrollbar-border: #7f7f7f4d;
+  --color-scrollbar-thumb: #64646466;
+  --color-scrollbar-thumb-hover: #646464b3;
+  --color-scrollbar-thumb-active: #00000099;
+  --color-scrollbar-shadow: #dddddd;
+  --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui,
+    Ubuntu, sans-serif;
+  --font-mono: Fira Code, monospace;
+}
+:root.github-dark {
+  --background-color: #1b1f23;
+  --editor-background: #24292e;
+  --navbar-text: #959da5;
+  --inactive-navbar-background: #1f2428;
+  --active-navbar-text: #e1e4e8;
+  --body-text: #e1e4e8;
+  --secondary-text: #959da5;
+  --editor-line-number: #768390;
+  --editor-line-number-hover: #e1e4e8;
+  --highlighted-line: #2b3036;
+  --line-break: #6a737d;
+  --accent: #96d0ff;
+  --accent-hover: #4e94ce;
+  --anchortag-orange-color: #9ecbff;
+  --color-scrollbar-border: #1b1f23;
+  --color-scrollbar-thumb: #6a737d33;
+  --color-scrollbar-thumb-hover: #6a737d44;
+  --color-scrollbar-thumb-active: #6a737d88;
+  --color-scrollbar-shadow: #00000088;
+  --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui,
+    Ubuntu, sans-serif;
+  --font-mono: Fira Code, monospace;
+}
+
+:root.github-light {
+  --background-color: #f6f8fa;
+  --editor-background: #ffffff;
+  --navbar-text: #6a737d;
+  --inactive-navbar-background: #eff2f6;
+  --active-navbar-text: #2f363d;
+  --body-text: #24292e;
+  --secondary-text: #6a737d;
+  --editor-line-number: #1b1f234d;
+  --editor-line-number-hover: #24292e;
+  --highlighted-line: #f6f8fa;
+  --line-break: #6a737d;
+  --accent: #032f62;
+  --accent-hover: #0000ff;
+  --anchortag-orange-color: #032f62;
+  --color-scrollbar-border: #ffffff;
+  --color-scrollbar-thumb: #959da533;
+  --color-scrollbar-thumb-hover: #959da544;
+  --color-scrollbar-thumb-active: #959da588;
+  --color-scrollbar-shadow: #6a737d33;
+  --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui,
+    Ubuntu, sans-serif;
+  --font-mono: Fira Code, monospace;
+}
+
+:root.solarized-light {
+  --background-color: #eee8d5;
+  --editor-background: #fdf6e3;
+  --navbar-text: #586e75;
+  --inactive-navbar-background: #e4ddc9;
+  --active-navbar-text: #333333;
+  --body-text: #333333;
+  --secondary-text: #586e75;
+  --editor-line-number: #237893;
+  --editor-line-number-hover: #567983;
+  --highlighted-line: #eee8d5;
+  --line-break: #93a1a1;
+  --accent: #268bd2;
+  --accent-hover: #0000ff;
+  --anchortag-orange-color: #2aa198;
+  --color-scrollbar-border: #7f7f7f4d;
+  --color-scrollbar-thumb: #64646466;
+  --color-scrollbar-thumb-hover: #646464b3;
+  --color-scrollbar-thumb-active: #00000099;
+  --color-scrollbar-shadow: #dddddd;
+  --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, system-ui,
+    Ubuntu, sans-serif;
+  --font-mono: Fira Code, monospace;
 }
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 /* ---------------------------------------------------------------------------------------------------------------- */
 
 body {
-    background-color: var(--background-color);
-    /* color: var(--body-text); */
-    font-family: var(--font-mono);
-    line-height: 1.5rem;
+  background-color: var(--background-color);
+  /* color: var(--body-text); */
+  font-family: var(--font-mono);
+  line-height: 1.5rem;
+  overflow-x: hidden;
 }
 body::-webkit-scrollbar {
-    border-left: 1px solid var(--color-scrollbar-border);
+  border-left: 1px solid var(--color-scrollbar-border);
 }
 *::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
-    display: none;
+  display: none;
 }
 *::-webkit-scrollbar-thumb {
-    background: var(--color-scrollbar-thumb);
+  background: var(--color-scrollbar-thumb);
 }
 *::-webkit-scrollbar-thumb:hover {
-    background: var(--color-scrollbar-thumb-hover);
+  background: var(--color-scrollbar-thumb-hover);
 }
 
 *::-webkit-scrollbar-thumb:active {
-    background: var(--color-scrollbar-thumb-active);
+  background: var(--color-scrollbar-thumb-active);
 }
 .container {
-    max-width: 81ch;
-    margin: 5rem auto;
+  max-width: 81ch;
+  margin: 5rem auto;
 }
 .nav-list {
-    display: flex;
-    margin: 0 auto;
+  display: flex;
+  margin: 0 auto;
 }
 
 .nav-item:nth-of-type(3) {
-    background-color: var(--editor-background);
-    color: var(--active-navbar-text);
+  background-color: var(--editor-background);
+  color: var(--active-navbar-text);
 }
 
 .nav-item:not(:nth-of-type(3)) {
-    margin-right: 0.1rem;
-    background-color: var(--inactive-navbar-background);
+  margin-right: 0.1rem;
+  background-color: var(--inactive-navbar-background);
 }
 
 .nav-link {
-    font-family: var(--font-sans);
-    font-size: 0.8rem;
-    color: var(--navbar-text);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--navbar-text);
 }
 
 .nav-link div {
-    width: 7.5rem;
-    padding: 0.3rem 0 0.3rem 0.5rem;
+  width: 7.5rem;
+  padding: 0.3rem 0 0.3rem 0.5rem;
 }
 
 .article-tab {
-    padding: 0.35rem 0.5rem 0;
-    font: italic 0.8rem var(--font-sans);
+  padding: 0.35rem 0.5rem 0;
+  font: italic 0.8rem var(--font-sans);
 }
 
 .article-tab a {
-    margin-left: 0.2rem;
-    padding: 0.2rem 0.2rem 0;
-    color: var(--navbar-text);
-    font-weight: normal;
-    vertical-align: middle;
+  margin-left: 0.2rem;
+  padding: 0.2rem 0.2rem 0;
+  color: var(--navbar-text);
+  font-weight: normal;
+  vertical-align: middle;
 }
 
 .article-tab a:hover {
-    border-radius: 5px;
-    background-color: var(--inactive-navbar-background);
+  border-radius: 5px;
+  background-color: var(--inactive-navbar-background);
 }
 
 .article-name {
-    color: var(--active-navbar-text);
+  color: var(--active-navbar-text);
 }
 
 .editor {
-    background-color: var(--editor-background);
-    padding: 2rem 4rem;
+  background-color: var(--editor-background);
+  padding: 2rem 4rem;
 }
 
 #heading {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 h1 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: var(--body-text);
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--body-text);
 }
 .heading-text {
-    color: var(--article3-heading-paragraph);
-    font-size: medium;
+  color: var(--secondary-text);
+  font-size: medium;
 }
 
 .time {
-    font-size: 0.8rem;
-    white-space: nowrap;
-    color: var(--article3-heading-paragraph);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  color: var(--secondary-text);
 }
 .time1 {
-    font-size: 0.8rem;
-    text-align: right;
-    color: var(--article3-heading-paragraph);
+  font-size: 0.8rem;
+  text-align: right;
+  color: var(--secondary-text);
 }
 .image-container {
-    padding-top: 1.5rem;
+  padding-top: 1.5rem;
 }
 .image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .text-3 {
-    padding-top: 1.2rem;
-    color: var(--body-text);
+  padding-top: 1.2rem;
+  color: var(--body-text);
 }
 .anchortag-1 {
-    color: var(--accent);
-    border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 .anchortag-1:hover {
-    color: var(--accent-hover);
-    border-bottom: 2px solid var(--accent-hover);
+  color: var(--accent-hover);
+  border-bottom: 2px solid var(--accent-hover);
 }
 
 .text-1-content {
-    display: flex;
-    overflow: hidden;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--article3-gray-text);
+  display: flex;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--article3-gray-text);
 }
 
 .text-1-content::before {
-    content: "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >";
-    width: 1ch;
-    height: 1.5rem;
-    margin-right: 2ch;
+  content: "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >";
+  width: 1ch;
+  height: 1.5rem;
+  margin-right: 2ch;
 }
+
 .highlighted-text {
-    color: var(--anchortag-orange-color);
+  color: var(--anchortag-orange-color);
 }
 .editor-1 {
-    background-color: var(--example-text);
-    padding: 1.3rem 4rem;
+  background-color: var(--example-text);
+  padding: 1.3rem 4rem;
 }
 .editor-text2 {
-    color: var(--editor-text-2);
+  color: var(--editor-text-2);
 }
 .editor-text3 {
-    color: var(--body-text);
+  color: var(--body-text);
 }
 .editor-1-text {
-    color: var(--editor-1-text);
+  color: var(--editor-1-text);
 }
 .editor-text4 {
-    color: var(--body-text);
+  color: var(--body-text);
 }
 .scroll-bar {
-    border-left: 1px solid var(--scrollbar-border);
-    border-right: 1px solid var(--scrollbar-border);
-    width: 97%;
-    height: 100px;
-    overflow-x: auto;
+  border-left: 1px solid var(--scrollbar-border);
+  border-right: 1px solid var(--scrollbar-border);
+  width: 97%;
+  height: 100px;
+  overflow-x: auto;
 }
 
 .scroll-bar::-webkit-scrollbar {
-    border-left: 1px solid var(--color-scrollbar-border);
+  border-left: 1px solid var(--color-scrollbar-border);
 }
 
 .scrollbar-text {
-    width: 650px;
+  width: 650px;
 }
 .text-red {
-    color: var(--text-red);
+  color: var(--text-red);
 }
 .editor-text5 {
-    color: var(--text-light-gray);
+  color: var(--text-light-gray);
 }
 h2 {
-    color: var(--body-text);
-    /* padding: 1rem 0; */
-    font-size: 1.25rem;
+  color: var(--body-text);
+  /* padding: 1rem 0; */
+  font-size: 1.25rem;
 }
 .editor-text6 {
-    color: var(--text-light-gray);
+  color: var(--text-light-gray);
 }
 
 .line-break {
-    margin-bottom: 1.5rem;
-    border-width: 0px;
-    color: var(--line-break);
+  margin-bottom: 1.5rem;
+  border-width: 0px;
+  color: var(--line-break);
 }
 
 .line-break::before {
-    content: "//";
-    padding-right: 0.5rem;
+  content: "//";
+  padding-right: 0.5rem;
 }
 
 .line-break::after {
-    content: "--------------------------------------------------------------";
-    font-variant-ligatures: none;
+  content: "--------------------------------------------------------------";
+  font-variant-ligatures: none;
 }
 
 footer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .social-links {
-    display: flex;
+  display: flex;
 }
 
 .social-link {
-    padding-right: 0.7rem;
+  padding-right: 0.7rem;
 }
 
 .social-link a {
-    border-bottom: 1px solid var(--accent);
-    color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  color: var(--accent);
 }
 
 .social-link a:hover {
-    border-bottom: 1px solid var(--accent-hover);
-    color: var(--accent-hover);
+  border-bottom: 1px solid var(--accent-hover);
+  color: var(--accent-hover);
 }
 
 .social-link span {
-    color: var(--body-text);
+  color: var(--body-text);
 }
 
 .color-theme-name {
-    position: relative;
-    cursor: pointer;
-    color: var(--body-text);
+  position: relative;
+  cursor: pointer;
+  color: var(--body-text);
 }
 
 .arrow {
-    font-size: 1rem;
-    color: var(--accent);
+  font-size: 1rem;
+  color: var(--accent);
 }
 
 .color-theme-name:hover,
 .color-theme-name:hover .arrow {
-    color: #4e94ce;
+  color: #4e94ce;
 }
 
 .theme-picker {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: none;
-    background: none;
-    color: var(--body-text);
-    opacity: 0;
-    -webkit-appearance: none;
-    font-size: 1rem;
-    font-weight: 500;
-    font-family: "Fira code", monospace;
-    cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  background: none;
+  color: var(--body-text);
+  opacity: 0;
+  -webkit-appearance: none;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Fira code", monospace;
+  cursor: pointer;
 }
 
 .theme-picker:focus,
 .theme-picker:active {
-    outline: none;
+  outline: none;
 }
 
 .theme-picker > option {
-    background-color: #1e1f1c;
-    color: #cfcfc2;
+  background-color: #1e1f1c;
+  color: #cfcfc2;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 600px) {
+  #heading {
+    display: block;
+    justify-content: flex-start;
+  }
+  .time1 {
+    display: none;
+  }
+  .editor {
+    display: block;
+    justify-content: flex-start;
+    padding: 2rem 4rem 0 2rem;
+  }
+  .editor1-text2 {
+    padding-bottom: 1.3rem;
+  }
+  .editor-1 {
+    /* background-color: var(--editor-background); */
+    padding: 1.5rem 2rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .container {
+    margin: 0 auto;
+  }
+  h2 {
+    white-space: nowrap;
+    font-size: 1.1rem;
+  }
+  #heading {
+    display: block;
+    justify-content: flex-start;
+  }
+  .time1 {
+    display: none;
+  }
+  .editor {
+    display: block;
+    justify-content: flex-start;
+    padding: 2rem 4rem 0 2rem;
+  }
+  .editor1-text2 {
+    padding-bottom: 1.3rem;
+  }
+  .editor-1 {
+    padding: 1.5rem 2rem;
+  }
 }

@@ -9,6 +9,7 @@
             type="image/png"
             sizes="32x32"
             href="../images/favicon-monokai.png"
+            id="favicon"
         />
         <link rel="stylesheet" href="../css/project.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -227,20 +228,160 @@
                     </ul>
                     <div class="color-theme">
                         <span class="color-theme-name">
-                            <span>Monokai</span>
+                            <span id="color-scheme-name">Monokai</span>
                             <span class="arrow">↓</span>
-                            <select class="theme-picker">
-                                <option value="">Dark+</option>
-                                <option value="">Light+</option>
-                                <option value="">Monokai</option>
-                                <option value="">Github Dark</option>
-                                <option value="">Github Light</option>
-                                <option value="">Solarized Light</option>
+                            <select class="theme-picker" id="theme-select">
+                                <option value="dark-plus" id="dark-plus">
+                                    Dark+
+                                </option>
+                                <option value="light-plus" id="light-plus">
+                                    Light+
+                                </option>
+                                <option value="monokai" id="monokai">
+                                    Monokai
+                                </option>
+                                <option value="github-dark" id="github-dark">
+                                    Github Dark
+                                </option>
+                                <option value="github-light" id="github-light">
+                                    Github Light
+                                </option>
+                                <option value="solarized-light">
+                                    Solarized Light
+                                </option>
                             </select>
                         </span>
                     </div>
                 </footer>
             </div>
+
+            <!--mobile-view-->
+            <div class="mobile-view">
+               
+                <h1 class="second">Projects</h1>
+                <p class="second-paragraph">My life's primary source of meaning.</p>
+                <br />
+                
+                <div class="mobile">
+                 <div class="mobile-flex">
+               
+                   <div class="nexo">
+                     <a href="./nexo.html"
+                       ><img
+                         src="../images/nexo-logo.svg"
+                         alt="nexo-logo"
+                         width="100px"
+                         class="mobile-image"
+                     /></a>
+                   </div>
+                  
+                   <div class="mobile-text">
+                     <h2><a href="./nexo.html" class="page-link">Nexo</a></h2>
+                     
+                     <p><a href="https://nexo.io/" target="_blank" class="mobile-link">nexo.io</a></p>
+                   </div>
+                  </div>
+                  <p class="mobile-paragraph">
+                   Developing and maintaining the product <br> marketing
+                   website of the world's first <br> crypto-backed loans.
+                 </p>
+                </div>
+               
+                <div class="mobile">
+                 <div  class="mobile-flex">
+                   <div class="rundown">
+                     <a href="./rundown.html">
+                       <img
+                         src="../images/rundown-logo.svg"
+                         alt="rundown-logo"
+                         width="100px"
+                         class="mobile-image"
+                       />
+                     </a>
+                   </div>
+               
+                   <div  class="mobile-text">
+                     <h2><a href="./rundown.html" class="page-link">Rundown</a></h2>
+                     <p>
+                       <a
+                         href="https://chrome.google.com/webstore/detail/rundown/opjjddkgmphhkjlgocopmeolmmibiphb"
+                         target="_blank" class="mobile-link"
+                         >Chrome.google.com</a
+                       >
+                     </p>
+                   </div>
+                  </div>
+                  <p class="mobile-paragraph">
+                   Turns your browser's new-tab page into a <br> simple 
+                   markdown editor with to-do lists <br> and summaries.
+                 </p>
+                 
+                </div>
+               
+               <div class="mobile">
+                 <div class="mobile-flex">
+                   <div class="ghostmask">
+                     <a href="./ghostmask.html"
+                       ><img
+                         src="../images/ghostmask-logo.svg"
+                         alt="ghostmask"
+                         width="100px"
+                         class=" mobile-image"
+                       />
+                     </a>
+                   </div>
+                       <div class="mobile-text" >
+                         <h2><a href="./ghostmask.html" class="page-link">Ghostmask</a></h2>
+                         <p>
+                           <a
+                             href="https://chrome.google.com/webstore/detail/ghostmask/hocnmmdgenefilfpnkbfopcihmekhamf"
+                             target="_blank" class="mobile-link"
+                             >Chrome.google.com </a
+                           >
+                         </p>
+                       </div>
+                 </div>
+                 <p class="mobile-paragraph">
+                   Browser extension for displaying and <br> manipulating 
+                   design files directly in  <br> the browser.
+                 </p>
+               </div>
+                
+               <div class="mobile">
+               <div class="mobile-flex" >
+               <div class="oblik">
+               <a href="./oblik.html">
+                 <img
+                   src="../images/oblik-logo.svg"
+                   alt="oblik-logo"
+                   width="100px"
+                   class="mobile-image"
+                 />
+               </a>
+               </div>
+               
+               <div class="mobile-text">
+               <h2><a href="./oblik.html" class="page-link">Oblik Toolkit</a></h2>
+               <p><a href="https://oblik.dev/" target="_blank" class="mobile-link">oblik.dev</a></p>
+               </div>
+               </div>
+               <p class="mobile-paragraph"> 
+               JavaScript functionality we use in
+               <a href="https://oblik.studio/" class="mobile-link">oblik</a> <br> for our 
+               projects, packaged in small and <br> reusable modules.
+               </p>
+               
+               </div>
+               
+               </div>
+               
+               
+               
+               
+               
+               
+               
         </main>
+        <script src="../index.js"></script>
     </body>
 </html>

@@ -6,17 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Hristiyan Dodov: Full-Stack Developer at Oblik Studio</title>
         <link rel="stylesheet" href="./styles.css" />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="./images/favicon-monokai.png"
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap"
             rel="stylesheet"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-dark-plus.png"
+            id="favicon"
         />
     </head>
     <body>
@@ -44,222 +45,306 @@
             </header>
             <main>
                 <div class="editor">
-                    <header>
-                        <img
-                            src="./images/dodov-profile-pic.jpg"
-                            alt="Hristiyan Dodov"
-                            class="profile-pic"
-                        />
-                        <div class="header-text">
-                            <h1>Hristiyan Dodov</h1>
-                            <p class="occupation">
-                                Full-Stack Developer at
-                                <a
-                                    href="https://oblik.studio/"
-                                    target="_blank"
-                                    class="accent"
-                                    >Oblik Studio</a
-                                >
-                            </p>
-                            <p>
+                    <div class="editor-content">
+                        <header>
+                            <div class="header">
+                                <img
+                                    src="./images/dodov-profile-pic.jpg"
+                                    alt="Hristiyan Dodov"
+                                    class="profile-pic"
+                                />
+                                <div class="header-text">
+                                    <h1>Hristiyan Dodov</h1>
+                                    <p class="occupation">
+                                        Full-Stack Developer at
+                                        <a
+                                            href="https://oblik.studio/"
+                                            target="_blank"
+                                            class="accent"
+                                            >Oblik Studio</a
+                                        >
+                                    </p>
+                                    <p class="header-paragraph">
+                                        Passionate software engineer with the
+                                        dream of solving problems through
+                                        open-source. Dancing and overthinking in
+                                        my spare time. Staying strong and
+                                        healthy all the time.
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="hidden-header-paragraph">
                                 Passionate software engineer with the dream of
                                 solving problems through open-source. Dancing
                                 and overthinking in my spare time. Staying
                                 strong and healthy all the time.
                             </p>
-                        </div>
-                    </header>
-                    <hr class="line-break" />
-                    <section class="articles">
-                        <h2 class="section-header">Latest Articles</h2>
-                        <article>
-                            <a href="./html/article1.html">
-                                <img
-                                    src="./images/number-of-ones.png"
-                                    alt="Number 1 to 38 with all 1s highlighted"
-                                    class="article-img"
-                                />
+                        </header>
+                        <hr class="line-break" />
+                        <section class="articles">
+                            <h2 class="section-header">Latest Articles</h2>
+                            <article>
+                                <a href="./html/article1.html">
+                                    <img
+                                        src="./images/number-of-ones.png"
+                                        alt="Number 1 to 38 with all 1s highlighted"
+                                        class="article-img"
+                                    />
+                                </a>
+                                <div class="article-text">
+                                    <h3 class="article-title">
+                                        <a href="./html/article1.html"
+                                            >Number of Ones</a
+                                        >
+                                    </h3>
+                                    <p class="article-description">
+                                        Calculating digits in a series
+                                        of&nbsp;numbers.
+                                    </p>
+                                    <p class="date-published">
+                                        <span class="sr-only"
+                                            >Published on</span
+                                        >
+                                        06 Aug 2022
+                                    </p>
+                                </div>
+                            </article>
+                            <article>
+                                <a href="./html/article-2.html">
+                                    <img
+                                        src="./images/rm-rf-git.png"
+                                        alt="Random characters with the command rm -rf .git highlighted in the middle"
+                                        class="article-img"
+                                    />
+                                </a>
+                                <div class="article-text">
+                                    <h3 class="article-title">
+                                        <a href="./html/article-2.html">
+                                            Don't Build Your Own Framework
+                                        </a>
+                                    </h3>
+                                    <p class="article-description">
+                                        Delusions of having the ability to solve
+                                        something once and for all.
+                                    </p>
+                                    <p class="date-published">
+                                        <span class="sr-only"
+                                            >Published on</span
+                                        >
+                                        19 Jun 2022
+                                    </p>
+                                </div>
+                            </article>
+                            <article>
+                                <a href="./html/article_3.html">
+                                    <img
+                                        src="./images/browser-edge-cache.png"
+                                        alt="Random characters with browser, random and edge highlighted in the middle"
+                                        class="article-img"
+                                    />
+                                </a>
+                                <div class="article-text">
+                                    <h3 class="article-title">
+                                        <a href="./html/article_3.html"
+                                            >Browser Cache and Edge
+                                            Cache&nbsp;Explained</a
+                                        >
+                                    </h3>
+                                    <p class="article-description">
+                                        You updated it? Well, yes, but
+                                        not&nbsp;really.
+                                    </p>
+                                    <p class="date-published">
+                                        <span class="sr-only"
+                                            >Published on</span
+                                        >
+                                        08 Feb 2022
+                                    </p>
+                                </div>
+                            </article>
+                            <a href="./html/blog.html" class="more-articles">
+                                Read More
+                                <span class="arrow">→</span>
                             </a>
-                            <div class="article-text">
-                                <h3 class="article-title">
-                                    <a href="./html/article1.html"
-                                        >Number of Ones</a
-                                    >
-                                </h3>
-                                <p class="article-description">
-                                    Calculating digits in a series of numbers.
-                                </p>
-                                <p class="date-published">
-                                    <span class="sr-only">Published on</span>
-                                    06 Aug 2022
-                                </p>
-                            </div>
-                        </article>
-                        <article>
-                            <a href="./html/article-2.html">
-                                <img
-                                    src="./images/rm-rf-git.png"
-                                    alt="Random characters with the command rm -rf .git highlighted in the middle"
-                                    class="article-img"
-                                />
-                            </a>
-                            <div class="article-text">
-                                <h3 class="article-title">
-                                    <a href="./html/article-2.html">
-                                        Don't Build Your Own Framework
+                        </section>
+                        <hr class="line-break" />
+                        <section class="projects">
+                            <h2 class="section-header">Projects</h2>
+                            <article>
+                                <div class="flex-mobile-title">
+                                    <a href="./html/nexo.html">
+                                        <img
+                                            src="./images/nexo-logo.svg"
+                                            alt="Nexo crypto bank logo"
+                                            class="project-img"
+                                        />
                                     </a>
-                                </h3>
-                                <p class="article-description">
-                                    Delusions of having the ability to solve
-                                    something once and for all.
-                                </p>
-                                <p class="date-published">
-                                    <span class="sr-only">Published on</span>
-                                    19 Jun 2022
-                                </p>
-                            </div>
-                        </article>
-                        <article>
-                            <a href="./html/article_3.html">
-                                <img
-                                    src="./images/browser-edge-cache.png"
-                                    alt="Random characters with browser, random and edge highlighted in the middle"
-                                    class="article-img"
-                                />
+                                    <div class="mobile-title">
+                                        <h3
+                                            class="article-title project-title-mobile"
+                                        >
+                                            <a href="./html/nexo.html">Nexo</a>
+                                        </h3>
+                                        <a
+                                            href="https://nexo.io/"
+                                            target="_blank"
+                                            class="project-link-mobile"
+                                            >nexo.io</a
+                                        >
+                                    </div>
+                                </div>
+                                <div class="article-text">
+                                    <h3 class="article-title project-title">
+                                        <a href="./html/nexo.html">Nexo</a>
+                                    </h3>
+                                    <p class="article-description">
+                                        Developing and maintaining the product
+                                        marketing website of the world's first
+                                        crypto-backed loans.
+                                        <a
+                                            href="https://nexo.io/"
+                                            target="_blank"
+                                            class="project-link"
+                                            >nexo.io</a
+                                        >
+                                    </p>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="flex-mobile-title">
+                                    <a href="./html/rundown.html">
+                                        <img
+                                            src="./images/rundown-logo.svg"
+                                            alt="Rundown chrome extension logo"
+                                            class="project-img"
+                                        />
+                                    </a>
+                                    <div class="mobile-title">
+                                        <h3
+                                            class="article-title project-title-mobile"
+                                        >
+                                            <a href="./html/rundown.html"
+                                                >Rundown</a
+                                            >
+                                        </h3>
+                                        <a
+                                            href="https://chrome.google.com/webstore/detail/rundown/opjjddkgmphhkjlgocopmeolmmibiphb"
+                                            class="project-link-mobile"
+                                            target="_blank"
+                                            >chrome.google.com</a
+                                        >
+                                    </div>
+                                </div>
+                                <div class="article-text">
+                                    <h3 class="article-title project-title">
+                                        <a href="./html/rundown.html"
+                                            >Rundown</a
+                                        >
+                                    </h3>
+                                    <p class="article-description">
+                                        Turns your browser's new-tab page into a
+                                        simple markdown editor with to-do lists
+                                        and summaries.
+                                        <a
+                                            href="https://chrome.google.com/webstore/detail/rundown/opjjddkgmphhkjlgocopmeolmmibiphb"
+                                            class="project-link"
+                                            target="_blank"
+                                            >chrome.google.com</a
+                                        >
+                                    </p>
+                                </div>
+                            </article>
+                            <a href="./html/project.html" class="more-articles">
+                                View More
+                                <span class="arrow">→</span>
                             </a>
-                            <div class="article-text">
-                                <h3 class="article-title">
-                                    <a href="./html/article_3.html"
-                                        >Browser Cache and Edge Cache
-                                        Explained</a
-                                    >
-                                </h3>
-                                <p class="article-description">
-                                    You updated it? Well, yes, but not really.
-                                </p>
-                                <p class="date-published">
-                                    <span class="sr-only">Published on</span>
-                                    08 Feb 2022
-                                </p>
-                            </div>
-                        </article>
-                        <a href="./html/blog.html" class="more-articles">
-                            Read More
-                            <span class="arrow">→</span>
-                        </a>
-                    </section>
-                    <hr class="line-break" />
-                    <section class="projects">
-                        <h2 class="section-header">Projects</h2>
-                        <article>
-                            <a href="./html/nexo.html">
-                                <img
-                                    src="./images/nexo-logo.svg"
-                                    alt="Nexo crypto bank logo"
-                                    class="project-img"
-                                />
-                            </a>
-                            <div class="article-text">
-                                <h3 class="article-title">
-                                    <a href="./html/nexo.html">Nexo</a>
-                                </h3>
-                                <p class="article-description">
-                                    Developing and maintaining the product
-                                    marketing website of the world's first
-                                    crypto-backed loans.
+                        </section>
+                        <hr class="line-break" />
+                        <footer>
+                            <ul class="social-links">
+                                <li class="social-link">
                                     <a
-                                        href="https://nexo.io/"
+                                        href="https://github.com/hdodov"
                                         target="_blank"
-                                        class="project-link"
-                                        >nexo.io</a
+                                        >Github</a
                                     >
-                                </p>
-                            </div>
-                        </article>
-                        <article>
-                            <a href="./html/rundown.html">
-                                <img
-                                    src="./images/rundown-logo.svg"
-                                    alt="Rundown chrome extension logo"
-                                    class="project-img"
-                                />
-                            </a>
-                            <div class="article-text">
-                                <h3 class="article-title">
-                                    <a href="./html/rundown.html">Rundown</a>
-                                </h3>
-                                <p class="article-description">
-                                    Turns your browser's new-tab page into a
-                                    simple markdown editor with to-do lists and
-                                    summaries.
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
                                     <a
-                                        href="https://chrome.google.com/webstore/detail/rundown/opjjddkgmphhkjlgocopmeolmmibiphb"
-                                        class="project-link"
+                                        href="https://twitter.com/yandodov"
                                         target="_blank"
-                                        >chrome.google.com</a
+                                        >Twitter</a
                                     >
-                                </p>
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://www.linkedin.com/in/yandodov/"
+                                        target="_blank"
+                                    >
+                                        LinkedIn</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://www.instagram.com/yandodov/"
+                                        target="_blank"
+                                    >
+                                        Instagram</a
+                                    >
+                                </li>
+                            </ul>
+                            <div class="color-theme">
+                                <span class="color-theme-name">
+                                    <span id="color-scheme-name">Monokai</span>
+                                    <span class="arrow">↓</span>
+                                    <select
+                                        class="theme-picker"
+                                        id="theme-select"
+                                    >
+                                        <option
+                                            value="dark-plus"
+                                            id="dark-plus"
+                                        >
+                                            Dark+
+                                        </option>
+                                        <option
+                                            value="light-plus"
+                                            id="light-plus"
+                                        >
+                                            Light+
+                                        </option>
+                                        <option value="monokai" id="monokai">
+                                            Monokai
+                                        </option>
+                                        <option
+                                            value="github-dark"
+                                            id="github-dark"
+                                        >
+                                            Github Dark
+                                        </option>
+                                        <option
+                                            value="github-light"
+                                            id="github-light"
+                                        >
+                                            Github Light
+                                        </option>
+                                        <option
+                                            value="solarized-light"
+                                            id="solarized-light"
+                                        >
+                                            Solarized Light
+                                        </option>
+                                    </select>
+                                </span>
                             </div>
-                        </article>
-                        <a href="./html/project.html" class="more-articles">
-                            View More
-                            <span class="arrow">→</span>
-                        </a>
-                    </section>
-                    <hr class="line-break" />
-                    <footer>
-                        <ul class="social-links">
-                            <li class="social-link">
-                                <a
-                                    href="https://github.com/hdodov"
-                                    target="_blank"
-                                    >Github</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://twitter.com/yandodov"
-                                    target="_blank"
-                                    >Twitter</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://www.linkedin.com/in/yandodov/"
-                                    target="_blank"
-                                >
-                                    LinkedIn</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://www.instagram.com/yandodov/"
-                                    target="_blank"
-                                >
-                                    Instagram</a
-                                >
-                            </li>
-                        </ul>
-                        <div class="color-theme">
-                            <span class="color-theme-name">
-                                <span>Monokai</span>
-                                <span class="arrow">↓</span>
-                                <select class="theme-picker">
-                                    <option value="">Dark+</option>
-                                    <option value="">Light+</option>
-                                    <option value="">Monokai</option>
-                                    <option value="">Github Dark</option>
-                                    <option value="">Github Light</option>
-                                    <option value="">Solarized Light</option>
-                                </select>
-                            </span>
-                        </div>
-                    </footer>
+                        </footer>
+                    </div>
                 </div>
             </main>
         </div>
+        <script src="index.js"></script>
     </body>
 </html>
