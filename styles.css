@@ -219,7 +219,7 @@ body::-webkit-scrollbar {
 
 .nav-link div {
     min-width: 7.5rem;
-    padding: 0.3rem 0 0.3rem 0.5rem;
+    padding: 0.4rem 0 0.4rem 0.5rem;
 }
 
 main {
@@ -488,6 +488,10 @@ footer {
 
     .article-description {
         min-height: 0;
+    }
+
+    .date-published {
+        font-size: 0.71rem;
     }
 
     .project-img {

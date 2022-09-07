@@ -64,358 +64,389 @@
             </header>
             <main>
                 <div class="editor">
-                    <header class="main-header">
-                        <div class="title">
-                            <h1>Don't Build Your Own Framework</h1>
-                            <p>
-                                Delusions of having the ability to solve
-                                something once and for all.
-                            </p>
-                        </div>
-                        <div class="publish-date">
-                            <p>19 Jun 2022</p>
-                            <p>197 lines</p>
-                        </div>
-                    </header>
-                    <img
-                        src="../images/rm-rf-git-cover-1280x.png"
-                        alt="Random characters with the command rm -rf .git highlighted in the middle"
-                    />
-                    <div class="article-content">
-                        <p>
-                            In 2019, I wanted to create a website that closely
-                            followed our custom design and had smooth animations
-                            and interactions. I looked at
-                            <a
-                                href="https://getuikit.com/docs/introduction"
-                                class="article-link"
-                                >UIkit,</a
-                            >
-                            but I didn't pick it for two reasons:
-                        </p>
-                        <ul class="article-list">
-                            <li>It had its own opinion on design</li>
-                            <li>
-                                It didn't meet my requirements for "smoothness"
-                            </li>
-                        </ul>
-                        <p>
-                            This lead me to search for other frameworks that,
-                            unlike UIkit, provide just the basic JavaScript
-                            functionality, allowing you to style and animate as
-                            you wish. I didn't find anything. So, naturally, I
-                            decided to make
-                            <a
-                                href="https://github.com/OblikStudio/toolkit"
-                                target="_blank"
-                                class="article-link"
-                                >my own thing.</a
-                            >
-                        </p>
-                        <p>
-                            I was developing the framework in parallel with the
-                            website I was working on and it was wonderful. I was
-                            able to make the code just right and implement just
-                            the features I need. I took some inspiration from
-                            UIkit, but stuck to my main idea.
-                        </p>
-                        <p>
-                            Later, I noticed that things weren't very efficient,
-                            so I decided to refactor. But because I was
-                            developing that framework and simultaneously using
-                            it, I had to rework not only the framework, but the
-                            website as well. Apart from that, I was trying to
-                            make this work for as many use cases as I could.
-                            What if you use React? What if you don't? What if
-                            you use jQuery? What if you don't even know
-                            JavaScript that much?
-                        </p>
-                        <p>
-                            At this point, my enthusiasm slowly started to fade
-                            away. Without realizing it, I had put myself in a
-                            position where I wanted to solve problems that don't
-                            yet exist and solve them perfectly. But I still
-                            believed that in the end, it'd be "worth it".
-                        </p>
-                        <p>
-                            Then, our team started to grow. I was no longer the
-                            only one working on that website. Since it used my
-                            framework, I had to onboard new people with it. This
-                            meant that I had to write up a README, then
-                            documentation, example usage, etc. Despite that, we
-                            still had to clear up some stuff in Slack.
-                        </p>
-                        <p>
-                            Because our team grew, so did our workload. This
-                            caused work on the framework in parallel with the
-                            website to transition in work on the framework
-                            during the weekends and early mornings.
-                        </p>
-                        <p>
-                            I carried on, though. I had (and to this point,
-                            still have) the habit of abandoning projects, so I
-                            was determined to at least boil the framework down
-                            to small organized JavaScript snippets that you
-                            could download via npm. But do I use
-                            <a
-                                href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements"
-                                target="_blank"
-                                class="article-link"
-                                >Custom Elements</a
-                            >
-                            or even go simpler than that and use just ES6
-                            classes?
-                        </p>
-                        <p>
-                            Recently, I started getting more and more into the
-                            React ecosystem. Late to the party, I know. I also
-                            started noticing more websites with
-                            <code>&lt;div id="__next"&gt;</code> or
-                            <code>__nuxt</code> or <code>___gatsby</code>. So no
-                            matter how I build my framework, it wouldn't work
-                            with the way most people build for the web. Since I
-                            want to start using these tools as well, my
-                            framework won't work for me either.
-                        </p>
-                        <p>
-                            Unrelated to this, I had slowly started to pay more
-                            attention to my health and well-being. I changed my
-                            eating and sleeping habits, started to exercise and
-                            stretch more, I even started reading books… This
-                            made the weekends and early mornings much more
-                            packed and valuable.
-                        </p>
-                        <p>
-                            And now I'm here. I had made something that nobody
-                            really uses, but still represents a solid part of
-                            our workflow. What do I do? Well, I think I've
-                            learned some lessons in the past 3 years.
-                        </p>
-                        <h2 class="article-subheading">Code Doesn't Matter</h2>
-                        <p>
-                            Unless you're building software for aircraft or
-                            medical equipment, nobody really cares about your
-                            code, and neither should you. Especially in web
-                            development. At the end of the day, you want a bunch
-                            of boxes with text and images in them. You can have
-                            a hellish codebase and still get the job done. A
-                            perfect codebase doesn't exist. At least not for a
-                            very long time, in large projects, or with many
-                            people involved. Things will get messy and you
-                            should be ready to accept that.
-                        </p>
-                        <h2 class="article-subheading">
-                            Maintenance Is a Burden
-                        </h2>
-                        <p>
-                            Let's say you've built something and it works
-                            perfectly. That won't last long. Bugs will appear,
-                            new people will join and documentation will be
-                            needed, features will be requested. Who's going to
-                            handle that? If you're doing this as a side project,
-                            are you prepared to be distracted by these things
-                            while working? If not, are you prepared to do them
-                            in your free time?
-                        </p>
-                        <p>
-                            Even if people start contributing with pull requests
-                            and taking some of that load off of you, you'll
-                            still have to review and approve of what's going on.
-                        </p>
-                        <h2 class="article-subheading">Third-Party Is Fine</h2>
-                        <p>
-                            If you find someone else who has done the work for
-                            you, use it. There might be things that you don't
-                            like, but compared to the hidden costs of
-                            maintaining something yourself, they won't matter.
-                            If that third-party code has been out for a long
-                            time, chances are that most common bugs and edge
-                            cases would have already been handled. Doing things
-                            yourself should be your last resort, because you'll
-                            slowly discover the same issues as well and waste
-                            time on solved problems.
-                        </p>
-                        <h2 class="article-subheading">Launch Early</h2>
-                        <p>
-                            On the off-chance that you really want or have to
-                            build something, launch it as soon as you can. As
-                            David Heinemeier Hansson said on
-                            <a
-                                href="https://www.rework.fm/launch-now/"
-                                target="_blank"
-                                class="article-link"
-                                >episode "Launch Now" of the Rework podcast:</a
-                            >
-                        </p>
-                        <blockquote>
-                            <div>
-                                <p class="marker">&gt;</p>
+                    <div class="editor-content">
+                        <header class="main-header">
+                            <div class="title">
+                                <h1>Don't Build Your Own Framework</h1>
                                 <p>
-                                    If you're not uncomfortable by the time
-                                    you're launching,
+                                    Delusions of having the ability to solve
+                                    something once and for all.
                                 </p>
                             </div>
-                            <div>
-                                <p class="marker">&gt;</p>
-                                <p>it's way too late.</p>
+                            <div class="publish-date">
+                                <p>19 Jun 2022</p>
+                                <p>197 lines</p>
                             </div>
-                        </blockquote>
-                        <p>
-                            I never really launched my side project. It wasn't
-                            "ready". At the same time, it became a bigger and
-                            bigger dependency in our main projects. That's an
-                            issue, because you're building on top of something
-                            that isn't validated by other people. If I had
-                            shared it, maybe people would have helped out and
-                            given ideas for improvements. Or, maybe people would
-                            have critiqued it and made me question whether it's
-                            valuable.
-                        </p>
-                        <p>
-                            And that's what I was most afraid of — that the
-                            project isn't valuable. But no matter how much
-                            effort you put into something, you still can't know
-                            for sure if it's valuable until other people give
-                            their own points of view. That's why it's better to
-                            launch as soon as possible:
-                        </p>
-                        <ul class="article-list">
-                            <li>
-                                If you've built something valuable, you'll get
-                                more like-minded people to help you out with it
-                            </li>
-                            <li>
-                                If you've built something pointless, you'll save
-                                time and probably learn about new and better
-                                approaches
-                            </li>
-                        </ul>
-                        <h2 class="article-subheading">Conclusion</h2>
-                        <p>
-                            I will archive my project. These problems have
-                            already been solved by many people, many times. We
-                            all know that
-                            <a
-                                href="https://dayssincelastjavascriptframework.com/"
-                                target="_blank"
-                                class="article-link"
-                                >every day, a new JavaScript framework is
-                                born</a
-                            >. This happens because people like me think they've
-                            got the silver bullet and can solve a certain
-                            problem once and for all. But that's impossible and
-                            delusional. It's like that
-                            <a
-                                href="https://xkcd.com/927/"
-                                target="_blank"
-                                class="article-link"
-                                >xkcd comic about standards</a
-                            >:
-                        </p>
-                        <figure>
-                            <img
-                                src="../images/standards.png"
-                                alt="comics"
-                                class="img-standard"
-                            />
-                        </figure>
-                        <p>
-                            We should work on solving new problems, not existing
-                            ones. If you find an issue with someone else's code,
-                            report it or directly submit a pull request and fix
-                            it. Not just for yourself, but for everybody else!
-                            Your contributions will be nicely welcomed! Don't
-                            create something new with its own set of problems.
-                        </p>
-                        <p>
-                            It's impossible to build something entirely by
-                            yourself. At some point, your "pristine" code will
-                            have to interact with other people's "messy" code.
-                            Sure, you might not use third-party code on your
-                            website, but its existence still depends on it. The
-                            operating system it runs on is not built by you. The
-                            browser that your viewers use to see it is not built
-                            by you. The protocols that carry your data across
-                            the wire are not designed by you.
-                        </p>
-                        <p>
-                            You will always depend on other people's work.
-                            Embrace that!
-                        </p>
-                    </div>
-                    <hr class="line-break" />
-                    <footer>
-                        <ul class="social-links">
-                            <li class="social-link">
+                        </header>
+                        <img
+                            src="../images/rm-rf-git-cover-1280x.png"
+                            alt="Random characters with the command rm -rf .git highlighted in the middle"
+                        />
+                        <div class="article-content">
+                            <p>
+                                In 2019, I wanted to create a website that
+                                closely followed our custom design and had
+                                smooth animations and interactions. I looked at
                                 <a
-                                    href="https://github.com/hdodov"
-                                    target="_blank"
-                                    >Github</a
+                                    href="https://getuikit.com/docs/introduction"
+                                    class="article-link"
+                                    >UIkit,</a
                                 >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
+                                but I didn't pick it for two reasons:
+                            </p>
+                            <ul class="article-list">
+                                <li>It had its own opinion on design</li>
+                                <li>
+                                    It didn't meet my requirements for
+                                    "smoothness"
+                                </li>
+                            </ul>
+                            <p>
+                                This lead me to search for other frameworks
+                                that, unlike UIkit, provide just the basic
+                                JavaScript functionality, allowing you to style
+                                and animate as you wish. I didn't find anything.
+                                So, naturally, I decided to make
                                 <a
-                                    href="https://twitter.com/yandodov"
+                                    href="https://github.com/OblikStudio/toolkit"
                                     target="_blank"
-                                    >Twitter</a
+                                    class="article-link"
+                                    >my own thing.</a
                                 >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
+                            </p>
+                            <p>
+                                I was developing the framework in parallel with
+                                the website I was working on and it was
+                                wonderful. I was able to make the code just
+                                right and implement just the features I need. I
+                                took some inspiration from UIkit, but stuck to
+                                my main idea.
+                            </p>
+                            <p>
+                                Later, I noticed that things weren't very
+                                efficient, so I decided to refactor. But because
+                                I was developing that framework and
+                                simultaneously using it, I had to rework not
+                                only the framework, but the website as well.
+                                Apart from that, I was trying to make this work
+                                for as many use cases as I could. What if you
+                                use React? What if you don't? What if you use
+                                jQuery? What if you don't even know JavaScript
+                                that much?
+                            </p>
+                            <p>
+                                At this point, my enthusiasm slowly started to
+                                fade away. Without realizing it, I had put
+                                myself in a position where I wanted to solve
+                                problems that don't yet exist and solve them
+                                perfectly. But I still believed that in the end,
+                                it'd be "worth it".
+                            </p>
+                            <p>
+                                Then, our team started to grow. I was no longer
+                                the only one working on that website. Since it
+                                used my framework, I had to onboard new people
+                                with it. This meant that I had to write up a
+                                README, then documentation, example usage, etc.
+                                Despite that, we still had to clear up some
+                                stuff in Slack.
+                            </p>
+                            <p>
+                                Because our team grew, so did our workload. This
+                                caused work on the framework in parallel with
+                                the website to transition in work on the
+                                framework during the weekends and early
+                                mornings.
+                            </p>
+                            <p>
+                                I carried on, though. I had (and to this point,
+                                still have) the habit of abandoning projects, so
+                                I was determined to at least boil the framework
+                                down to small organized JavaScript snippets that
+                                you could download via npm. But do I use
                                 <a
-                                    href="https://www.linkedin.com/in/yandodov/"
+                                    href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements"
                                     target="_blank"
+                                    class="article-link"
+                                    >Custom Elements</a
                                 >
-                                    LinkedIn</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
+                                or even go simpler than that and use just ES6
+                                classes?
+                            </p>
+                            <p>
+                                Recently, I started getting more and more into
+                                the React ecosystem. Late to the party, I know.
+                                I also started noticing more websites with
+                                <code>&lt;div id="__next"&gt;</code> or
+                                <code>__nuxt</code> or <code>___gatsby</code>.
+                                So no matter how I build my framework, it
+                                wouldn't work with the way most people build for
+                                the web. Since I want to start using these tools
+                                as well, my framework won't work for me either.
+                            </p>
+                            <p>
+                                Unrelated to this, I had slowly started to pay
+                                more attention to my health and well-being. I
+                                changed my eating and sleeping habits, started
+                                to exercise and stretch more, I even started
+                                reading books… This made the weekends and early
+                                mornings much more packed and valuable.
+                            </p>
+                            <p>
+                                And now I'm here. I had made something that
+                                nobody really uses, but still represents a solid
+                                part of our workflow. What do I do? Well, I
+                                think I've learned some lessons in the past 3
+                                years.
+                            </p>
+                            <h2 class="article-subheading">
+                                Code Doesn't Matter
+                            </h2>
+                            <p>
+                                Unless you're building software for aircraft or
+                                medical equipment, nobody really cares about
+                                your code, and neither should you. Especially in
+                                web development. At the end of the day, you want
+                                a bunch of boxes with text and images in them.
+                                You can have a hellish codebase and still get
+                                the job done. A perfect codebase doesn't exist.
+                                At least not for a very long time, in large
+                                projects, or with many people involved. Things
+                                will get messy and you should be ready to accept
+                                that.
+                            </p>
+                            <h2 class="article-subheading">
+                                Maintenance Is a Burden
+                            </h2>
+                            <p>
+                                Let's say you've built something and it works
+                                perfectly. That won't last long. Bugs will
+                                appear, new people will join and documentation
+                                will be needed, features will be requested.
+                                Who's going to handle that? If you're doing this
+                                as a side project, are you prepared to be
+                                distracted by these things while working? If
+                                not, are you prepared to do them in your free
+                                time?
+                            </p>
+                            <p>
+                                Even if people start contributing with pull
+                                requests and taking some of that load off of
+                                you, you'll still have to review and approve of
+                                what's going on.
+                            </p>
+                            <h2 class="article-subheading">
+                                Third-Party Is Fine
+                            </h2>
+                            <p>
+                                If you find someone else who has done the work
+                                for you, use it. There might be things that you
+                                don't like, but compared to the hidden costs of
+                                maintaining something yourself, they won't
+                                matter. If that third-party code has been out
+                                for a long time, chances are that most common
+                                bugs and edge cases would have already been
+                                handled. Doing things yourself should be your
+                                last resort, because you'll slowly discover the
+                                same issues as well and waste time on solved
+                                problems.
+                            </p>
+                            <h2 class="article-subheading">Launch Early</h2>
+                            <p>
+                                On the off-chance that you really want or have
+                                to build something, launch it as soon as you
+                                can. As David Heinemeier Hansson said on
                                 <a
-                                    href="https://www.instagram.com/yandodov/"
+                                    href="https://www.rework.fm/launch-now/"
                                     target="_blank"
+                                    class="article-link"
+                                    >episode "Launch Now" of the Rework
+                                    podcast:</a
                                 >
-                                    Instagram</a
-                                >
-                            </li>
-                        </ul>
-                        <div class="color-theme">
-                            <span class="color-theme-name">
-                                <span id="color-scheme-name">Monokai</span>
-                                <span class="arrow">↓</span>
-                                <select class="theme-picker" id="theme-select">
-                                    <option value="dark-plus" id="dark-plus">
-                                        Dark+
-                                    </option>
-                                    <option value="light-plus" id="light-plus">
-                                        Light+
-                                    </option>
-                                    <option value="monokai" id="monokai">
-                                        Monokai
-                                    </option>
-                                    <option
-                                        value="github-dark"
-                                        id="github-dark"
-                                    >
-                                        Github Dark
-                                    </option>
-                                    <option
-                                        value="github-light"
-                                        id="github-light"
-                                    >
-                                        Github Light
-                                    </option>
-                                    <option
-                                        value="solarized-light"
-                                        id="solarized-light"
-                                    >
-                                        Solarized Light
-                                    </option>
-                                </select>
-                            </span>
+                            </p>
+                            <blockquote>
+                                <div>
+                                    <p class="marker">&gt;</p>
+                                    <p>
+                                        If you're not uncomfortable by the time
+                                        you're launching,
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="marker">&gt;</p>
+                                    <p>it's way too late.</p>
+                                </div>
+                            </blockquote>
+                            <p>
+                                I never really launched my side project. It
+                                wasn't "ready". At the same time, it became a
+                                bigger and bigger dependency in our main
+                                projects. That's an issue, because you're
+                                building on top of something that isn't
+                                validated by other people. If I had shared it,
+                                maybe people would have helped out and given
+                                ideas for improvements. Or, maybe people would
+                                have critiqued it and made me question whether
+                                it's valuable.
+                            </p>
+                            <p>
+                                And that's what I was most afraid of — that the
+                                project isn't valuable. But no matter how much
+                                effort you put into something, you still can't
+                                know for sure if it's valuable until other
+                                people give their own points of view. That's why
+                                it's better to launch as soon as possible:
+                            </p>
+                            <ul class="article-list">
+                                <li>
+                                    If you've built something valuable, you'll
+                                    get more like-minded people to help you out
+                                    with it
+                                </li>
+                                <li>
+                                    If you've built something pointless, you'll
+                                    save time and probably learn about new and
+                                    better approaches
+                                </li>
+                            </ul>
+                            <h2 class="article-subheading">Conclusion</h2>
+                            <p>
+                                I will archive my project. These problems have
+                                already been solved by many people, many times.
+                                We all know that
+                                <a
+                                    href="https://dayssincelastjavascriptframework.com/"
+                                    target="_blank"
+                                    class="article-link"
+                                    >every day, a new JavaScript framework is
+                                    born</a
+                                >. This happens because people like me think
+                                they've got the silver bullet and can solve a
+                                certain problem once and for all. But that's
+                                impossible and delusional. It's like that
+                                <a
+                                    href="https://xkcd.com/927/"
+                                    target="_blank"
+                                    class="article-link"
+                                    >xkcd comic about standards</a
+                                >:
+                            </p>
+                            <figure>
+                                <img
+                                    src="../images/standards.png"
+                                    alt="comics"
+                                    class="img-standard"
+                                />
+                            </figure>
+                            <p>
+                                We should work on solving new problems, not
+                                existing ones. If you find an issue with someone
+                                else's code, report it or directly submit a pull
+                                request and fix it. Not just for yourself, but
+                                for everybody else! Your contributions will be
+                                nicely welcomed! Don't create something new with
+                                its own set of problems.
+                            </p>
+                            <p>
+                                It's impossible to build something entirely by
+                                yourself. At some point, your "pristine" code
+                                will have to interact with other people's
+                                "messy" code. Sure, you might not use
+                                third-party code on your website, but its
+                                existence still depends on it. The operating
+                                system it runs on is not built by you. The
+                                browser that your viewers use to see it is not
+                                built by you. The protocols that carry your data
+                                across the wire are not designed by you.
+                            </p>
+                            <p>
+                                You will always depend on other people's work.
+                                Embrace that!
+                            </p>
                         </div>
-                    </footer>
+                        <hr class="line-break" />
+                        <footer>
+                            <ul class="social-links">
+                                <li class="social-link">
+                                    <a
+                                        href="https://github.com/hdodov"
+                                        target="_blank"
+                                        >Github</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://twitter.com/yandodov"
+                                        target="_blank"
+                                        >Twitter</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://www.linkedin.com/in/yandodov/"
+                                        target="_blank"
+                                    >
+                                        LinkedIn</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://www.instagram.com/yandodov/"
+                                        target="_blank"
+                                    >
+                                        Instagram</a
+                                    >
+                                </li>
+                            </ul>
+                            <div class="color-theme">
+                                <span class="color-theme-name">
+                                    <span id="color-scheme-name">Monokai</span>
+                                    <span class="arrow">↓</span>
+                                    <select
+                                        class="theme-picker"
+                                        id="theme-select"
+                                    >
+                                        <option
+                                            value="dark-plus"
+                                            id="dark-plus"
+                                        >
+                                            Dark+
+                                        </option>
+                                        <option
+                                            value="light-plus"
+                                            id="light-plus"
+                                        >
+                                            Light+
+                                        </option>
+                                        <option value="monokai" id="monokai">
+                                            Monokai
+                                        </option>
+                                        <option
+                                            value="github-dark"
+                                            id="github-dark"
+                                        >
+                                            Github Dark
+                                        </option>
+                                        <option
+                                            value="github-light"
+                                            id="github-light"
+                                        >
+                                            Github Light
+                                        </option>
+                                        <option
+                                            value="solarized-light"
+                                            id="solarized-light"
+                                        >
+                                            Solarized Light
+                                        </option>
+                                    </select>
+                                </span>
+                            </div>
+                        </footer>
+                    </div>
                 </div>
             </main>
         </div>
