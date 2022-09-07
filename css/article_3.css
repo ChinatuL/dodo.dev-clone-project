@@ -384,10 +384,13 @@ figcaption {
 }
 
 .line-break {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    display: flex;
+    height: 1.5rem;
+    margin: 1.5rem 0;
     border-width: 0px;
     color: var(--line-break);
+    opacity: 80%;
+    overflow: hidden !important;
 }
 
 .line-break::before {
@@ -396,8 +399,9 @@ figcaption {
 }
 
 .line-break::after {
-    content: "--------------------------------------------------------------";
+    content: "-------------------------------------------------------";
     font-variant-ligatures: none;
+    overflow-wrap: anywhere;
 }
 
 footer {
@@ -470,6 +474,33 @@ footer {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 600px) {
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    .container {
+        margin-top: 1px;
+    }
+
+    nav {
+        overflow: auto;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-list {
+        flex: 0 0 auto;
+    }
+
+    .nav-item {
+        flex: 0 0 auto;
+        min-width: 25%;
+    }
+
+    .nav-link div {
+        min-width: 0;
+    }
     #heading {
         display: block;
         justify-content: flex-start;
@@ -495,6 +526,20 @@ footer {
     }
     .text-7 {
         overflow: auto;
+    }
+    footer {
+        padding-bottom: 5rem;
+        min-height: 0;
+        flex-direction: column;
+    }
+
+    .social-links {
+        flex-direction: column;
+        padding-bottom: 1.5rem;
+    }
+
+    .bullet {
+        display: none;
     }
 }
 @media screen and (max-width: 300px) {
