@@ -418,12 +418,15 @@ footer {
 }
 
 @media (max-width: 599px) {
+    body::-webkit-scrollbar {
+        display: none;
+    }
     .editor {
         padding-left: 5ch;
         padding-right: 2ch;
     }
     .editor-content {
-        max-width: 44ch;
+        max-width: 40ch;
     }
 
     .container {
@@ -432,6 +435,10 @@ footer {
 
     nav {
         overflow: auto;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-list {
