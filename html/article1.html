@@ -16,9 +16,10 @@
     <div class="container">
 
         <div class="content">
-            <nav class="nav-link">
+            <!-- <nav class="nav-link article1-scrollbar">
                 <ul>
-                    <li><a class="home article1-home" href="../index.html">home</a></li>
+                    <li><a class="home article1-home" href="../index.html">
+                        <div>home</div> home</a></li>
                     <li><a class="article1-blog" href="./blog.html">blog</a></li>
                     <li><a class="article1-x" href="./blog.html">Number-of-ones<svg width="14" height="14"
                                 viewBox="0 -1 10 13" fill="currentColor">
@@ -28,7 +29,50 @@
                             </svg></a></li>
                     <li><a class="projects article1-project" href="./project.html">projects</a></li>
                 </ul>
+            </nav> -->
+
+
+
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <div>home</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./blog.html" class="nav-link">
+                            <div>blog</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="article-tab">
+                            <span class="article-name"
+                                >Number-of-ones</span
+                            >
+                            <a  href="./blog.html"
+                                ><svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
+                                    ></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./project.html" class="nav-link">
+                            <div>projects</div>
+                        </a>
+                    </li>
+                </ul>
             </nav>
+
+
             <div class="main-content">
                 <main class="editor">
                     <header class="article1-header">
@@ -66,7 +110,7 @@
                         <p>Now, let's try 0-99. Here we have the same thing, with the difference being that it's
                             repeated 10 times:</p>
 
-<pre class="codes">
+<pre class="codes scroll-bar">
     <code>
         1, 11, 21, 31, 41, 51, 61, 71, 81, 91
         ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑ (10)  
@@ -74,7 +118,7 @@
 </pre>
                         <p>So, the units (rightmost digit) contributes to the sum with a total of 10 occurrences.</p>
                         <p>However, the range 10-19 is special, because each number there always begins with 1:</p>
-<pre class="codes">
+<pre class="codes scroll-bar">
     <code class="">
         10, 11, 12, 13, 14, 15, 16, 17, 18, 19
         ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑ (10)
@@ -89,8 +133,8 @@
                         </hr>
                         <p>If we look at the numbers 0-999, we'll start to see patterns. Now, 1 appears in the units
                             column not 10, but 100 times:</p>
-<pre class="codes">
-    <code class="scrollbar-text">
+<pre class="codes scroll-bar">
+    <code>
         1, 11, 21... 131, 141, 151... 321, 641, 961... 991
         ↑   ↑   ↑      ↑    ↑    ↑      ↑    ↑    ↑      ↑ (100)
     </code>
@@ -119,7 +163,7 @@
                             0 in the units, it still counts. We end up with 7, which is the number of ones in the
                             incomplete cycle. Here's the entire calculation:
                         </p>
-    <pre class="codes">
+    <pre class="codes scroll-bar">
     <code>
         236
         ││└  23*1 +   1*1 extra (because 6 > 1) =  24
@@ -155,24 +199,22 @@
                             Basically, we multiply our multiplier by 10, divide, then floor,
                             and we have successfully taken out the necessary digits:
                         </p>
-                        <div class="codes">
+<div class="codes scroll-bar code-divs">
     <pre>
     <code>
         236
         ││└ mul = 1;   236/(mul*10) = 236/10   = 23.6; round(23.6) = 23;
         │└─ mul = 10;  236/(mul*10) = 236/100  = 2.36; round(2.36) = 2;
         └── mul = 100; 236/(mul*10) = 236/1000 = 0.23; round(0.23) = 0;
-        </code>
+    </code>
     <pre>
-
-                        </div>
+</div>
                         <p>
                             All that's left now is to apply the multiplier to those numbers and we
                             get the number of complete cycles with a 1 that each digit goes through:
                         </p>
 <pre class="codes">
     <code>
-
         236
         ││└  23*1 = 23
         │└─  2*10 = 20
@@ -192,11 +234,10 @@
                             Now, we have to handle cases where the digit is greater than 1. That's when we have one
                             extra cycle:
                         </p>
-<pre class="codes">
+<pre class="codes scroll-bar">
     <code>
         236
-        └─ 3 > 1 => extra cycle (210-219)
-       
+        └─ 3 > 1 => extra cycle (210-219)       
        206
         └─ 0 < 1 => no extra cycle (we don't reach 210)
     </code>
@@ -204,7 +245,7 @@
                         <p>
                             We add an extra <span class="red-text">if</span> statement:
                         </p>
-<pre class="codes">
+<pre class="codes scroll-bar">
             <code>
         <span class="blue-text">let</span> cycles = Math. <span class="yellow-text">floor</span>(n / (mul *  <span class="yellow-text">10</span>));
         <span class="blue-text">let</span> ones = cycles * mul;
@@ -219,7 +260,7 @@
                             Finally, we have the edge case where the digit is exactly <span class="red-text">1</span>.
                             This is where we have an incomplete cycle and the result depends on the digits to the right:
                         </p>
-    <pre class="codes">
+    <pre class="codes scroll-bar">
     <code>
         216
         └─ just 10-16, not 10-19, so we extract 6
@@ -232,7 +273,7 @@
                             We can get digits on the right by applying <span class="red-text">%</span>, the <a class="green-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder" target="_blank">remainder operator</a>, to the number and the
                             multiplier:
                         </p>
-    <pre class="codes">
+    <pre class="codes scroll-bar">
     <code>
         216 % 10  = divide by 10 and get the remainder  => 6
         136 % 100 = divide by 100 and get the remainder => 36
@@ -242,7 +283,7 @@
                             However, we must add 1 to that remainder, because we
                             need to count the 0 as well. In other words, for the tens, we have:
                         </p>
-<pre class="codes">
+<pre class="codes scroll-bar">
     <code>
         210, 211, 212, 213, 214, 215, 216 => 7 numbers in total
         └┴───────────────────────────────── this counts as well
@@ -251,7 +292,7 @@
                         <p>
                             So we need to extend our <span class="red-text">if</span> statement:
                         </p>
-        <pre class="codes">
+        <pre class="codes scroll-bar">
         <code>
         <span class="blue-text">if</span> (digit > <span class="green-text">1</span>) {
             ones += mul; <span class="comment">// add one extra cycle</span>
@@ -263,7 +304,7 @@
                         <p>
                             Put together, our logic looks like this:
                         </p>
-        <pre class="codes">
+        <pre class="codes scroll-bar">
         <code>
         <span class="blue-text">let</span> n = <span class="green-text">236</span>;
         <span class="blue-text">let</span> strings = n.<span class="yellow-text">toString</span>().<span class="yellow-text">split</span>(<span class="red-text">""</span>);       <span class="comment">// ["2", "3", "6"]</span>
@@ -292,7 +333,7 @@
                             Now, we can wrap that logic in an easily reusable function and use <a class="reduce" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" target="_blank">reduce()</a> to accumulate
                             the sum:
                         </p>
-     <pre class="codes">
+     <pre class="codes scroll-bar">
        <code>
        <span class="blue-text">function</span><span class="yellow-text">numberOfOnes</span>(n) {
         <span class="blue-text">return</span> n
