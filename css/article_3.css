@@ -15,14 +15,17 @@
     --accent: #a6e22e;
     --accent-hover: #4e94ce;
     --article3-heading-paragraph: #cacabe;
-    --article3-gray-text: rgb(136, 132, 111);
     --anchortag-orange-color: #fd971f;
-    --example-text: #22231e;
+    --color-focus: #75715e;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
+    --color-blockquote: var(--line-break);
+    --color-blockquote-symbol: var(--line-break);
+    --code-background-color: #22231e;
+    --code-color: var(--secondary-text);
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -41,11 +44,17 @@
     --line-break: #6a9955;
     --accent: #4ec9b0;
     --accent-hover: #4e94ce;
+    --anchortag-orange-color: #ce9178;
+    --color-focus: #007fd4;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
+    --color-blockquote: var(--body-text);
+    --color-blockquote-symbol: var(--line-break);
+    --code-background-color: #1c1c1c;
+    --code-color: var(--secondary-text);
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -64,11 +73,17 @@
     --line-break: #008000;
     --accent: #267f99;
     --accent-hover: #0000ff;
+    --anchortag-orange-color: #800000;
+    --color-focus: #0090f1;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
+    --color-blockquote: var(--body-text);
+    --color-blockquote-symbol: #0451a5;
+    --code-background-color: #fbfbfb;
+    --code-color: var(--secondary-text);
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -87,11 +102,17 @@
     --line-break: #6a737d;
     --accent: #96d0ff;
     --accent-hover: #4e94ce;
+    --anchortag-orange-color: #9ecbff;
+    --color-focus: #005cc5;
     --color-scrollbar-border: #1b1f23;
     --color-scrollbar-thumb: #6a737d33;
     --color-scrollbar-thumb-hover: #6a737d44;
     --color-scrollbar-thumb-active: #6a737d88;
     --color-scrollbar-shadow: #00000088;
+    --color-blockquote: #85e89d;
+    --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #202428;
+    --code-color: var(--secondary-text)
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -111,11 +132,17 @@
     --line-break: #6a737d;
     --accent: #032f62;
     --accent-hover: #0000ff;
+    --anchortag-orange-color: #032f62;
+    --color-focus: #2188ff;
     --color-scrollbar-border: #ffffff;
     --color-scrollbar-thumb: #959da533;
     --color-scrollbar-thumb-hover: #959da544;
     --color-scrollbar-thumb-active: #959da588;
     --color-scrollbar-shadow: #6a737d33;
+    --color-blockquote: #22863a;
+    --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #fcfcfc;
+    --code-color: var(--secondary-text);
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -135,11 +162,17 @@
     --line-break: #93a1a1;
     --accent: #268bd2;
     --accent-hover: #0000ff;
+    --anchortag-orange-color: #2aa198;
+    --color-focus: #d3af86;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
+    --color-blockquote: #859900;
+    --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #f9f1dc;
+    --code-color: var(--secondary-text)
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -287,7 +320,7 @@ h1 {
     overflow: hidden;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-    color: var(--article3-gray-text);
+    color: var(--color-blockquote);
 }
 
 .text-1-content::before {
@@ -295,6 +328,7 @@ h1 {
     width: 1ch;
     height: 1.5rem;
     margin-right: 2ch;
+    color: var(--color-blockquote-symbol);
 }
 i {
     font-weight: bold;
@@ -341,7 +375,8 @@ figcaption {
     color: var(--body-text);
 }
 .editor-1 {
-    background-color: var(--example-text);
+    background-color: var(--code-background-color);
+    color: var(--code-color);
     padding: 1.3rem 4rem;
 }
 .example {
@@ -359,6 +394,7 @@ figcaption {
     padding-top: 1.3rem;
 }
 .hyphen {
+    padding-right: 1rem;
     color: var(--accent);
 }
 .text-8-content {
@@ -437,6 +473,10 @@ footer {
     color: var(--body-text);
 }
 
+.color-theme-name:focus-within {
+    outline: 1px solid var(--color-focus) !important;
+}
+
 .arrow {
     font-size: 1rem;
     color: var(--accent);
@@ -468,8 +508,8 @@ footer {
 }
 
 .theme-picker > option {
-    background-color: #1e1f1c;
-    color: #cfcfc2;
+    background-color: var(--background-color);
+    color: var(--secondary-text);
 }
 
 /* MEDIA QUERIES */

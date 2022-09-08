@@ -436,8 +436,8 @@ footer {
 }
 
 .theme-picker > option {
-    background-color: #1e1f1c;
-    color: #cfcfc2;
+    background-color: var(--background-color);
+    color: var(--secondary-text);
 }
 
 @media (max-width: 599px) {
