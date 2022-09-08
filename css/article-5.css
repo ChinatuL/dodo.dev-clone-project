@@ -175,7 +175,7 @@ li {
 
 body {
     background-color: var(--background-color);
-    color: var(--secondary-text);
+    color: var(--body-text);
     font-family: var(--font-mono);
     font-weight: 500;
     line-height: 1.5rem;
@@ -247,9 +247,13 @@ body::-webkit-scrollbar {
 }
 
 .title h1 {
-    color: var(--body-text);
     font-size: 1.25rem;
     font-weight: 700;
+}
+
+.title p,
+.publish-date {
+    color: var(--secondary-text);
 }
 
 .publish-date {
