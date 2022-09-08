@@ -341,11 +341,11 @@ footer {
 }
 
 .social-links {
-    display: flex;
+    font-weight: 500;
 }
 
 .social-link {
-    padding-right: 0.7rem;
+    display: inline-block;
 }
 
 .social-link a {
@@ -499,6 +499,7 @@ footer {
         font-size: 14px;
     }
     .social-links {
+        display: flex;
         flex-direction: column;
         padding-bottom: 1.5rem;
     }
