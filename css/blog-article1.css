@@ -13,6 +13,7 @@
     --line-break: #88846f;
     --accent: #a6e22e;
     --accent-hover: #4e94ce;
+    --color-focus: #75715e;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
@@ -37,6 +38,7 @@
     --line-break: #6a9955;
     --accent: #4ec9b0;
     --accent-hover: #4e94ce;
+    --color-focus: #007fd4;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
@@ -60,6 +62,7 @@
     --line-break: #008000;
     --accent: #267f99;
     --accent-hover: #0000ff;
+    --color-focus: #0090f1;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
@@ -83,6 +86,7 @@
     --line-break: #6a737d;
     --accent: #96d0ff;
     --accent-hover: #4e94ce;
+    --color-focus: #005cc5;
     --color-scrollbar-border: #1b1f23;
     --color-scrollbar-thumb: #6a737d33;
     --color-scrollbar-thumb-hover: #6a737d44;
@@ -107,6 +111,7 @@
     --line-break: #6a737d;
     --accent: #032f62;
     --accent-hover: #0000ff;
+    --color-focus: #2188ff;
     --color-scrollbar-border: #ffffff;
     --color-scrollbar-thumb: #959da533;
     --color-scrollbar-thumb-hover: #959da544;
@@ -131,6 +136,7 @@
     --line-break: #93a1a1;
     --accent: #268bd2;
     --accent-hover: #0000ff;
+    --color-focus: #d3af86;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
@@ -251,7 +257,7 @@ nav {
 
 .editor {
     text-align: left;
-    color: #fff;
+    color: var(--body-text);
     max-width: 81ch;
 }
 /* Header */
@@ -268,7 +274,7 @@ h1 {
 header p {
     margin-top: 0;
     margin-bottom: 30px;
-    color: var(--body-text);
+    color: var(--secondary-text);
 }
 
 h3 {
@@ -334,6 +340,7 @@ hr {
 hr::after {
     content: "//  ---------------------------------------------------------------------------------------------";
     font-variant-ligatures: none;
+    color: var(--line-break);
 }
 
 /* Footer */
@@ -529,6 +536,10 @@ code {
 .color-theme-name:hover,
 .color-theme-name:hover .arrow {
     color: var(--accent-hover);
+}
+
+.color-theme-name:focus-within {
+    outline: 1px solid var(--color-focus) !important;
 }
 
 .theme-picker {
