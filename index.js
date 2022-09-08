@@ -12,7 +12,7 @@ const pickName = (theName) => {
     }
     if (theName === "light-plus") {
         colorName.innerHTML = "Light+";
-        faviconTag.setAttribute("href", "../images/favicon-light-plus (1).png");
+        faviconTag.setAttribute("href", "../images/favicon-light-plus.png");
     }
     if (theName === "monokai") {
         colorName.innerHTML = "Monokai";
