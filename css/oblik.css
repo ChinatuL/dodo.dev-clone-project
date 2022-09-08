@@ -174,6 +174,11 @@ body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
 }
 
+.container {
+    max-width: 81ch;
+    margin: auto;
+}
+
 li {
     list-style-type: none;
 }
@@ -220,7 +225,7 @@ header {
 }
 
 .nav-link div {
-    width: 7.5rem;
+    min-width: 7.5rem;
     padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
@@ -246,7 +251,6 @@ header {
     background-color: var(--inactive-navbar-background);
 }
 main {
-    max-width: 81ch;
     color: var(--body-text);
     margin: auto;
 }
@@ -313,12 +317,11 @@ footer {
 }
 
 .social-links {
-    display: flex;
     font-weight: 500;
 }
 
 .social-link {
-    padding-right: 0.7rem;
+    display: inline-block;
 }
 
 .social-link a {
@@ -335,6 +338,7 @@ footer {
 .color-theme-name {
     position: relative;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .arrow {
@@ -402,6 +406,14 @@ footer {
         margin-top: 1px;
     }
 
+    nav {
+        overflow: auto;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
     .nav-list {
         flex: 0 0 auto;
     }
@@ -413,6 +425,16 @@ footer {
 
     .nav-link div {
         min-width: 0;
+    }
+
+    .article-tab {
+        display: flex;
+        justify-content: space-between;
+        white-space: nowrap;
+    }
+
+    .article-tab span {
+        margin-right: 0;
     }
 
     h1 {
@@ -475,6 +497,7 @@ footer {
         font-size: 14px;
     }
     .social-links {
+        display: flex;
         flex-direction: column;
         padding-bottom: 1.5rem;
     }
