@@ -111,7 +111,7 @@
                         <p>Perhaps the most obvious solution is to just loop over the numbers, convert them to strings,
                             and count the digits. But the larger the input number, the slower it gets. So, rather than
                             counting, we can calculate the result.</p>
-                        <h2>idea</h2>
+                        <h2>Idea</h2>
                         <p>Let's start with the number of times that the digit 1 appears in the 0-9 range. It's just
                             one. The number 1.</p>
                         <p>Now, let's try 0-99. Here we have the same thing, with the difference being that it's
@@ -186,13 +186,13 @@
                         <p>Let's start with the multiplier. In code, we can loop over the digits in reverse to get it:
                         </p>
 
-<pre>
-<code>
-[6, 3, 2].forEach((digit, i) => {
-    <span class="blue-text">let</span> mul = Math.<span class="yellow-text">pow</span>(<span class="green-text">10</span>, i); <span class="comment">// 1, 10, 100</span>
-});
-</code>
-</pre>
+    <pre class="codes scroll-bar">
+        <code class="space-before">
+        [6, 3, 2].forEach((digit, i) => {
+        <span class="blue-text">let</span> mul = Math.<span class="yellow-text">pow</span>(<span class="green-text">10</span>, i); <span class="comment">// 1, 10, 100</span>
+        });
+        </code>
+    </pre>
                         <p>Now, we have to be able to take digits out of the number. In our first iteration, for the
                             units, we have to take 23 out of <span class="red-text">236</span>.
                             We can do that by dividing the number by 10, getting <span class="red-text">23</span>.
@@ -231,7 +231,7 @@
                         <p>
                             In code, we can do it like this:
                         </p>
-<pre class="codes">
+<pre class="codes scroll-bar">
     <code>
         <span class="blue-text">let</span> cycles = Math.<span class="yellow-text">floor</span>(n / (mul * <span class="green-text">10</span>));
         <span class="blue-text">let</span> ones = cycles * mul;
@@ -366,7 +366,7 @@
                         <p>
                             Here are some examples:
                         </p>
-                        <div class="codes">
+                        <div class="codes scroll-bar">
 <pre>
   <code>
        console.<span class="yellow-text">log</span>(<span class="yellow-text">numberOfOnes</span>(<span class="green-text">14</span>));   <span class="comment"> // 7</span> 
