@@ -235,6 +235,10 @@ main {
     display: flex;
 }
 
+.header-paragraph {
+    opacity: 90%;
+}
+
 .hidden-header-paragraph {
     display: none;
 }
@@ -251,6 +255,7 @@ main {
 }
 
 .occupation {
+    color: var(--secondary-text);
     padding-bottom: 1.5rem;
 }
 
@@ -313,6 +318,7 @@ article {
 
 .article-description {
     min-height: 3rem;
+    opacity: 90%;
 }
 
 .date-published {
@@ -328,7 +334,7 @@ article {
 
 .arrow {
     color: var(--accent);
-    font-size: 1.4rem;
+    font-size: 2rem;
     vertical-align: top;
 }
 
@@ -379,6 +385,10 @@ footer {
 .social-link a:hover {
     border-bottom: 1px solid var(--accent-hover);
     color: var(--accent-hover);
+}
+
+.bullet {
+    color: var(--secondary-text);
 }
 
 .color-theme-name {
@@ -459,6 +469,7 @@ footer {
     }
     .hidden-header-paragraph {
         display: block;
+        opacity: 90%;
     }
 
     .header-text h1 {
