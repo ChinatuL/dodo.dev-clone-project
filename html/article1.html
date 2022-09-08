@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon-monokai.png" type="image/x-icon">
     <title>Number of Ones</title>
-    <link rel="stylesheet" href="../css/blog-article1.css">
+    <link rel="stylesheet" href="../css/article-1.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link
             rel="icon"
@@ -188,9 +188,10 @@
 
     <pre class="codes scroll-bar">
         <code class="space-before">
-        [6, 3, 2].forEach((digit, i) => {
-        <span class="blue-text">let</span> mul = Math.<span class="yellow-text">pow</span>(<span class="green-text">10</span>, i); <span class="comment">// 1, 10, 100</span>
-        });
+        <span class="code-punctuation">[</span><span class="code-constant">6</span class="code-punctuation">,<span></span> <span class="code-constant">3</span><span class="code-punctuation">,</span> <span class="code-constant">2</span><span class="code-punctuation"><span class="code-punctuation">]</span></span>.<span class="code-function">forEach</span><span class="code-punctuation">(</span><span class="code-punctuation">(digit</span><span class="code-punctuation">,</span> <span class="code-punctuation">i)</span> <span class="operator">=></span> <span class="code-punctuation">{</span>
+        <span class="keyword">let</span> <span class="code-punctuation">mul</span> <span class="operator">=</span> <span class="code-punctuation">Math.</span><span class="code-function">pow</span><span class="code-punctuation">(</span><span class="code-constant">10</span><span class="code-punctuation">, i</span><span class="code-punctuatuion">)</span><span class="code-punctuatuion">;</span> <span class="code-comment">// 1, 10, 100</span> 
+        <span class="code-punctuation">}</span><span class="code-punctuation">)</span><span class="code-punctuation">;</span>
+        
         </code>
     </pre>
                         <p>Now, we have to be able to take digits out of the number. In our first iteration, for the
@@ -233,8 +234,8 @@
                         </p>
 <pre class="codes scroll-bar">
     <code>
-        <span class="blue-text">let</span> cycles = Math.<span class="yellow-text">floor</span>(n / (mul * <span class="green-text">10</span>));
-        <span class="blue-text">let</span> ones = cycles * mul;
+        <span class="keyword">let</span> <span class="code-punctuation">cycles</span> <span class="operator">=</span> <span class="code-punctuation">Math.</span><span class="code-function">floor</span><span class="code-punctuation">(n</span> <span class="operator">/</span> <span class="code-punctuation">(mul</span> <span class="operator">*</span> <span class="code-constant">10</span><span class="code-punctuation">));</span>
+        <span class="keyword">let</span> <span class="code-punctuation">ones</span> <span class="operator">=</span> <span class="code-punctuation">cycles</span> <span class="operator">*</span> <span class="code-punctuation">mul;</span>
     </code>
 </pre>
                         <p>
@@ -254,11 +255,11 @@
                         </p>
 <pre class="codes scroll-bar">
             <code>
-        <span class="blue-text">let</span> cycles = Math. <span class="yellow-text">floor</span>(n / (mul *  <span class="yellow-text">10</span>));
-        <span class="blue-text">let</span> ones = cycles * mul;
+        <span class="keyword">let</span> <span class="code-punctuation">cycles</span> <span class="operator">=</span> <span class="code-punctuation">Math.</span><span class="code-function">floor</span><span class="code-punctuation">(n</span> <span class="operator">/</span> <span class="code-punctuation">(mul</span> <span class="operator">*</span>  <span class="code-constant">10</span><span  class="code-punctuation">));</span>
+        <span class="keyword">let</span> <span class="code-punctuation">ones</span> <span class="operator">=</span> <span class="code-punctuation">cycles</span> <span class="operator">*</span> <span class="code-punctuation">mul;</span>
         
-        <span class="blue-text">if</span> (digit > 1) {
-            ones += mul; <span class="comment">// add one extra cycle</span>
+        <span class="keyword">if</span> <span class="code-punctuation">(digit</span> <span class="operator">></span> <span class="code-punctuation">1) { 
+            ones</span> <span class="operator">+=</span> <span class="code-punctuation">mul;</span> <span class="code-comment">// add one extra cycle</span>
         }
     </code>
 </pre>
@@ -301,10 +302,10 @@
                         </p>
         <pre class="codes scroll-bar">
         <code>
-        <span class="blue-text">if</span> (digit > <span class="green-text">1</span>) {
-            ones += mul; <span class="comment">// add one extra cycle</span>
-        } <span class="blue-text">else if</span> (digit === 1) {
-            ones += (n % mul) + 1; <span class="comment">// incomplete cycle</span>
+        <span class="keyword">if</span> <span class="code-punctuation">(digit </span><span class="operator">></span> <span class="code-constant">1</span><span class="code-punctuation">) {</span>
+            <span class="code-punctuation">ones</span> <span class="operator">+=</span> <span class="code-punctuation">mul;</span> <span class="code-comment">// add one extra cycle</span>
+        } <span class="keyword">else if</span> <span class="code-punctuation">(digit</span> <span class="operator">===</span> <span class="code-constant">1</span> <span class="code-punctuation">{ 
+            ones</span> <span class="operator">+=</span> <span class="code-punctuation">(n</span> <span class="operator">%</span> <span class="code-punctuation">mul)</span> <span class="operator">+</span> <span class="code-constant">1</span><span class="code-punctuation">;</span> <span class="code-comment">// incomplete cycle</span>
         }
         </code>
         </pre>
@@ -313,27 +314,27 @@
                         </p>
         <pre class="codes scroll-bar">
         <code>
-        <span class="blue-text">let</span> n = <span class="green-text">236</span>;
-        <span class="blue-text">let</span> strings = n.<span class="yellow-text">toString</span>().<span class="yellow-text">split</span>(<span class="red-text">""</span>);       <span class="comment">// ["2", "3", "6"]</span>
-        <span class="blue-text">let</span> ints = strings.<span class="yellow-text">map</span>((s) => <span class="yellow-text">parseInt</span>(s)); <span class="comment">// [2, 3, 6]</span>
-        <span class="blue-text">let</span> digits = ints.<span class="yellow-text">reverse</span>();                <span class="comment">// [6, 3, 2]</span>
-        <span class="blue-text">let</span> sum = <span class="green-text">0</span>;
+        <span class="keyword">let</span> <span class="code-punctuation">n</span> <span class="operator">=</span> <span class="code-constant">236</span><span class="code-punctuation">;</span>
+        <span class="keyword">let</span> <span class="code-punctuation">strings</span> <span class="operator">=</span> <span class="code-punctuation">n.</span><span class="code-function">toString</span><span class="code-punctuation">().</span><span class="yellow-text"><span class="code-punctuation">split</span></span>(<span class="string">""</span><span class="code-punctuation">);</span>       <span class="code-comment">// ["2", "3", "6"]</span>
+        <span class="keyword">let</span> <span class="code-punctuation">ints</span> <span class="operator">=</span> <span class="code-punctuation">strings.</span><span class="code-function">map</span><span class="code-punctuation">((s)</span> <span class="operator">=></span> <span class="code-function">parseInt</span><span class="code-punctuation">(s));</span> <span class="code-comment">// [2, 3, 6]</span>
+        <span class="keyword">let</span> <span class="code-punctuation">digits</span> <span class="operator">=</span> <span class="code-punctuation">ints.</span><span class="code-function">reverse</span><span class="code-punctuation">();</span>                <span class="code-comment">// [6, 3, 2]</span>
+        <span class="keyword">let</span> <span class="code-punctuation">sum</span> <span class="operator">=</span> <span class="code-constant">0</span>;
         
-        digits.<span class="yellow-text">forEach</span>((digit, i) => {
-            <span class="blue-text">let</span> mul = Math.<span class="yellow-text">pow</span>(<span class="green-text">10</span>, <span class="green-text">i</span>);
-            <span class="blue-text">let</span> cycles = Math.<span class="yellow-text">floor</span>(n / (mul * <span class="green-text">10</span>));
-            <span class="blue-text">let</span> ones = cycles * mul;
+        <span class="code-punctuation">digits.</span><span class="code-function">forEach</span><span class="code-punctuation">((digit, i)</span> <span class="operator">=></span> <span class="code-punctuation">{</span>
+            <span class="keyword">let</span> <span class="code-punctuation">mul</span> <span class="operator">=</span> <span class="code-punctuation">Math.</span><span class="code-function">pow</span><span class="code-punctuation">(</span><span class="code-constant">10</span><span class="code-punctuation">, i);</span> 
+            <span class="keyword">let</span> <span class="code-punctuation">cycles</span> <span class="operator">=</span> <span class="code-punctuation">Math.</span><span class="code-function">floor</span><span class="code-punctuation">(n</span> <span class="operator">/</span> <span class="code-punctuation">(mul</span> <span class="operator">*</span> <span class="code-constant">10</span><span class="code-punctuation">));</span>
+            <span class="keyword">let</span> <span class="code-punctuation">ones</span> <span class="operator">=</span> <span class="code-punctuation">cycles</span> <span class="operator">*</span> <span class="code-punctuation">mul;</span>
         
-            <span class="blue-text">if</span> (digit > 1) {
-                ones += mul; <span class="comment">// add one extre cycle</span>
-            } <span class="blue-text">else if</span> (digit === <span class="green-text">1</span>) {
-                ones += (n % mul) + <span class="green-text">1</span>; // <span class="comment">// incomplete cycle</span>
-            }
+            <span class="keyword">if</span> <span class="code-punctuation">(digit</span> <span class="operator">></span> <span class="code-constant">1</span><span class="code-punctuation">) {</span>
+                <span class="code-punctuation">ones</span> <span class="operator">+=</span> <span class="code-punctuation">mul;</span> <span class="code-comment">// add one extre cycle</span>
+            } <span class="keyword">else if</span> <span class="code-punctuation">(digit</span> <span class="operator">===</span> <span class="code-constant">1</span><span class="code-punctuation">) {</span>
+                <span class="code-punctuation">ones</span> <code class="operator">+=</code> <span class="code-punctuation">(n</span> <span class="operator">%</span> <span class="code-punctuation">mul)</span> <span class="operator">+</span> <span class="code-constant">1</span>; <span class="code-comment">// incomplete cycle</span>
+            <span class="code-punctuation">}</span>
         
-            sum += ones;
-        });
+            <span class="code-punctuation">sum</span> <span class="operator">+=</span> <span class="code-punctuation">ones;</span>
+        <span class="code-punctuation">});</span>
         
-        console.<span class="yellow-text">log</span>(sum); <span class="comment">// 154</span>
+        <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(sum);</span> <span class="code-comment">// 154</span>
         </code>
     </pre>
                         <p>
@@ -342,25 +343,25 @@
                         </p>
      <pre class="codes scroll-bar">
        <code>
-       <span class="blue-text">function</span><span class="yellow-text">numberOfOnes</span>(n) {
-        <span class="blue-text">return</span> n
-                .<span class="yellow-text">toString</span>()
-                .<span class="yellow-text">split</span>(<span class="red-text">""</span>)
-                .<span class="yellow-text">map</span>((char) => <span class="yellow-text">parseInt</span>(char))
-                .<span class="yellow-text">reverse</span>()
-                .<span class="yellow-text">reduce</span>((sum, digit, i) => {
-                    <span class="blue-text">const</span> mul = Math.<span class="yellow-text">pow</span>(<span class="green-text">10</span>, <span class="green-text">i</span>);
+       <span class="keyword">function</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(n) {</span>
+        <span class="keyword">return</span> <span class="code-punctuation">n</span>
+                <span class="code-punctuation">.</span><span class="code-function">toString</span><span class="code-punctuation">()</span>
+                <span class="code-punctuation">.</span><span class="code-function">split</span><span class="code-punctuation">(</span><span class="string">""</span><span class="code-punctuation">)</span>
+                <span class="code-punctuation">.</span><span class="code-function">map</span><span class="code-punctuation"><span class="code-punctuation">((char)</span></span> <span class="operator">=></span> <span class="code-function">parseInt</span><span class="code-punctuation">(char))</span>
+                <span class="code-punctuation">.</span><span class="code-function">reverse</span><span class="code-punctuation">()</span>
+                <span class="code-punctuation">.</span><span class="code-function">reduce</span><span class="code-punctuation">((sum, digit, i)</span> <span class="operator">=></span> <span class="code-punctuation">{</span>
+                    <span class="keyword">const</span> <span class="code-punctuation">mul</span> <span class="operator">=</span> <span class="code-punctuation">Math.</span><span class="code-function">pow</span><span class="code-punctuation">(</span><span class="code-constant">10</span><span class="code-punctuation">, i);</span>
         
-                    sum += Math.<span class="yellow-text">floor</span>(n / (mul * 10)) * mul;
+                    <span class="code-punctuation">sum</span> <span class="operator">+=</span> <span class="code-punctuation">Math.</span><span class="code-function">floor</span><span class="code-punctuation">(n</span> <span class="operator">/</span> <span class="code-punctuation">(mul</span> <span class="operator">*</span> <span class="code-constant">10</span><span class="code-punctuation">))</span> <span class="operator">*</span> <span class="code-punctuation">mul;</span>  
         
-                    <span class="blue-text">if</span> (digit > 1) {
-                        sum += mul;
-                    } <span class="blue-text">else if</span> (digit === <span class="green-text">1</span>) {
-                        sum += (n % mul) + <span class="green-text">1</span>;
-                    }
-                    <span class="lue-text">return</span> sum;
-             }, <span class="green-text">0</span>);
-        } 
+                    <span class="keyword">if</span> <span class="code-punctuation">(digit</span> <span class="operator">></span> <span class="code-constant">1</span><span class="code-punctuation">) {</span>
+                        <span class="code-punctuation">sum</span> <span class="operator">+=</span> <span class="code-punctuation">mul;</span>
+                    <span class="code-punctuation">}</span> <span class="keyword">else if</span> <span class="code-punctuation">(digit</span> <span class="operator">===</span> <span class="code-constant">1</span><span>) {
+                        sum</span> <span class="operator">+=</span> <span class="code-punctuation">(n</span> <span class="operator">%</span> <span class="code-punctuation">mul)</span> <span class="operator">+</span> <span class="code-constant">1</span>;
+                    <span class="code-punctuation">}</span>
+                    <span class="keyword">return</span> <span class="code-punctuation">sum;</span>
+            <span class="code-punctuation">},</span> <span class="code-constant">0</span><span class="code-punctuation">);</span>
+        <span class="code-punctuation">} </span>
         </code>
     </pre>
                         <p>
@@ -369,11 +370,11 @@
                         <div class="codes scroll-bar">
 <pre>
   <code>
-       console.<span class="yellow-text">log</span>(<span class="yellow-text">numberOfOnes</span>(<span class="green-text">14</span>));   <span class="comment"> // 7</span> 
-       console.<span class="yellow-text">log</span>(<span class="yellow-text">numberOfOnes</span>(<span class="green-text">236</span>));  <span class="comment"> // 154</span>
-       console.<span class="yellow-text">log</span>(<span class="yellow-text">numberOfOnes</span>(<span class="green-text">420</span>));  <span class="comment"> // 192</span>
-       console.<span class="yellow-text">log</span>(<span class="yellow-text">numberOfOnes</span>(<span class="green-text">1337</span>)); <span class="comment"> // 812</span>
-       console.<span class="yellow-text">log</span>(<span class="yellow-text">numberOfOnes</span>(<span class="green-text">65536</span>));<span class="comment"> // 36714</span>
+       <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">14</span><span class="code-punctuation">));</span>   <span class="code-comment"> // 7</span> 
+       <span class="code-punctuation">console.</span><span class="code-function">log</span>(<span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">420</span><span class="code-punctuation">));</span>  <span class="code-comment"> // 192</span>
+       <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">1337</span><span class="code-punctuation">));</span> <span class="code-comment"> // 812</span>
+       <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">236</span><span class="code-punctuation">));</span>  <span class="code-comment"> // 154</span>
+       <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">65536</span><span class="code-punctuation">));</span><span class="code-comment"> // 36714</span>
     </code>
 </pre>
                         
