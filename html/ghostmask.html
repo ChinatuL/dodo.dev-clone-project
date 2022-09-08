@@ -9,6 +9,7 @@
             type="image/png"
             sizes="32x32"
             href="../images/favicon-monokai.png"
+            id="favicon"
         />
         <link rel="stylesheet" href="../css/ghostmask.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,72 +62,134 @@
                 </nav>
             </header>
             <div class="editor">
-                <div class="flex">
-                    <div class="ghostmask">
-                        <img
-                            src="../images/ghostmask-logo.svg"
-                            alt="ghostmask"
-                            width="100px"
-                            class="image"
-                        />
-                    </div>
+                <div class="editor-content">
+                    <div class="desktop-view">
+                        <div class="flex">
+                            <div class="ghostmask">
+                                <img
+                                    src="../images/ghostmask-logo.svg"
+                                    alt="ghostmask"
+                                    width="100px"
+                                    class="image"
+                                />
+                            </div>
 
-                    <div class="ghostmask-text">
-                        <h1>GhostMask</h1>
-                        <p>
-                            Browser extension for displaying and manipulating
-                            <br />
-                            design files directly in the browser.
-                        </p>
-                        <p>
-                            <a
-                                href="https://chrome.google.com/webstore/detail/ghostmask/hocnmmdgenefilfpnkbfopcihmekhamf"
-                                class="project-link"
-                                target="_blank"
-                                >Chrome.google.com</a
-                            >
-                        </p>
+                            <div class="ghostmask-text">
+                                <h1>GhostMask</h1>
+                                <p>
+                                    Browser extension for displaying and
+                                    manipulating
+                                    <br />
+                                    design files directly in the browser.
+                                </p>
+                                <p>
+                                    <a
+                                        href="https://chrome.google.com/webstore/detail/ghostmask/hocnmmdgenefilfpnkbfopcihmekhamf"
+                                        class="project-link"
+                                        target="_blank"
+                                        >Chrome.google.com</a
+                                    >
+                                </p>
+                            </div>
+                        </div>
                     </div>
+                    <div class="mobile-view">
+                        <div class="mobile">
+                            <div class="mobile-flex">
+                                <div class="ghostmask">
+                                    <a href="./ghostmask.html"
+                                        ><img
+                                            src="../images/ghostmask-logo.svg"
+                                            alt="ghostmask"
+                                            width="100px"
+                                            class="mobile-image"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="mobile-text">
+                                    <h3>Ghostmask</h3>
+                                    <p>
+                                        <a
+                                            href="https://chrome.google.com/webstore/detail/ghostmask/hocnmmdgenefilfpnkbfopcihmekhamf"
+                                            target="_blank"
+                                            class="mobile-link"
+                                            >Chrome.google.com</a
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="mobile-paragraph">
+                                Browser extension for displaying and <br />
+                                manipulating design files directly in <br />
+                                the browser.
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="line-break" />
+                    <footer>
+                        <ul class="social-links">
+                            <li class="social-link">
+                                <a href="https://github.com/hdodov">Github</a>
+                                <span class="bullet">&bull;</span>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://twitter.com/yandodov"
+                                    >Twitter</a
+                                >
+                                <span class="bullet">&bull;</span>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://www.linkedin.com/in/yandodov/">
+                                    LinkedIn</a
+                                >
+                                <span class="bullet">&bull;</span>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://www.instagram.com/yandodov/">
+                                    Instagram</a
+                                >
+                            </li>
+                        </ul>
+                        <div class="color-theme">
+                            <span class="color-theme-name">
+                                <span id="color-scheme-name">Monokai</span>
+                                <span class="arrow">↓</span>
+                                <select class="theme-picker" id="theme-select">
+                                    <option value="dark-plus" id="dark-plus">
+                                        Dark+
+                                    </option>
+                                    <option value="light-plus" id="light-plus">
+                                        Light+
+                                    </option>
+                                    <option value="monokai" id="monokai">
+                                        Monokai
+                                    </option>
+                                    <option
+                                        value="github-dark"
+                                        id="github-dark"
+                                    >
+                                        Github Dark
+                                    </option>
+                                    <option
+                                        value="github-light"
+                                        id="github-light"
+                                    >
+                                        Github Light
+                                    </option>
+                                    <option
+                                        value="solarized-light"
+                                        id="solarized-light"
+                                    >
+                                        Solarized Light
+                                    </option>
+                                </select>
+                            </span>
+                        </div>
+                    </footer>
                 </div>
-                <hr class="line-break" />
-                <footer>
-                    <ul class="social-links">
-                        <li class="social-link">
-                            <a href="https://github.com/hdodov">Github</a>
-                            <span class="bullet">&bull;</span>
-                        </li>
-                        <li class="social-link">
-                            <a href="https://twitter.com/yandodov">Twitter</a>
-                            <span class="bullet">&bull;</span>
-                        </li>
-                        <li class="social-link">
-                            <a href="https://www.linkedin.com/in/yandodov/">
-                                LinkedIn</a
-                            >
-                            <span class="bullet">&bull;</span>
-                        </li>
-                        <li class="social-link">
-                            <a href="https://www.instagram.com/yandodov/">
-                                Instagram</a
-                            >
-                        </li>
-                    </ul>
-                    <div class="color-theme">
-                        <span class="color-theme-name">
-                            <span>Monokai</span>
-                            <span class="arrow">↓</span>
-                            <select class="theme-picker">
-                                <option value="">Dark+</option>
-                                <option value="">Light+</option>
-                                <option value="">Monokai</option>
-                                <option value="">Github Dark</option>
-                                <option value="">Github Light</option>
-                                <option value="">Solarized Light</option>
-                            </select>
-                        </span>
-                    </div>
-                </footer>
             </div>
+            <!--mobile-view-->
         </main>
+        <script src="../index.js"></script>
     </body>
 </html>

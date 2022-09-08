@@ -17,6 +17,7 @@
             type="image/png"
             sizes="32x32"
             href="../images/favicon-monokai.png"
+            id="favicon"
         />
     </head>
     <body>
@@ -89,10 +90,11 @@
                         <div class="text-1-content">
                             <div class="text-3-content">
                                 <p>
-                                    Our Dynamic caching is a full-page caching
-                                    mechanism powered by NGINX that's enabled
-                                    and running by default on all SiteGround
-                                    servers.
+                                    "The new feature is live."<br />
+                                    "I can't see it."<br />
+                                    "Have you cleared your browser cache?"<br />
+                                    "Yes. It's still not visible."<br />
+                                    "<i>Hmmm…</i>"
                                 </p>
                             </div>
                         </div>
@@ -279,7 +281,7 @@
                             >, which determines when an entry is stale and
                             should be discarded.
                         </p>
-                        <p class="text-3">
+                        <p class="text-3 editor1-text2">
                             Images and other assets can be cached for longer
                             periods, because even if you pick a way too long
                             TTL, you can change the URL to the resource and
@@ -293,7 +295,7 @@
                     </p>
                 </div>
                 <div class="editor">
-                    <p class="text-2">
+                    <p class="text-2 editor1-text2">
                         However, if you've chosen to cache the HTML content of
                         your pages as well, you'd have to get around that too,
                         since changing the image URL means changing the HTML. So
@@ -302,9 +304,7 @@
                 </div>
                 <div class="editor-1">
                     <p class="text-7">
-                        class="text-7">https://example.com/about-us<b
-                            >?version=2</b
-                        >
+                        https://example.com/about-us<b>?version=2</b>
                     </p>
                 </div>
                 <div class="editor">
@@ -425,15 +425,38 @@
                         </ul>
                         <div class="color-theme">
                             <span class="color-theme-name">
-                                <span class="theme-name">Monokai</span>
+                                <span class="theme-name" id="color-scheme-name"
+                                    >Monokai</span
+                                >
                                 <span class="arrow">↓</span>
-                                <select class="theme-picker">
-                                    <option value="">Dark+</option>
-                                    <option value="">Light+</option>
-                                    <option value="">Monokai</option>
-                                    <option value="">Github Dark</option>
-                                    <option value="">Github Light</option>
-                                    <option value="">Solarized Light</option>
+                                <select class="theme-picker" id="theme-select">
+                                    <option value="dark-plus" id="dark-plus">
+                                        Dark+
+                                    </option>
+                                    <option value="light-plus" id="light-plus">
+                                        Light+
+                                    </option>
+                                    <option value="monokai" id="monokai">
+                                        Monokai
+                                    </option>
+                                    <option
+                                        value="github-dark"
+                                        id="github-dark"
+                                    >
+                                        Github Dark
+                                    </option>
+                                    <option
+                                        value="github-light"
+                                        id="github-light"
+                                    >
+                                        Github Light
+                                    </option>
+                                    <option
+                                        value="solarized-light"
+                                        id="solarized-light"
+                                    >
+                                        Solarized Light
+                                    </option>
                                 </select>
                             </span>
                         </div>
@@ -441,5 +464,6 @@
                 </div>
             </main>
         </div>
+        <script src="../index.js"></script>
     </body>
 </html>

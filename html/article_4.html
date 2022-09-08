@@ -1,305 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Fixing SiteGround Dynamic Cache Issues</title>
-        <link rel="stylesheet" href="../css/article_4.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="../images/favicon-monokai.png"
-        />
-    </head>
-    <body>
-        <div class="container">
-            <header>
-                <nav>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="../index.html" class="nav-link">
-                                <div>home</div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./blog.html" class="nav-link">
-                                <div>blog</div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <div class="article-tab">
-                                <span class="article-name"
-                                    >fixing-siteground-dynamic-cache-issues</span
-                                >
-                                <a href="./blog.html"
-                                    ><svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
-                                        ></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./project.html" class="nav-link">
-                                <div>projects</div>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <main>
-                <div class="editor">
-                    <div id="heading">
-                        <div>
-                            <h1>Fixing SiteGround Dynamic Cache Issues</h1>
-                            <p class="heading-text">
-                                That's what you get for not using WordPress…
-                            </p>
-                        </div>
-                        <div class="date">
-                            <p class="time">
-                                <time>12 Jan 2022 </time>
-                            </p>
-                            <p class="time1">100 lines</p>
-                        </div>
-                    </div>
-                    <div class="image-container">
-                        <img
-                            src="../images/siteground-random-characters-cover-1280x.png"
-                            alt=""
-                            class="image"
-                        />
-                    </div>
-                    <p class="text-3">
-                        If your website is hosted on SiteGround and you have
-                        strange issues, such as clicking on a button and nothing
-                        happening, it could be a cache issue. By default,
-                        SiteGround caches all requests, as they've said in
-                        <a
-                            href="https://www.siteground.com/kb/siteground-dynamic-caching-configuration/"
-                            target="_blank"
-                            class="anchortag-1"
-                            >their help center article</a
-                        >:
-                    </p>
-                    <div class="text-1-content">
-                        <div class="text-3-content">
-                            <p>
-                                "The new feature is live."<br />
-                                "I can't see it."<br />
-                                "Have you cleared your browser cache?"<br />
-                                "Yes. It's still not visible."<br />
-                                "<i>Hmmm…</i>"
-                            </p>
-                        </div>
-                    </div>
-                    <p class="text-3">
-                        The problem is that everything is cached, including the
-                        raw HTML of your pages and AJAX requests made by either
-                        your front-end, admin panel, or whatever. There also
-                        appears to be no way to simply turn off this
-                        functionality.
-                    </p>
-                    <p class="text-3">
-                        In my case, I'm using Kirby CMS and this aggressive
-                        caching means that if I change the status of a blog post
-                        from Draft to Public, it actually happens at a
-                        filesystem level, but since the HTML of the blog is
-                        cached, the article doesn't appear. Because AJAX
-                        requests are also cached, the Kirby panel front-end
-                        isn't updated as well, leaving no indication that
-                        something actually happened..
-                    </p>
-                    <p class="text-3">
-                        SiteGround has built-in exceptions for the cache. For
-                        example, if a visitor has the
-                        <span class="highlighted-text"
-                            >wordpress_logged_in_</span
-                        >
-                        or
-                        <span class="highlighted-text"
-                            >Drupal.visitor.name</span
-                        >
-                        cookie, they'll bypass the cache and see all changes
-                        they make immediately. However, if you're using
-                        something other than WordPress or Drupal, like me,
-                        you're screwed.
-                    </p>
-                    <p class="text-3">
-                        Luckily, SiteGround respects
-                        <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"
-                            target="_blank"
-                            class="anchortag-1"
-                            ><span class="highlited-text">Cache-Control</span>
-                            headers</a
-                        >
-                        that your server sends. You can turn off the cache
-                        entirely by adding the following in your main
-                        <span class="highlighted-text">index.php</span> file:
-                    </p>
-                </div>
-                <div class="editor-1">
-                    <p class="editor-1-text">
-                        <span class="editor-text2">header</span>
-                        <span class="editor-text3">(</span> 'Cache-Control:
-                        no-cache'
-                        <span class="editor-text3">);</span>
-                    </p>
-                </div>
-                <div class="editor">
-                    <p class="editor-text4">
-                        Alternatively, in case of using Kirby, you could disable
-                        it for just the panel by
-                        <a
-                            href="https://developer.chrome.com/docs/devtools/network/reference/#headers"
-                            target="_blank"
-                            class="anchortag-1"
-                            >matching the request path with regex</a
-                        >:
-                    </p>
-                </div>
-                <div class="editor-1">
-                    <div class="scroll-bar">
-                        <p class="scrollbar-text editor-1-text">
-                            <span class="text-red">if</span>
-                            <span class="editor-text3">(</span>
-                            <span class="editor-text2">preg_match</span
-                            >('~^/(panel|api)(/|\?|$)~'
-                            <span class="editor-text3">, $_SERVER[</span>
-                            'REQUEST_URI'
-                            <span class="editor-text3">])) {</span>
-                            <span class="editor-text2">header</span
-                            >('Cache-Control: no-cache'
-                            <span class="editor-text3">); </span> <br />
-                            <span class="editor-text3">}</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="editor">
-                    <p class="editor-text4">
-                        You can check if this works by
-                        <a href="" class="anchortag-1"
-                            >inspecting the response headers
-                        </a>
-                        and looking for the
-                        <span class="highlighted-text">x-proxy-cache</span>
-                        header. It tells whether the response was served by the
-                        cache or not. If you see the following, the response was
-                        not cached:
-                    </p>
-                </div>
-                <div class="editor-1">
-                    <p class="editor-text5">x-proxy-cache: MISS</p>
-                </div>
-                <div class="editor">
-                    <h2>Handling Cloudflare Cache</h2>
-                    <p class="text-3">
-                        Things can be even more confusing if you use Cloudflare,
-                        due to
-                        <br />
-                        <a
-                            href="https://developers.cloudflare.com/cache/about/default-cache-behavior"
-                            target="_blank"
-                            class="anchortag-1"
-                            >its own caching functionality</a
-                        >. It has to be enabled explicitly and only caches
-                        static files by default, so it has less unpleasant
-                        surprises. In my opinion, it doesn't make much sense to
-                        have both caches enabled, so you should probably disable
-                        one or the other. You can determine the Cloudflare cache
-                        status by looking at the
-                        <span class="highlighted-text">cf-cache-status</span>
-                        header.
-                    </p>
-                    <p class="text-3">
-                        The response is cached by Cloudflare if you have these
-                        headers:
-                    </p>
-                </div>
-                <div class="editor-1">
-                    <p class="editor-text6">cf-cache-status: HIT</p>
-                    <p class="editor-text5">x-proxy-cache: MISS</p>
-                </div>
-                <div class="editor">
-                    <p class="editor-text3">
-                        …and you get these headers if it's cached by SiteGround
-                        instead:
-                    </p>
-                </div>
-                <div class="editor-1">
-                    <p class="editor-text6">cf-cache-status: DYNAMIC</p>
-                    <p class="editor-text5">x-proxy-cache: HIT</p>
-                </div>
-                <div class="editor">
-                    <hr class="line-break" />
-                    <footer>
-                        <ul class="social-links">
-                            <li class="social-link">
-                                <a
-                                    href="https://github.com/hdodov"
-                                    target="_blank"
-                                    >Github</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://twitter.com/yandodov"
-                                    target="_blank"
-                                    >Twitter</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://www.linkedin.com/in/yandodov/"
-                                    target="_blank"
-                                >
-                                    LinkedIn</a
-                                >
-                                <span class="bullet">&bull;</span>
-                            </li>
-                            <li class="social-link">
-                                <a
-                                    href="https://www.instagram.com/yandodov/"
-                                    target="_blank"
-                                >
-                                    Instagram</a
-                                >
-                            </li>
-                        </ul>
-                        <div class="color-theme">
-                            <span class="color-theme-name">
-                                <span>Monokai</span>
-                                <span class="arrow">↓</span>
-                                <select class="theme-picker">
-                                    <option value="">Dark+</option>
-                                    <option value="">Light+</option>
-                                    <option value="">Monokai</option>
-                                    <option value="">Github Dark</option>
-                                    <option value="">Github Light</option>
-                                    <option value="">Solarized Light</option>
-                                </select>
-                            </span>
-                        </div>
-                    </footer>
-                </div>
-            </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixing SiteGround Dynamic Cache Issues</title>
+    <link rel="stylesheet" href="../css/article_4.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-monokai.png"
+      id="favicon"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link">
+                <div>home</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./blog.html" class="nav-link">
+                <div>blog</div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <div class="article-tab">
+                <span class="article-name"
+                  >fixing-siteground-dynamic-cache-issues</span
+                >
+                <a href="./blog.html"
+                  ><svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="./project.html" class="nav-link">
+                <div>projects</div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="editor">
+          <div id="heading">
+            <div>
+              <h1>Fixing SiteGround Dynamic Cache Issues</h1>
+              <p class="heading-text">
+                That's what you get for not using WordPress…
+              </p>
+            </div>
+            <div class="date">
+              <p class="time">
+                <time>12 Jan 2022 </time>
+              </p>
+              <p class="time1">100 lines</p>
+            </div>
+          </div>
+          <div class="image-container">
+            <img
+              src="../images/siteground-random-characters-cover-1280x.png"
+              alt=""
+              class="image"
+            />
+          </div>
+          <p class="text-3">
+            If your website is hosted on SiteGround and you have strange issues,
+            such as clicking on a button and nothing happening, it could be a
+            cache issue. By default, SiteGround caches all requests, as they've
+            said in
+            <a
+              href="https://www.siteground.com/kb/siteground-dynamic-caching-configuration/"
+              target="_blank"
+              class="anchortag-1"
+              >their help center article</a
+            >:
+          </p>
+          <div class="text-1-content">
+            <div class="text-3-content">
+              <p>
+                Our Dynamic caching is a full-page caching mechanism powered by
+                NGINX that's enabled and running by default on all SiteGround
+                servers.
+              </p>
+            </div>
+          </div>
+          <p class="text-3">
+            The problem is that everything is cached, including the raw HTML of
+            your pages and AJAX requests made by either your front-end, admin
+            panel, or whatever. There also appears to be no way to simply turn
+            off this functionality.
+          </p>
+          <p class="text-3">
+            In my case, I'm using Kirby CMS and this aggressive caching means
+            that if I change the status of a blog post from Draft to Public, it
+            actually happens at a filesystem level, but since the HTML of the
+            blog is cached, the article doesn't appear. Because AJAX requests
+            are also cached, the Kirby panel front-end isn't updated as well,
+            leaving no indication that something actually happened..
+          </p>
+          <p class="text-3">
+            SiteGround has built-in exceptions for the cache. For example, if a
+            visitor has the
+            <span class="highlighted-text">wordpress_logged_in_</span>
+            or
+            <span class="highlighted-text">Drupal.visitor.name</span>
+            cookie, they'll bypass the cache and see all changes they make
+            immediately. However, if you're using something other than WordPress
+            or Drupal, like me, you're screwed.
+          </p>
+          <p class="text-3 editor1-text2">
+            Luckily, SiteGround respects
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control"
+              target="_blank"
+              class="anchortag-1"
+              ><span class="highlited-text">Cache-Control</span> headers</a
+            >
+            that your server sends. You can turn off the cache entirely by
+            adding the following in your main
+            <span class="highlighted-text">index.php</span> file:
+          </p>
         </div>
-    </body>
+        <div class="editor-1">
+          <p class="editor-1-text">
+            <span class="editor-text2">header</span>
+            <span class="editor-text3">(</span> 'Cache-Control: no-cache'
+            <span class="editor-text3">);</span>
+          </p>
+        </div>
+        <div class="editor">
+          <p class="editor-text4 editor1-text2">
+            Alternatively, in case of using Kirby, you could disable it for just
+            the panel by
+            <a
+              href="https://developer.chrome.com/docs/devtools/network/reference/#headers"
+              target="_blank"
+              class="anchortag-1"
+              >matching the request path with regex</a
+            >:
+          </p>
+        </div>
+        <div class="editor-1">
+          <div class="scroll-bar">
+            <p class="scrollbar-text editor-1-text">
+              <span class="text-red">if</span>
+              <span class="editor-text3">(</span>
+              <span class="editor-text2">preg_match</span
+              >('~^/(panel|api)(/|\?|$)~'
+              <span class="editor-text3">, $_SERVER[</span>
+              'REQUEST_URI'
+              <span class="editor-text3">])) {</span>
+              <span class="editor-text2">header</span>('Cache-Control: no-cache'
+              <span class="editor-text3">); </span> <br />
+              <span class="editor-text3">}</span>
+            </p>
+          </div>
+        </div>
+        <div class="editor">
+          <p class="editor-text4 editor1-text2">
+            You can check if this works by
+            <a href="" class="anchortag-1">inspecting the response headers </a>
+            and looking for the
+            <span class="highlighted-text">x-proxy-cache</span>
+            header. It tells whether the response was served by the cache or
+            not. If you see the following, the response was not cached:
+          </p>
+        </div>
+        <div class="editor-1">
+          <p class="editor-text5">x-proxy-cache: MISS</p>
+        </div>
+        <div class="editor">
+          <h2>Handling Cloudflare Cache</h2>
+          <p class="text-3">
+            Things can be even more confusing if you use Cloudflare, due to
+            <br />
+            <a
+              href="https://developers.cloudflare.com/cache/about/default-cache-behavior"
+              target="_blank"
+              class="anchortag-1"
+              >its own caching functionality</a
+            >. It has to be enabled explicitly and only caches static files by
+            default, so it has less unpleasant surprises. In my opinion, it
+            doesn't make much sense to have both caches enabled, so you should
+            probably disable one or the other. You can determine the Cloudflare
+            cache status by looking at the
+            <span class="highlighted-text">cf-cache-status</span>
+            header.
+          </p>
+          <p class="text-3 editor1-text2">
+            The response is cached by Cloudflare if you have these headers:
+          </p>
+        </div>
+        <div class="editor-1">
+          <p class="editor-text6">cf-cache-status: HIT</p>
+          <p class="editor-text5">x-proxy-cache: MISS</p>
+        </div>
+        <div class="editor">
+          <p class="editor-text3 editor1-text2">
+            …and you get these headers if it's cached by SiteGround instead:
+          </p>
+        </div>
+        <div class="editor-1">
+          <p class="editor-text6">cf-cache-status: DYNAMIC</p>
+          <p class="editor-text5">x-proxy-cache: HIT</p>
+        </div>
+        <div class="editor">
+          <hr class="line-break" />
+          <footer>
+            <ul class="social-links">
+              <li class="social-link">
+                <a href="https://github.com/hdodov" target="_blank">Github</a>
+                <span class="bullet">&bull;</span>
+              </li>
+              <li class="social-link">
+                <a href="https://twitter.com/yandodov" target="_blank"
+                  >Twitter</a
+                >
+                <span class="bullet">&bull;</span>
+              </li>
+              <li class="social-link">
+                <a href="https://www.linkedin.com/in/yandodov/" target="_blank">
+                  LinkedIn</a
+                >
+                <span class="bullet">&bull;</span>
+              </li>
+              <li class="social-link">
+                <a href="https://www.instagram.com/yandodov/" target="_blank">
+                  Instagram</a
+                >
+              </li>
+            </ul>
+            <div class="color-theme">
+              <span class="color-theme-name">
+                <span id="color-scheme-name">Monokai</span>
+                <span class="arrow">↓</span>
+                <select class="theme-picker" id="theme-select">
+                  <option value="dark-plus" id="dark-plus">
+                    Dark+
+                  </option>
+                  <option value="light-plus" id="light-plus">
+                    Light+
+                  </option>
+                  <option value="monokai" id="monokai">
+                    Monokai
+                  </option>
+                  <option value="github-dark" id="github-dark">
+                    Github Dark
+                  </option>
+                  <option value="github-light" id="github-light">
+                    Github Light
+                  </option>
+                  <option value="solarized-light" id="solarized-light">
+                    Solarized Light
+                  </option>
+                </select>
+              </span>
+            </div>
+          </footer>
+        </div>
+      </main>
+    </div>
+    <script src="../index.js"></script>
+  </body>
 </html>
