@@ -15,11 +15,20 @@
     --accent: #a6e22e;
     --accent-hover: #4e94ce;
     --anchortag-orange-color: #fd971f;
+    --color-focus: #75715e;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
+    --color-blockquote: var(--line-break);
+    --color-blockquote-symbol: var(--line-break);
+    --code-background-color: #22231e;
+    --code-color: var(--secondary-text);
+    --code-function-color: #66d9ef;
+    --code-punctuation: #ffffff;
+    --code-string: #e6db74;
+    --code-keyword: #f92672;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -40,11 +49,20 @@
     --accent: #4ec9b0;
     --accent-hover: #4e94ce;
     --anchortag-orange-color: #ce9178;
+    --color-focus: #007fd4;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
+    --color-blockquote: var(--body-text);
+    --color-blockquote-symbol: var(--line-break);
+    --code-background-color: #1c1c1c;
+    --code-color: var(--secondary-text);
+    --code-function-color: #dcdcaa;
+    --code-punctuation: #d4d4d4;
+    --code-string: #ce9178;
+    --code-keyword: #569cd6;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -64,11 +82,20 @@
     --accent: #267f99;
     --accent-hover: #0000ff;
     --anchortag-orange-color: #800000;
+    --color-focus: #0090f1;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
+    --color-blockquote: var(--body-text);
+    --color-blockquote-symbol: #0451a5;
+    --code-background-color: #fbfbfb;
+    --code-color: var(--secondary-text);
+    --code-function-color: #795e26;
+    --code-punctuation: #000000;
+    --code-string: #a31515;
+    --code-keyword: #0000ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -87,12 +114,21 @@
     --line-break: #6a737d;
     --accent: #96d0ff;
     --accent-hover: #4e94ce;
+    --color-focus: #005cc5;
     --anchortag-orange-color: #9ecbff;
     --color-scrollbar-border: #1b1f23;
     --color-scrollbar-thumb: #6a737d33;
     --color-scrollbar-thumb-hover: #6a737d44;
     --color-scrollbar-thumb-active: #6a737d88;
     --color-scrollbar-shadow: #00000088;
+    --color-blockquote: #85e89d;
+    --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #202428;
+    --code-color: var(--secondary-text);
+    --code-function-color: #b392f0;
+    --code-punctuation: #e1e4e8;
+    --code-string: #9ecbff;
+    --code-keyword: #f97583;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -113,11 +149,20 @@
     --accent: #032f62;
     --accent-hover: #0000ff;
     --anchortag-orange-color: #032f62;
+    --color-focus: #2188ff;
     --color-scrollbar-border: #ffffff;
     --color-scrollbar-thumb: #959da533;
     --color-scrollbar-thumb-hover: #959da544;
     --color-scrollbar-thumb-active: #959da588;
     --color-scrollbar-shadow: #6a737d33;
+    --color-blockquote: #22863a;
+    --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #fcfcfc;
+    --code-color: var(--secondary-text);
+    --code-function-color: #6f42c1;
+    --code-punctuation: var(--body-text);
+    --code-string: #032f62;
+    --code-keyword: #d73a49;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -138,11 +183,20 @@
     --accent: #268bd2;
     --accent-hover: #0000ff;
     --anchortag-orange-color: #2aa198;
+    --color-focus: #d3af86;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
+    --color-blockquote: #859900;
+    --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #f9f1dc;
+    --code-color: var(--secondary-text);
+    --code-function-color: #268bd2;
+    --code-punctuation: #333333;
+    --code-string: #2aa198;
+    --code-keyword: #268bd2;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -303,27 +357,34 @@ h1 {
     width: 1ch;
     height: 1.5rem;
     margin-right: 2ch;
+    color: var(--color-blockquote-symbol);
+}
+
+.text-3-content {
+    color: var(--color-blockquote);
 }
 
 .highlighted-text {
     color: var(--anchortag-orange-color);
 }
 .editor-1 {
-    background-color: var(--example-text);
+    background-color: var(--code-background-color);
+    color: var(--secondary-text);
     padding: 1.3rem 4rem;
 }
 .editor-text2 {
-    color: var(--editor-text-2);
+    color: var(--code-function-color);
 }
 .editor-text3 {
-    color: var(--body-text);
+    color: var(--code-punctuation);
 }
 .editor-1-text {
-    color: var(--editor-1-text);
+    color: var(--code-string);
 }
 .editor-text4 {
     color: var(--body-text);
 }
+
 .scroll-bar {
     border-left: 1px solid var(--scrollbar-border);
     border-right: 1px solid var(--scrollbar-border);
@@ -340,7 +401,7 @@ h1 {
     width: 650px;
 }
 .text-red {
-    color: var(--text-red);
+    color: var(--code-keyword);
 }
 .editor-text5 {
     color: var(--text-light-gray);
@@ -407,6 +468,10 @@ footer {
     color: var(--body-text);
 }
 
+.color-theme-name:focus-within {
+    outline: 1px solid var(--color-focus) !important;
+}
+
 .arrow {
     font-size: 1rem;
     color: var(--accent);
@@ -438,8 +503,8 @@ footer {
 }
 
 .theme-picker > option {
-    background-color: #1e1f1c;
-    color: #cfcfc2;
+    background-color: var(--background-color);
+    color: var(--secondary-text);
 }
 
 /* MEDIA QUERIES */
