@@ -235,6 +235,7 @@ main {
 .editor {
     padding: 2rem 8ch 5rem;
     background-color: var(--editor-background);
+    line-height: 1.5;
 }
 
 .header {
@@ -372,7 +373,6 @@ article {
 footer {
     display: flex;
     justify-content: space-between;
-    min-height: 100vh;
 }
 
 .social-links {
@@ -440,6 +440,14 @@ footer {
     color: var(--secondary-text);
 }
 
+.lines {
+    position: absolute;
+    top: 8.5rem;
+    text-align: right;
+    padding: 0 1.5rem;
+    color: var(--editor-line-number);
+}
+
 @media (max-width: 599px) {
     body::-webkit-scrollbar {
         display: none;
@@ -450,6 +458,7 @@ footer {
     }
     .editor-content {
         max-width: 40ch;
+        line-height: 1.5rem;
     }
 
     .container {
@@ -480,6 +489,7 @@ footer {
     .hidden-header-paragraph {
         display: block;
         opacity: 90%;
+        line-height: 1.5rem;
     }
 
     .header-text h1 {
@@ -489,11 +499,6 @@ footer {
     .occupation {
         max-width: 20ch;
     }
-
-    p {
-        line-height: 1.4;
-    }
-
     p,
     .more-articles,
     .project-link-mobile,
@@ -508,7 +513,7 @@ footer {
     .article-img {
         width: 18.6rem;
         max-width: 100%;
-        height: 10.5rem;
+        height: 10rem;
         object-fit: contain;
         background-color: var(--background-color);
     }
@@ -519,6 +524,7 @@ footer {
 
     .date-published {
         font-size: 0.71rem;
+        padding-bottom: 0.5rem;
     }
 
     .project-img {
@@ -541,10 +547,6 @@ footer {
     .mobile-title {
         display: block;
         padding-bottom: 1rem;
-    }
-
-    .mobile-title h3 {
-        line-height: 0.8;
     }
 
     .project-link-mobile {
@@ -575,5 +577,13 @@ footer {
 
     .bullet {
         display: none;
+    }
+
+    .lines {
+        position: absolute;
+        top: 4.3rem;
+        text-align: right;
+        padding: 0 1.5rem;
+        color: var(--editor-line-number);
     }
 }

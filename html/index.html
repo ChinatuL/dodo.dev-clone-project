@@ -20,7 +20,7 @@
             id="favicon"
         />
     </head>
-    <body>
+    <body onload="countLines()">
         <div class="container">
             <header>
                 <nav>
@@ -45,7 +45,11 @@
             </header>
             <main>
                 <div class="editor">
-                    <div class="editor-content">
+                    <div
+                        class="editor-content"
+                        id="editor-content"
+                        style="line-height: 24px"
+                    >
                         <header>
                             <div class="header">
                                 <img
@@ -343,8 +347,29 @@
                         </footer>
                     </div>
                 </div>
+                <div class="lines" id="lines"></div>
             </main>
         </div>
         <script src="../index.js"></script>
+        <script>
+            function countLines() {
+                var el = document.getElementById("editor-content");
+                var editorHeight = el.offsetHeight + 48;
+                var lineHeight = parseInt(el.style.lineHeight);
+                var lines = parseInt(editorHeight / lineHeight);
+                let lineNumber = 0;
+                let i = 1;
+                while (i < lines) {
+                    let newDiv = document.createElement("div");
+                    newDiv.setAttribute("class", "lines-1");
+                    let divIncrement = document
+                        .getElementById("lines")
+                        .appendChild(newDiv);
+                    divIncrement.innerHTML = i;
+                    divIncrement.style.left = 0;
+                    i++;
+                }
+            }
+        </script>
     </body>
 </html>
