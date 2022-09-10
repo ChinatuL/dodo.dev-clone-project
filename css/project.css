@@ -241,6 +241,7 @@ main {
     background-color: var(--editor-background);
     min-height: 100vh;
     margin: auto;
+    padding-bottom: 4rem;
 }
 .first-paragraph {
     margin-left: 3rem;
@@ -313,7 +314,7 @@ hr {
 .line-break {
     display: flex;
     height: 1.5rem;
-    margin: 1.5rem 0;
+    margin: 1.5rem;
     padding-left: 5.3rem;
     padding-right: 4.4rem;
     border-width: 0px;
@@ -335,7 +336,6 @@ hr {
 footer {
     display: flex;
     justify-content: space-between;
-    min-height: 100vh;
     padding-left: 5.3rem;
     padding-right: 4.4rem;
 }
@@ -362,6 +362,7 @@ footer {
 .color-theme-name {
     position: relative;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .arrow {
@@ -403,6 +404,14 @@ footer {
     color: var(--secondary-text);
 }
 
+.lines {
+    position: absolute;
+    top: 8.5rem;
+    text-align: right;
+    padding: 0 1.5rem;
+    color: var(--editor-line-number);
+}
+
 .mobile-view {
     display: none;
 }
@@ -419,6 +428,10 @@ footer {
     }
     body::-webkit-scrollbar {
         display: none;
+    }
+
+    .editor {
+        padding-left: 0.5rem;
     }
     .editor-content {
         max-width: 40ch;
@@ -477,6 +490,7 @@ footer {
     .second-paragraph {
         margin-left: 1.5rem;
         padding-left: 20px;
+        color: var(--secondary-text);
     }
 
     .mobile-link {
@@ -494,7 +508,6 @@ footer {
     footer {
         min-height: 0;
         padding-left: 4ch;
-        padding-bottom: 5rem;
         flex-direction: column;
         font-size: 14px;
     }
@@ -506,5 +519,16 @@ footer {
 
     .bullet {
         display: none;
+    }
+
+    .lines {
+        top: 4rem;
+        text-align: center;
+        padding-right: 1rem;
+        padding-left: 0.5rem;
+    }
+
+    .line-break {
+        margin: 1rem 0 1.5rem;
     }
 }

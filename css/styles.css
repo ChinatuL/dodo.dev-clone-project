@@ -400,6 +400,7 @@ footer {
 .color-theme-name {
     position: relative;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .color-theme-name:focus-within {
