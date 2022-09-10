@@ -369,6 +369,7 @@ footer ul a {
 
 footer ul span {
     padding-right: 0.5rem;
+    color: var(--secondary-text);
 }
 
 footer ul a:hover {

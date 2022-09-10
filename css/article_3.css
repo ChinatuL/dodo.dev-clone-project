@@ -467,6 +467,10 @@ footer {
     color: var(--body-text);
 }
 
+.bullet {
+    color: var(--secondary-text);
+}
+
 .color-theme-name {
     position: relative;
     cursor: pointer;

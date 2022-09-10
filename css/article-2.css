@@ -400,6 +400,10 @@ footer {
     color: var(--accent-hover);
 }
 
+.bullet {
+    color: var(--secondary-text);
+}
+
 .color-theme-name {
     position: relative;
     cursor: pointer;
