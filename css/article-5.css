@@ -269,7 +269,7 @@ body::-webkit-scrollbar {
 
 img {
     max-width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .article-content p {
@@ -312,6 +312,7 @@ footer {
 .color-theme-name {
     position: relative;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .color-theme-name:focus-within {
@@ -353,13 +354,20 @@ footer {
     color: #cfcfc2;
 }
 
+.lines {
+    position: absolute;
+    top: 8.5rem;
+    text-align: right;
+    padding: 0 1.5rem;
+    color: var(--editor-line-number);
+}
+
 @media (max-width: 599px) {
     body::-webkit-scrollbar {
         display: none;
     }
     .editor {
-        padding-left: 5ch;
-        padding-right: 2ch;
+        padding: 2rem 5ch 5rem;
     }
     .editor-content {
         max-width: 40ch;
@@ -436,5 +444,13 @@ footer {
 
     .bullet {
         display: none;
+    }
+
+    .lines {
+        position: absolute;
+        top: 4.1rem;
+        text-align: right;
+        padding-left: 1rem;
+        color: var(--editor-line-number);
     }
 }
