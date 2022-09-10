@@ -13,6 +13,7 @@
     --line-break: #88846f;
     --accent: #a6e22e;
     --accent-hover: #4e94ce;
+    --color-focus: #75715e;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
@@ -37,6 +38,7 @@
     --line-break: #6a9955;
     --accent: #4ec9b0;
     --accent-hover: #4e94ce;
+    --color-focus: #007fd4;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
@@ -60,6 +62,7 @@
     --line-break: #008000;
     --accent: #267f99;
     --accent-hover: #0000ff;
+    --color-focus: #0090f1;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
@@ -83,6 +86,7 @@
     --line-break: #6a737d;
     --accent: #96d0ff;
     --accent-hover: #4e94ce;
+    --color-focus: #005cc5;
     --color-scrollbar-border: #1b1f23;
     --color-scrollbar-thumb: #6a737d33;
     --color-scrollbar-thumb-hover: #6a737d44;
@@ -107,6 +111,7 @@
     --line-break: #6a737d;
     --accent: #032f62;
     --accent-hover: #0000ff;
+    --color-focus: #2188ff;
     --color-scrollbar-border: #ffffff;
     --color-scrollbar-thumb: #959da533;
     --color-scrollbar-thumb-hover: #959da544;
@@ -131,6 +136,7 @@
     --line-break: #93a1a1;
     --accent: #268bd2;
     --accent-hover: #0000ff;
+    --color-focus: #d3af86;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
@@ -338,6 +344,10 @@ footer {
     white-space: nowrap;
 }
 
+.color-theme-name:focus-within {
+    outline: 1px solid var(--color-focus);
+}
+
 .arrow {
     font-size: 1rem;
     color: var(--accent);
@@ -371,6 +381,14 @@ footer {
 .theme-picker > option {
     background-color: #1e1f1c;
     color: #cfcfc2;
+}
+
+.lines {
+    position: absolute;
+    top: 8.3rem;
+    text-align: right;
+    padding: 0 1.5rem;
+    color: var(--editor-line-number);
 }
 
 .mobile-view {
@@ -447,7 +465,7 @@ footer {
         display: flex;
         flex-direction: row;
         padding-left: 20px;
-        padding-top: 20px;
+        padding-top: 2rem;
     }
     .mobile-image {
         padding-left: 25px;
@@ -485,17 +503,21 @@ footer {
     footer {
         min-height: 0;
         padding-left: 4ch;
-        padding-bottom: 5rem;
+        padding-bottom: 2rem;
         flex-direction: column;
         font-size: 14px;
     }
     .social-links {
         display: flex;
         flex-direction: column;
-        padding-bottom: 1.5rem;
+        padding-bottom: 1rem;
     }
 
     .bullet {
         display: none;
+    }
+
+    .lines {
+        top: 3.9rem;
     }
 }
