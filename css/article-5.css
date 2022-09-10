@@ -270,6 +270,7 @@ body::-webkit-scrollbar {
 img {
     max-width: 100%;
     margin-bottom: 1.5rem;
+    cursor: zoom-in;
 }
 
 .article-content p {
