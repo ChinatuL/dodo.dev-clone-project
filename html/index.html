@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="refresh" content="300" />
         <title>Hristiyan Dodov: Full-Stack Developer at Oblik Studio</title>
         <link rel="stylesheet" href="../css/styles.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,6 +20,7 @@
             id="favicon"
         />
     </head>
+
     <body onload="countLines()">
         <div class="container">
             <header>
@@ -352,8 +352,27 @@
             </main>
         </div>
         <script src="../index.js"></script>
+
         <script>
+            function scrollToPosition(height) {
+                console.log(height);
+                window.scrollTo({
+                    top: height,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            }
+
+            function handleScroll(e) {
+                e.preventDefault();
+                var j = Number(e.target.textContent);
+                var k = j * 24 + 135;
+                var d = 8 * 24;
+                scrollToPosition(k - d);
+            }
+
             function countLines() {
+                document.getElementById("lines").innerHTML = "";
                 var el = document.getElementById("editor-content");
                 var editorHeight = el.offsetHeight + 48;
                 var lineHeight = parseInt(el.style.lineHeight);
@@ -363,6 +382,7 @@
                 while (i < lines) {
                     let newDiv = document.createElement("div");
                     newDiv.setAttribute("class", "lines-1");
+                    newDiv.addEventListener("click", handleScroll);
                     let divIncrement = document
                         .getElementById("lines")
                         .appendChild(newDiv);
@@ -371,6 +391,7 @@
                     i++;
                 }
             }
+            window.addEventListener("resize", countLines);
         </script>
     </body>
 </html>
