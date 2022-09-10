@@ -249,7 +249,7 @@ nav {
 }
 
 .main-content {
-    padding: 0 65px;
+    padding: 0 55px;
     background-color: var(--editor-background);
 }
 
@@ -259,6 +259,7 @@ nav {
     text-align: left;
     color: var(--body-text);
     max-width: 81ch;
+    padding-bottom: 5rem;
 }
 /* Header */
 
@@ -273,7 +274,7 @@ h1 {
 
 header p {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 1.5rem;
     color: var(--secondary-text);
 }
 
@@ -298,7 +299,7 @@ header {
 /* Articles */
 .article {
     display: flex;
-    margin: 0 10px 18px 0;
+    margin-bottom: 1.5rem;
 }
 
 .article-div {
@@ -331,7 +332,7 @@ header {
 
 hr {
     border: none;
-    margin: 40px 0 20px 0;
+    margin: 20px 0 20px 0;
     overflow: hidden;
     white-space: nowrap;
     color: rgb(136, 132, 111);
@@ -349,7 +350,6 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 200px;
 }
 
 footer ul {
@@ -565,6 +565,14 @@ code {
 .theme-picker > option {
     background-color: var(--background-color);
     color: var(--secondary-text);
+}
+
+.lines {
+    position: absolute;
+    top: 8rem;
+    text-align: center;
+    padding: 0 1.5rem;
+    color: var(--editor-line-number);
 }
 
 /* blog.html media query */
