@@ -1,388 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Don't Build Your Own Framework</title>
-    <link rel="stylesheet" href="../css/new-article.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../images/favicon-monokai.png"
-      id="favicon"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <nav>
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="./index.html" class="nav-link">
-                <div>home</div>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="./blog.html" class="nav-link">
-                <div>blog</div>
-              </a>
-            </li>
-            <li class="nav-item">
-              <div class="article-tab">
-                <span class="article-name"
-                  >debugging-php-502-and-504-errors</span
-                >
-                <a href="./blog.html"
-                  ><svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a href="./project.html" class="nav-link">
-                <div>projects</div>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main>
-        <div class="editor">
-          <div id="heading">
-            <div>
-              <h1>Debugging PHP 502 and 504 Errors</h1>
-              <p class="heading-text">
-                Not all issues come with a wall of red text.
-              </p>
-            </div>
-            <div class="date">
-              <p class="time">
-                <time>7 Sep 2022 </time>
-              </p>
-              <p class="time1">182 lines</p>
-            </div>
-          </div>
-          <div class="image-container">
-            <img
-              src="../images/siteground-random-characters-cover-1280x.png"
-              alt=""
-              class="image"
-            />
-          </div>
-          <p class="text-3">
-            I was working on a PHP site that suddenly started returning 502 Bad
-            Gateway and 504 Gateway Timeout errors after an update that worked
-            fine locally and on the staging server.
-          </p>
-          <p class="text-3">
-            We were using
-            <a href="https://getkirby.com/" class="anchortag-1">Kirby</a>, a
-            file-based CMS running on
-            <a href="https://www.php.net/" class="anchortag-1">PHP</a>, behind
-            an
-            <a href="https://www.nginx.com/" class="anchortag-1">nginx</a>
-            reverse proxy, over
-            <a href="https://aws.amazon.com/efs/" class="anchortag-1"
-              >Amazon EFS</a
-            >, a network file system which makes server redundancy possible.
-          </p>
-          <p class="text-3">
-            At first, I thought the issue was in EFS, because the errors were
-            accompanied by strange charts in the file system dashboard:
-          </p>
-          <figure class="image-container">
-            <img src="../images/cdn-diagram-1280x.png" alt="" class="image" />
-            <figcaption>
-              Unexpected spikes in the Amazon EFS dashboard
-            </figcaption>
-          </figure>
-          <div>
-            <p class="text-3">
-              I thought that maybe we've reached the
-              <a
-                href="https://docs.aws.amazon.com/efs/latest/ug/performance.html"
-                class="anchortag-1"
-                >throughput limit</a
-              >
-              of the file system and files came in way too slow, causing
-              timeouts. However, this didn't make much sense because as it can
-              bee seen on the screenshot above, the throughput utilization had
-              barely reached ~25% at its peak.
-            </p>
-            <p class="text-3">
-              Crossing off throughput as the issue, I wanted to see what was
-              causing the unexpected spikes in EFS. Maybe there was a way to get
-              something like a log file with all reads and writes to the
-              filesystem, similar to the access.log file that nginx outputs. I
-              <a
-                href="https://serverfault.com/questions/1107170/debugging-reads-and-writes-of-an-nfs-amazon-efs"
-                class="anchortag-1"
-                >asked on Server Fault</a
-              >, but didn't get an answer, so I hacked my own logging
-              functionality in the core Kirby helper class for reading and
-              writing files.
-            </p>
-            <p class="text-3">
-              It turned out that we were reading about
-              <strong>20 megabytes</strong> of data on
-              <strong>each request</strong>. This was obviously very stupid and
-              inefficient, but also extremely slow. Before the breaking update,
-              we were reading around 5MB on each request, which was still a lot,
-              but apparently not high enough to cause an issue.
-            </p>
-            <p class="text-3">
-              So what <em>was </em> the issue? The increased data read could
-              explain the EFS spikes, but at the same time, we didn't go beyond
-              any limits.
-            </p>
-          </div>
-          <div>
-            <h2>Searching for information</h2>
-            <p class="text-2">
-              Apparently, I was missing something, so I logged on one of the
-              machines and started searching for information.
-            </p>
-            <p class="text-3 text-3-padding">
-              In <span class="highlighted-text">/var/log/php-fpm.log</span>, I
-              found the following warnings:
-            </p>
-          </div>
-          <div class="editor-1">
-            <div class="scroll-bar">
-              <p class="scrollbar-text">
-                WARNING: [pool www] seems busy (you may need to increase
-                pm.start_servers, or pm.min/max_spare_servers), spawning 8
-                children, there are 0 idle, and 16 total children WARNING: [pool
-                www] seems busy (you may need to increase pm.start_servers, or
-                pm.min/max_spare_servers), spawning 16 children,<br />
-                there are 0 idle, and 21 total children WARNING: [pool www]
-                seems busy (you may need to increase pm.start_servers, or
-                pm.min/max_spare_servers), spawning 32 children, there are 1
-                idle, and 26 total children WARNING: [pool www] seems busy (you
-                may need to increase pm.start_servers, or
-                pm.min/max_spare_servers), spawning 8 children, there are 0
-                idle, and 37 total children WARNING: [pool www] seems busy (you
-                may need to increase pm.start_servers, or
-                pm.min/max_spare_servers), spawning 16 children, there are 0
-                idle, and 42 total children WARNING: [pool www] seems busy (you
-                may need to increase pm.start_servers, or
-                pm.min/max_spare_servers), spawning 32 children, there are 0
-                idle, and 47 total children WARNING: [pool www] server reached
-                pm.max_children setting (50), consider raising it
-              </p>
-            </div>
-          </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Debugging PHP 502 and 504 Errors</title>
+        <link rel="stylesheet" href="../css/new-article.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../images/favicon-monokai.png"
+            id="favicon"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body onload="countLines()">
+        <div class="container">
+            <header>
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <div>home</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./blog.html" class="nav-link">
+                                <div>blog</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="article-tab">
+                                <span class="article-name"
+                                    >debugging-php-502-and-504-errors</span
+                                >
+                                <a href="./blog.html"
+                                    ><svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./project.html" class="nav-link">
+                                <div>projects</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <div class="editor-content" id="editor-content" style="line-height: 24px;">
+                    <div class="editor">
+                    <div id="heading">
+                        <div>
+                            <h1>Debugging PHP 502 and 504 Errors</h1>
+                            <p class="heading-text">
+                                Not all issues come with a wall of red text.
+                            </p>
+                        </div>
+                        <div class="date">
+                            <p class="time">
+                                <time>7 Sep 2022 </time>
+                            </p>
+                            <p class="time1" id="line-number">182 lines</p>
+                        </div>
+                    </div>
+                    <div class="image-container">
+                        <img
+                            src="../images/php-errors-cover-1280x.png"
+                            alt=""
+                            class="image"
+                        />
+                    </div>
+                    <p class="text-3">
+                        I was working on a PHP site that suddenly started
+                        returning 502 Bad Gateway and 504 Gateway Timeout errors
+                        after an update that worked fine locally and on the
+                        staging server.
+                    </p>
+                    <p class="text-3">
+                        We were using
+                        <a href="https://getkirby.com/" class="anchortag-1"
+                            >Kirby</a
+                        >, a file-based CMS running on
+                        <a href="https://www.php.net/" class="anchortag-1"
+                            >PHP</a
+                        >, behind an
+                        <a href="https://www.nginx.com/" class="anchortag-1"
+                            >nginx</a
+                        >
+                        reverse proxy, over
+                        <a
+                            href="https://aws.amazon.com/efs/"
+                            class="anchortag-1"
+                            >Amazon EFS</a
+                        >, a network file system which makes server redundancy
+                        possible.
+                    </p>
+                    <p class="text-3">
+                        At first, I thought the issue was in EFS, because the
+                        errors were accompanied by strange charts in the file
+                        system dashboard:
+                    </p>
+                    <figure class="image-container">
+                        <img
+                            src="../images/aws-efs-metrics-640x.png"
+                            alt=""
+                            class="image"
+                        />
+                        <figcaption>
+                            Unexpected spikes in the Amazon EFS dashboard
+                        </figcaption>
+                    </figure>
+                    <div>
+                        <p class="text-3">
+                            I thought that maybe we've reached the
+                            <a
+                                href="https://docs.aws.amazon.com/efs/latest/ug/performance.html"
+                                class="anchortag-1"
+                                >throughput limit</a
+                            >
+                            of the file system and files came in way too slow,
+                            causing timeouts. However, this didn't make much
+                            sense because as it can bee seen on the screenshot
+                            above, the throughput utilization had barely reached
+                            ~25% at its peak.
+                        </p>
+                        <p class="text-3">
+                            Crossing off throughput as the issue, I wanted to
+                            see what was causing the unexpected spikes in EFS.
+                            Maybe there was a way to get something like a log
+                            file with all reads and writes to the filesystem,
+                            similar to the access.log file that nginx outputs. I
+                            <a
+                                href="https://serverfault.com/questions/1107170/debugging-reads-and-writes-of-an-nfs-amazon-efs"
+                                class="anchortag-1"
+                                >asked on Server Fault</a
+                            >, but didn't get an answer, so I hacked my own
+                            logging functionality in the core Kirby helper class
+                            for reading and writing files.
+                        </p>
+                        <p class="text-3">
+                            It turned out that we were reading about
+                            <strong>20 megabytes</strong> of data on
+                            <strong>each request</strong>. This was obviously
+                            very stupid and inefficient, but also extremely
+                            slow. Before the breaking update, we were reading
+                            around 5MB on each request, which was still a lot,
+                            but apparently not high enough to cause an issue.
+                        </p>
+                        <p class="text-3">
+                            So what <em>was </em> the issue? The increased data
+                            read could explain the EFS spikes, but at the same
+                            time, we didn't go beyond any limits.
+                        </p>
+                    </div>
+                    <div>
+                        <h2>Searching for information</h2>
+                        <p class="text-2">
+                            Apparently, I was missing something, so I logged on
+                            one of the machines and started searching for
+                            information.
+                        </p>
+                        <p class="text-3 text-3-padding">
+                            In
+                            <span class="highlighted-text"
+                                >/var/log/php-fpm.log</span
+                            >, I found the following warnings:
+                        </p>
+                    </div>
+                    </div>
+                    <div class="editor-1 warning-code">
+                            <div class="scroll-bar">
+                                <p class="scrollbar-text">
+                                    <pre>
+                                        <code class="warning-text">
+    WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 8 children, there are 0 idle, and 16 total children
+    WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 16 children, there are 0 idle, and 21 total children 
+    WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 32 children, there are 1 idle, and 26 total children 
+    WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 8 children, there are 0 idle, and 37 total children 
+    WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 16 children, there are 0 idle, and 42 total children 
+    WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 32 children, there are 0 idle, and 47 total children 
+    WARNING: [pool www] server reached pm.max_children setting (50), consider raising it
+                                    </code>
+                                    </pre>
+                                </p>
+                            </div>
+                    </div>
+                    <div class="editor">
+                        <p class="editor-text4 editor1-text2">
+                            The
+                            <a
+                                href="https://www.php.net/manual/en/install.fpm.configuration.php#pm.max-children"
+                                class="anchortag-1"
+                                >PHP docs about
+                                <span class="highlighted-text"
+                                    >max_children</span
+                                ></a
+                            >
+                            state:
+                        </p>
+                        <div class="text-1-content">
+                            <div class="text-3-content">
+                                <p>
+                                    This option sets the limit on the number of
+                                    simultaneous requests that will be served.
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-2">
+                            So it was becoming apparent where the bottleneck lied.
+                            We weren't hitting the EFS limits, but the compute
+                            limits of our servers.
+                        </p>
+                        <p class="text-3">
+                            In
+                            <span class="highlighted-text"
+                                >/var/log/nginx/error.log</span
+                            >, I found the following error:
+                        </p>
+                    </div>
+                    <div class="editor-1">
+                        <div class="scroll-bar">
+                            <p class="scrollbar-text">
+                                <pre>
+                                    <code class="warning-text">
+    [error] 2887#2887: *11071 connect() to unix:/run/php-fpm/www.sock failed (11: Resource temporarily unavailable) while connecting to upstream
+                                    </code>
+                                </pre>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="editor editor-top">
+                        <p class="editor-text4 editor1-text2">
+                            …which could explain the 502 Bad Gateway errors — nginx
+                            was not being able to connect with PHP. There were also
+                            these errors:
+                        </p>
+                    </div>
+                    <div class="editor-1">
+                        <div class="scroll-bar">
+                            <p class="scrollbar-text">
+                                <pre>
+                                    <code class="warning-text">
+    [error] 2887#2887: *10898 upstream timed out (110: Connection timed out) while reading response header from upstream
+                                    </code>
+                                </pre>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="editor editor-top">
+                        <p class="editor-text4 editor1-text2">
+                            …which could explain the 504 Gateway Timeout errors — nginx could successfully connect, but then PHP took way too long to respond.
+                        </p>
+                        <h2>Doing the math</h2>
+                        <p class="text-2">
+                            Once I looked closer at the Monitoring tab in
+                            <a
+                                href="https://aws.amazon.com/elasticbeanstalk/"
+                                class="anchortag-1"
+                                >Elastic Beanstalk</a
+                            >, things started to make sense. On average, we were
+                            getting around 2.5 seconds response time, while
+                            receiving about 2 requests per second. We were load
+                            balancing two servers, so each one was handling about 1
+                            request per second. This meant:
+                        </p>
+                    </div>
+                    <div class="editor-1">
+                        <div class="editor-text6 text-20 text-60">
+                            <p class="text-20">2 * 60 = 120 requests per minute</p>
+                            <p class="text-60">120 / 2 = 60 requests per server</p>
+                            <p class="text-61">
+                                60 / 2.5 = 24 responses per minute
+                            </p>
+                            <p class="text-60">
+                                60 / 24 = 2.5 request-response ratio
+                            </p>
+                        </div>
+                    </div>
+                    <div class="editor">
+                        <p class="text-2">
+                            This 2.5 request-response ratio means that by the time 1
+                            response is served, 2.5 new requests have come in. PHP
+                            responds to that by spawning more processes to handle
+                            the overwhelming load, until it reaches the maximum
+                            allowed processes, which in my case was 50. After that,
+                            it just refuses to accept any more requests and that's
+                            when the errors start.
+                        </p>
+                        <h2>What about auto-scaling?</h2>
+                        <p class="text-2 text-2-paddingbottom">
+                            Since we were using Elastic Beanstalk, it should have
+                            spawned more servers to handle the load, right? If we
+                            had 6 servers, rather than 2, we would've had:
+                        </p>
+                    </div>
+                    <div class="editor-1">
+                        <div class="editor-text6 text-20 text-60">
+                            <p class="text-20">2 * 60 = 120 requests per minute</p>
+                            <p class="text-60">120 / 6 = 20 requests per server</p>
+                            <p class="text-61">
+                                60 / 2.5 = 24 responses per minute
+                            </p>
+                            <p class="text-60">
+                                20 / 24 = 0.83 request-response ratio
+                            </p>
+                        </div>
+                    </div>
+                    <div class="editor last-editor">
+                        <p class="text-3">
+                            With a request-response ratio of less than 1, we'd be
+                            receiving requests at a lower rate than our response
+                            rate and everything would've been fine. So why didn't EB
+                            spawn more servers?
+                        </p>
+                        <p class="text-3">
+                            Well, from the perspective of Elastic Beanstalk,
+                            everything was going great. It had no reason to spawn
+                            any more servers, because our scaling metric was CPU
+                            utilization, and there was not a single threshold
+                            crossed. CPU load was indeed higher than usual, but not
+                            enough to be treated as a breach. The
+                            <span class="highlighted-text">max_children</span>
+                            setting was preventing that from happening, because PHP
+                            couldn't spawn enough processes to get the CPUs hot
+                            enough.
+                        </p>
+                        <h2>Solution</h2>
+                        <p class="text-2">
+                            At first, we didn't know what was happening, so we
+                            manually spawned more servers in Elastic Beanstalk with
+                            the hopes of fixing the problem. It worked out, for
+                            reasons I've already explained. But after a while, the
+                            errors started popping up again, so we rolled back the
+                            breaking changes.
+                        </p>
+                        <p class="text-3">
+                            After discovering the 20MB per request thing and fixing
+                            it, our response times dropped from 2.5 seconds to
+                            around 0.5, so we removed the extra servers and
+                            everything was back to normal.
+                        </p>
+                        <h2>Conclusion</h2>
+                        <p class="text-2">
+                            Bottlenecks are a lot harder to debug, compared to
+                            regular errors, because the code actually works and
+                            behaves as expected. They're harder to come across
+                            locally or on a staging server, because it's the load
+                            that's causing the problem, not the logic.
+                        </p>
+                        <p class="text-3">
+                            In those situations, data is your friend, and making
+                            sense of it is key. I was able to discover the problem
+                            thanks to a simple calculation, so I've made a
+                            <a href="./server.html" class="anchortag-1"
+                                >server load calculator</a
+                            >
+                            that allows you to easily do the same thing yourself.
+                        </p>
+                        <hr class="line-break" />
+                        <footer>
+                            <ul class="social-links">
+                                <li class="social-link">
+                                    <a
+                                        href="https://github.com/hdodov"
+                                        target="_blank"
+                                        >Github</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://twitter.com/yandodov"
+                                        target="_blank"
+                                        >Twitter</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://www.linkedin.com/in/yandodov/"
+                                        target="_blank"
+                                    >
+                                        LinkedIn</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://www.instagram.com/yandodov/"
+                                        target="_blank"
+                                    >
+                                        Instagram</a
+                                    >
+                                </li>
+                            </ul>
+                            <div class="color-theme">
+                                <span class="color-theme-name">
+                                    <span id="color-scheme-name">Monokai</span>
+                                    <span class="arrow">↓</span>
+                                    <select class="theme-picker" id="theme-select">
+                                        <option value="dark-plus" id="dark-plus">
+                                            Dark+
+                                        </option>
+                                        <option value="light-plus" id="light-plus">
+                                            Light+
+                                        </option>
+                                        <option value="monokai" id="monokai">
+                                            Monokai
+                                        </option>
+                                        <option
+                                            value="github-dark"
+                                            id="github-dark"
+                                        >
+                                            Github Dark
+                                        </option>
+                                        <option
+                                            value="github-light"
+                                            id="github-light"
+                                        >
+                                            Github Light
+                                        </option>
+                                        <option
+                                            value="solarized-light"
+                                            id="solarized-light"
+                                        >
+                                            Solarized Light
+                                        </option>
+                                    </select>
+                                </span>
+                            </div>
+                        </footer>
+                    </div>
+                    <div class="lines" id="lines"></div>
+                </div>
+            </main>
         </div>
-        <div class="editor">
-          <p class="editor-text4 editor1-text2">
-            The
-            <a
-              href="https://www.php.net/manual/en/install.fpm.configuration.php#pm.max-children"
-              class="anchortag-1"
-              >PHP docs about
-              <span class="highlighted-text">max_children</span></a
-            >
-            state:
-          </p>
-          <div class="text-1-content">
-            <div class="text-3-content">
-              <p>
-                This option sets the limit on the number of simultaneous
-                requests that will be served.
-              </p>
-            </div>
-          </div>
-          <p class="text-2">
-            So it was becoming apparent where the bottleneck lied. We weren't
-            hitting the EFS limits, but the compute limits of our servers.
-          </p>
-          <p class="text-3">
-            In <span class="highlighted-text">/var/log/nginx/error.log</span>, I
-            found the following error:
-          </p>
-        </div>
-        <div class="editor-1">
-          <div class="scroll-bar">
-            <p class="scrollbar-text">
-              [error] 2887#2887: *11071 connect() to unix:/run/php-fpm/www.sock
-              failed (11: Resource temporarily unavailable) while connecting to
-              upstream
-            </p>
-          </div>
-        </div>
-        <div class="editor">
-          <p class="editor-text4 editor1-text2">
-            …which could explain the 502 Bad Gateway errors — nginx was not
-            being able to connect with PHP. There were also these errors:
-          </p>
-        </div>
-        <div class="editor-1">
-          <div class="scroll-bar">
-            <p class="scrollbar-text">
-              [error] 2887#2887: *10898 upstream timed out (110: Connection
-              timed out) while reading response header from upstream
-            </p>
-          </div>
-        </div>
-        <div class="editor">
-          <h2>Doing the math</h2>
-          <p class="text-2">
-            Once I looked closer at the Monitoring tab in
-            <a
-              href="https://aws.amazon.com/elasticbeanstalk/"
-              class="anchortag-1"
-              >Elastic Beanstalk</a
-            >, things started to make sense. On average, we were getting around
-            2.5 seconds response time, while receiving about 2 requests per
-            second. We were load balancing two servers, so each one was handling
-            about 1 request per second. This meant:
-          </p>
-        </div>
-        <div class="editor-1">
-          <div class="editor-text6 text-20 text-60">
-            <p class="text-20">2 * 60 = 120 requests per minute</p>
-            <p class="text-60">120 / 2 = 60 requests per server</p>
-            <p class="text-61">60 / 2.5 = 24 responses per minute</p>
-            <p class="text-60">60 / 24 = 2.5 request-response ratio</p>
-          </div>
-        </div>
-        <div class="editor">
-          <p class="text-2">
-            This 2.5 request-response ratio means that by the time 1 response is
-            served, 2.5 new requests have come in. PHP responds to that by
-            spawning more processes to handle the overwhelming load, until it
-            reaches the maximum allowed processes, which in my case was 50.
-            After that, it just refuses to accept any more requests and that's
-            when the errors start.
-          </p>
-          <h2>What about auto-scaling?</h2>
-          <p class="text-2 text-2-paddingbottom">
-            Since we were using Elastic Beanstalk, it should have spawned more
-            servers to handle the load, right? If we had 6 servers, rather than
-            2, we would've had:
-          </p>
-        </div>
-        <div class="editor-1">
-          <div class="editor-text6 text-20 text-60">
-            <p class="text-20">2 * 60 = 120 requests per minute</p>
-            <p class="text-60">120 / 6 = 20 requests per server</p>
-            <p class="text-61">60 / 2.5 = 24 responses per minute</p>
-            <p class="text-60">20 / 24 = 0.83 request-response ratio</p>
-          </div>
-        </div>
-        <div class="editor">
-          <p class="text-3">
-            With a request-response ratio of less than 1, we'd be receiving
-            requests at a lower rate than our response rate and everything
-            would've been fine. So why didn't EB spawn more servers?
-          </p>
-          <p class="text-3">
-            Well, from the perspective of Elastic Beanstalk, everything was
-            going great. It had no reason to spawn any more servers, because our
-            scaling metric was CPU utilization, and there was not a single
-            threshold crossed. CPU load was indeed higher than usual, but not
-            enough to be treated as a breach. The
-            <span class="highlighted-text">max_children</span> setting was
-            preventing that from happening, because PHP couldn't spawn enough
-            processes to get the CPUs hot enough.
-          </p>
-          <h2>Solution</h2>
-          <p class="text-2">
-            At first, we didn't know what was happening, so we manually spawned
-            more servers in Elastic Beanstalk with the hopes of fixing the
-            problem. It worked out, for reasons I've already explained. But
-            after a while, the errors started popping up again, so we rolled
-            back the breaking changes.
-          </p>
-          <p class="text-3">
-            After discovering the 20MB per request thing and fixing it, our
-            response times dropped from 2.5 seconds to around 0.5, so we removed
-            the extra servers and everything was back to normal.
-          </p>
-          <h2>Conclusion</h2>
-          <p class="text-2">
-            Bottlenecks are a lot harder to debug, compared to regular errors,
-            because the code actually works and behaves as expected. They're
-            harder to come across locally or on a staging server, because it's
-            the load that's causing the problem, not the logic.
-          </p>
-          <p class="text-3">
-            In those situations, data is your friend, and making sense of it is
-            key. I was able to discover the problem thanks to a simple
-            calculation, so I've made a
-            <a href="" class="anchortag-1">server load calculator</a> that
-            allows you to easily do the same thing yourself.
-          </p>
-          <hr class="line-break" />
-          <footer>
-            <ul class="social-links">
-              <li class="social-link">
-                <a href="https://github.com/hdodov" target="_blank">Github</a>
-                <span class="bullet">&bull;</span>
-              </li>
-              <li class="social-link">
-                <a href="https://twitter.com/yandodov" target="_blank"
-                  >Twitter</a
-                >
-                <span class="bullet">&bull;</span>
-              </li>
-              <li class="social-link">
-                <a href="https://www.linkedin.com/in/yandodov/" target="_blank">
-                  LinkedIn</a
-                >
-                <span class="bullet">&bull;</span>
-              </li>
-              <li class="social-link">
-                <a href="https://www.instagram.com/yandodov/" target="_blank">
-                  Instagram</a
-                >
-              </li>
-            </ul>
-            <div class="color-theme">
-              <span class="color-theme-name">
-                <span id="color-scheme-name">Monokai</span>
-                <span class="arrow">↓</span>
-                <select class="theme-picker" id="theme-select">
-                  <option value="dark-plus" id="dark-plus">
-                    Dark+
-                  </option>
-                  <option value="light-plus" id="light-plus">
-                    Light+
-                  </option>
-                  <option value="monokai" id="monokai">
-                    Monokai
-                  </option>
-                  <option value="github-dark" id="github-dark">
-                    Github Dark
-                  </option>
-                  <option value="github-light" id="github-light">
-                    Github Light
-                  </option>
-                  <option value="solarized-light" id="solarized-light">
-                    Solarized Light
-                  </option>
-                </select>
-              </span>
-            </div>
-          </footer>
-        </div>
-      </main>
-    </div>
-  </body>
+        <script src="../index.js"></script>
+         <script>
+            function scrollToPosition(height) {
+                console.log(height);
+                window.scrollTo({
+                    top: height,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            }
+
+            function handleScroll(e) {
+                e.preventDefault();
+                var j = Number(e.target.textContent);
+                var k = j * 24 + 135;
+                var d = 8 * 24;
+                scrollToPosition(k - d);
+            }
+
+            function countLines() {
+                document.getElementById("lines").innerHTML = "";
+                var el = document.getElementById("editor-content");
+                var editorHeight = el.offsetHeight - 24;
+                var lineHeight = parseInt(el.style.lineHeight);
+                var lines = parseInt(editorHeight / lineHeight);
+                let lineNumber = 0;
+                document.getElementById("line-number").innerHTML =
+                    lines + " lines";
+                let i = 1;
+                while (i < lines) {
+                    let newDiv = document.createElement("div");
+                    newDiv.setAttribute("class", "lines-1");
+                    newDiv.addEventListener("click", handleScroll);
+                    let divIncrement = document
+                        .getElementById("lines")
+                        .appendChild(newDiv);
+                    divIncrement.innerHTML = i;
+                    divIncrement.style.left = 0;
+                    i++;
+                }
+            }
+            window.addEventListener("resize", countLines);
+        </script>
+    </body>
 </html>

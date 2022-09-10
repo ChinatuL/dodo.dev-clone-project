@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Server Load Calculator</title>
+        <link rel="stylesheet" href="../css/server.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../images/favicon-monokai.png"
+            id="favicon"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body onload="countLines()">
+        <div class="container">
+            <header>
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="./index.html" class="nav-link">
+                                <div>home</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./blog.html" class="nav-link">
+                                <div>blog</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./project.html" class="nav-link">
+                                <div>projects</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <div class="editor">
+                    <div
+                        class="editor-content"
+                        id="editor-content"
+                        style="line-height: 24px"
+                    >
+                        <header class="main-header">
+                            <div class="title">
+                                <h1>Server Load Calculator</h1>
+                            </div>
+                        </header>
+                        <div class="article-content">
+                            <p>
+                                Check whether your server(s) are getting more
+                                load than they can handle. Ideally, the
+                                request-response ratio should be lower than 1,
+                                which means that the volume of requests can be
+                                served in time.
+                            </p>
+                            <div class="server-calculator">
+                                <table>
+                                    <tr>
+                                        <td class="data-input">
+                                            <input
+                                                type="text"
+                                                id="request-per-second"
+                                                value="100"
+                                                class="accent"
+                                            />
+                                        </td>
+                                        <td>
+                                            <label for="request-per-second">
+                                                requests per second
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="data-input">
+                                            <input
+                                                type="text"
+                                                id="active-servers"
+                                                value="5"
+                                                class="accent"
+                                            />
+                                        </td>
+                                        <td>
+                                            <label for="active-servers">
+                                                active servers
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="data-input">
+                                            <input
+                                                type="text"
+                                                id="seconds-response-time"
+                                                value="0.04"
+                                                class="accent"
+                                            />
+                                        </td>
+                                        <td>
+                                            <label for="seconds-response-time"
+                                                >seconds response time</label
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="table-break">
+                                            <span
+                                                >-----------------------------------------------------------------</span
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="data-input">
+                                            <input
+                                                type="text"
+                                                id="requests-per-minute"
+                                                value="6,000"
+                                                class="string"
+                                            />
+                                        </td>
+                                        <td>
+                                            <label for="requests-per-minute"
+                                                >requests per minute</label
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="data-input">
+                                            <input
+                                                type="text"
+                                                id="requests-per-server"
+                                                value="1,200"
+                                                class="string"
+                                            />
+                                        </td>
+                                        <td>
+                                            <label for="requests-per-server"
+                                                >requests per server</label
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="data-input">
+                                            <input
+                                                type="text"
+                                                id="responses-per-minute"
+                                                value="1,500"
+                                                class="string"
+                                            />
+                                        </td>
+                                        <td>
+                                            <label for="responses-per-minute"
+                                                >responses per minute</label
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="data-input">
+                                            <input
+                                                type="text"
+                                                id="request-response-ratio"
+                                                value="0.8"
+                                                class="string"
+                                            />
+                                        </td>
+                                        <td>
+                                            <label for="request-response-ratio">
+                                                request-response ratio
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p>
+                                By the time each of your servers is able to
+                                handle one request, it has received 0.8 more.
+                            </p>
+                            <p>
+                                Found it useful?
+                                <a
+                                    href="https://twitter.com/intent/tweet?text=Check%20if%20your%20servers%20are%20going%20to%20catch%20fire:&url=https://dodov.dev/server-load-calculator&via=yandodov"
+                                    class="article-link"
+                                    >Share on Twitter</a
+                                >.
+                            </p>
+                            <hr class="line-break" />
+                        </div>
+                        <footer>
+                            <ul class="social-links">
+                                <li class="social-link">
+                                    <a
+                                        href="https://github.com/hdodov"
+                                        target="_blank"
+                                        >Github</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a href="https://twitter.com/yandodov"
+                                        >Twitter</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://www.linkedin.com/in/yandodov/"
+                                    >
+                                        LinkedIn</a
+                                    >
+                                    <span class="bullet">&bull;</span>
+                                </li>
+                                <li class="social-link">
+                                    <a
+                                        href="https://www.instagram.com/yandodov/"
+                                    >
+                                        Instagram</a
+                                    >
+                                </li>
+                            </ul>
+                            <div class="color-theme">
+                                <span class="color-theme-name">
+                                    <span id="color-scheme-name">Monokai</span>
+                                    <span class="arrow">↓</span>
+                                    <select
+                                        class="theme-picker"
+                                        id="theme-select"
+                                    >
+                                        <option
+                                            value="dark-plus"
+                                            id="dark-plus"
+                                        >
+                                            Dark+
+                                        </option>
+                                        <option
+                                            value="light-plus"
+                                            id="light-plus"
+                                        >
+                                            Light+
+                                        </option>
+                                        <option value="monokai" id="monokai">
+                                            Monokai
+                                        </option>
+                                        <option
+                                            value="github-dark"
+                                            id="github-dark"
+                                        >
+                                            Github Dark
+                                        </option>
+                                        <option
+                                            value="github-light"
+                                            id="github-light"
+                                        >
+                                            Github Light
+                                        </option>
+                                        <option
+                                            value="solarized-light"
+                                            id="solarized-light"
+                                        >
+                                            Solarized Light
+                                        </option>
+                                    </select>
+                                </span>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                <div class="lines" id="lines"></div>
+            </main>
+        </div>
+        <script src="../index.js"></script>
+        <script>
+            function scrollToPosition(height) {
+                console.log(height);
+                window.scrollTo({
+                    top: height,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            }
+
+            function handleScroll(e) {
+                e.preventDefault();
+                var j = Number(e.target.textContent);
+                var k = j * 24 + 135;
+                var d = 8 * 24;
+                scrollToPosition(k - d);
+            }
+
+            function countLines() {
+                document.getElementById("lines").innerHTML = "";
+                var el = document.getElementById("editor-content");
+                var editorHeight = el.offsetHeight + 24;
+                var lineHeight = parseInt(el.style.lineHeight);
+                var lines = parseInt(editorHeight / lineHeight);
+                let lineNumber = 0;
+                let i = 1;
+                while (i < lines) {
+                    let newDiv = document.createElement("div");
+                    newDiv.setAttribute("class", "lines-1");
+                    newDiv.addEventListener("click", handleScroll);
+                    let divIncrement = document
+                        .getElementById("lines")
+                        .appendChild(newDiv);
+                    divIncrement.innerHTML = i;
+                    divIncrement.style.left = 0;
+                    i++;
+                }
+            }
+            window.addEventListener("resize", countLines);
+        </script>
+    </body>
+</html>
