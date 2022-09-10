@@ -320,6 +320,7 @@ nav {
     text-align: left;
     color: var(--body-text);
     max-width: 81ch;
+    padding-bottom: 5rem;
 }
 /* Header */
 
@@ -392,7 +393,7 @@ header {
 
 hr {
     border: none;
-    margin: 40px 0 20px 0;
+    margin: 1.5rem 0 1.2rem;
     overflow: hidden;
     white-space: nowrap;
     color: rgb(136, 132, 111);
@@ -410,7 +411,6 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 200px;
 }
 
 footer ul {
@@ -470,6 +470,7 @@ footer ul a:hover {
     font-size: 13px;
     color: var(--secondary-text);
     line-height: 1.5;
+    white-space: nowrap;
 }
 
 .green-link {
@@ -660,6 +661,14 @@ code {
     color: var(--secondary-text);
 }
 
+.lines {
+    position: absolute;
+    top: 8.1rem;
+    text-align: center;
+    padding: 0 1.5rem;
+    color: var(--editor-line-number);
+}
+
 /* blog.html media query */
 @media only screen and (max-width: 600px) {
     body::-webkit-scrollbar {
@@ -672,6 +681,7 @@ code {
 
     .editor {
         max-width: 44ch;
+        padding-left: 0.3rem;
     }
 
     .blog-header {
@@ -799,6 +809,12 @@ code {
 
     .nav-link div {
         min-width: 0;
+    }
+
+    .lines {
+        top: 3.7rem;
+        padding-right: 0.2rem;
+        padding-left: 0.9rem;
     }
 }
 

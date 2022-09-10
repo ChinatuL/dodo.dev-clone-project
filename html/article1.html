@@ -19,9 +19,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet"> 
 </head>
 
-<body>
+<body onload="countLines()">
     <div class="container">
-
         <div class="content">
             <!-- <nav class="nav-link article1-scrollbar">
                 <ul>
@@ -82,15 +81,16 @@
 
             <div class="main-content">
                 <main class="editor">
-                    <header class="article1-header">
+                    <div class="editor-content" id="editor-content" style="line-height: 24px;">
+                     <header class="article1-header">
                         <div>
                             <h1>Number of Ones</h1>
-                            <p>Calculating digits in a series of numbers.</p>
+                            <p>Calculating digits in a series of&nbsp;numbers.</p>
                         </div>
                         <div class="time-nolines">
                             <time datetime="2022-08-06T16:00:00+03:00" title="Saturday, August 6, 2022, 16:00 EEST">
                                 06 Aug 2022 </time>
-                            <div class="line">292 lines</div>
+                            <div class="line" id="line-number">292 lines</div>
                         </div>
                     </header>
                     <img class="article1-img" src="../images/number-of-ones-cover-1280x.png" alt="">
@@ -392,7 +392,6 @@
 
 
                     </article>
-
                     <hr>
                     </hr>
                     <footer>
@@ -425,12 +424,54 @@
                         </span>
                     </div>
                     </footer>
+                   </div>
                 </main>
             </div>
-
+            <div class="lines" id="lines"></div>
         </div>
     </div>
     <script src="../index.js"></script>
+    <script>
+        function scrollToPosition(height) {
+                console.log(height);
+                window.scrollTo({
+                    top: height,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            }
+
+            function handleScroll(e) {
+                e.preventDefault();
+                var j = Number(e.target.textContent);
+                var k = j * 24 + 135;
+                var d = 8 * 24;
+                scrollToPosition(k - d);
+            }
+
+            function countLines() {
+                document.getElementById("lines").innerHTML = "";
+                var el = document.getElementById("editor-content");
+                var editorHeight = el.offsetHeight;
+                var lineHeight = parseInt(el.style.lineHeight);
+                var lines = parseInt(editorHeight / lineHeight);
+                let lineNumber = 0;
+                document.getElementById('line-number').innerHTML = lines + " lines"
+                let i = 1;
+                while (i < lines) {
+                    let newDiv = document.createElement("div");
+                    newDiv.setAttribute("class", "lines-1");
+                    newDiv.addEventListener("click", handleScroll);
+                    let divIncrement = document
+                        .getElementById("lines")
+                        .appendChild(newDiv);
+                    divIncrement.innerHTML = i;
+                    divIncrement.style.left = 0;
+                    i++;
+                }
+            }
+            window.addEventListener("resize", countLines);
+    </script>
 </body>
 
 </html>
