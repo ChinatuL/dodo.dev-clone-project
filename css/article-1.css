@@ -670,6 +670,16 @@ code {
     color: var(--editor-line-number);
 }
 
+.lines-1:hover {
+    color: var(--editor-line-number-hover);
+    cursor: pointer;
+}
+
+.lines-1:active,
+.lines-1:focus {
+    color: var(--editor-line-number-hover);
+}
+
 /* blog.html media query */
 @media only screen and (max-width: 600px) {
     body::-webkit-scrollbar {

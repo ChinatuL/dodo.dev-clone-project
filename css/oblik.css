@@ -397,6 +397,16 @@ footer {
     padding: 0 1.5rem;
     color: var(--editor-line-number);
 }
+
+.lines-1:hover {
+    color: var(--editor-line-number-hover);
+    cursor: pointer;
+}
+
+.lines-1:active,
+.lines-1:focus {
+    color: var(--editor-line-number-hover);
+}
 .mobile-view {
     display: none;
 }
