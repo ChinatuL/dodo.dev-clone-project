@@ -296,7 +296,7 @@ body::-webkit-scrollbar {
 
 .editor {
     background-color: var(--editor-background);
-    padding: 2rem 4rem;
+    padding: 2rem 5rem;
 }
 
 #heading {
@@ -418,7 +418,7 @@ h2 {
 .line-break {
     display: flex;
     height: 1.5rem;
-    margin: 1.5rem 0;
+    margin: 0 0 1.5rem;
     border-width: 0px;
     color: var(--line-break);
     opacity: 80%;
@@ -466,6 +466,7 @@ footer {
     position: relative;
     cursor: pointer;
     color: var(--body-text);
+    white-space: nowrap;
 }
 
 .color-theme-name:focus-within {
@@ -505,6 +506,14 @@ footer {
 .theme-picker > option {
     background-color: var(--background-color);
     color: var(--secondary-text);
+}
+
+.lines {
+    position: absolute;
+    top: 8.5rem;
+    text-align: right;
+    padding: 0 1.5rem;
+    color: var(--editor-line-number);
 }
 
 /* MEDIA QUERIES */
@@ -553,17 +562,16 @@ footer {
     .editor {
         display: block;
         justify-content: flex-start;
-        padding: 2rem 4rem 0 2rem;
+        padding: 2rem 4rem 2rem 3rem;
     }
     .editor1-text2 {
         padding-bottom: 1.3rem;
     }
     .editor-1 {
         /* background-color: var(--editor-background); */
-        padding: 1.5rem 2rem;
+        padding: 1.5rem 2rem 1.5rem 3rem;
     }
     footer {
-        padding-bottom: 5rem;
         min-height: 0;
         flex-direction: column;
     }
@@ -576,6 +584,11 @@ footer {
 
     .bullet {
         display: none;
+    }
+
+    .lines {
+        top: 4rem;
+        padding-left: 0.7rem;
     }
 }
 @media screen and (max-width: 300px) {
