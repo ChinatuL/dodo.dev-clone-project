@@ -21,7 +21,7 @@
 
         <title>Ghostmask &bull; Project &bull; Hristiyan Dodov</title>
     </head>
-    <body>
+    <body onload="countLines()">
         <main>
             <div class="container">
                 <header>
@@ -63,7 +63,11 @@
                     </nav>
                 </header>
                 <div class="editor">
-                    <div class="editor-content">
+                    <div
+                        class="editor-content"
+                        id="editor-content"
+                        style="line-height: 24px"
+                    >
                         <div class="desktop-view">
                             <div class="flex">
                                 <div class="ghostmask">
@@ -204,8 +208,49 @@
                         </footer>
                     </div>
                 </div>
+                <div class="lines" id="lines"></div>
             </div>
         </main>
         <script src="../index.js"></script>
+        <script>
+            function scrollToPosition(height) {
+                console.log(height);
+                window.scrollTo({
+                    top: height,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            }
+
+            function handleScroll(e) {
+                e.preventDefault();
+                var j = Number(e.target.textContent);
+                var k = j * 24 + 135;
+                var d = 8 * 24;
+                scrollToPosition(k - d);
+            }
+
+            function countLines() {
+                document.getElementById("lines").innerHTML = "";
+                var el = document.getElementById("editor-content");
+                var editorHeight = el.offsetHeight + 24;
+                var lineHeight = parseInt(el.style.lineHeight);
+                var lines = parseInt(editorHeight / lineHeight);
+                let lineNumber = 0;
+                let i = 1;
+                while (i < lines) {
+                    let newDiv = document.createElement("div");
+                    newDiv.setAttribute("class", "lines-1");
+                    newDiv.addEventListener("click", handleScroll);
+                    let divIncrement = document
+                        .getElementById("lines")
+                        .appendChild(newDiv);
+                    divIncrement.innerHTML = i;
+                    divIncrement.style.left = 0;
+                    i++;
+                }
+            }
+            window.addEventListener("resize", countLines);
+        </script>
     </body>
 </html>
