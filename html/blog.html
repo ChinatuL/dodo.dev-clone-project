@@ -20,8 +20,6 @@
 <body onload="countLines()">
     <div class="container">
         <div class="content">
-            
-
             <nav>
                 <ul class="nav-list">
                     <li class="nav-item">
@@ -41,7 +39,6 @@
                     </li>
                 </ul>
             </nav>
-
             <div class="main-content">
             <main class="editor">
                 <div class="editor-content" id="editor-content" style="line-height: 24px">
@@ -164,20 +161,37 @@
                         </select>
                         </span>
                     </div>
-                </footer>
-                <div class="lines" id="lines"></div>
                 </div>
+                </footer>
             </main>
-        </div>
         
+            </div>
+        <div class="lines" id="lines"></div>
         </div>
     </div>
     <script src="../index.js"></script>
     <script>
-        function countLines() {
+        function scrollToPosition(height) {
+                console.log(height);
+                window.scrollTo({
+                    top: height,
+                    left: 0,
+                    behavior: "smooth",
+                });
+            }
+
+            function handleScroll(e) {
+                e.preventDefault();
+                var j = Number(e.target.textContent);
+                var k = j * 24 + 135;
+                var d = 8 * 24;
+                scrollToPosition(k - d);
+            }
+
+            function countLines() {
+                document.getElementById("lines").innerHTML = "";
                 var el = document.getElementById("editor-content");
-                var editorHeight = el.offsetHeight + 24;
-                console.log(editorHeight)
+                var editorHeight = el.offsetHeight;
                 var lineHeight = parseInt(el.style.lineHeight);
                 var lines = parseInt(editorHeight / lineHeight);
                 let lineNumber = 0;
@@ -185,6 +199,7 @@
                 while (i < lines) {
                     let newDiv = document.createElement("div");
                     newDiv.setAttribute("class", "lines-1");
+                    newDiv.addEventListener("click", handleScroll);
                     let divIncrement = document
                         .getElementById("lines")
                         .appendChild(newDiv);
@@ -193,6 +208,7 @@
                     i++;
                 }
             }
+            window.addEventListener("resize", countLines);
     </script>
 </body>
 </html>

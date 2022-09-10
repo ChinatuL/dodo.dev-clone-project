@@ -569,7 +569,7 @@ code {
 
 .lines {
     position: absolute;
-    top: 8rem;
+    top: 8.1rem;
     text-align: center;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
@@ -587,24 +587,28 @@ code {
 
     .editor {
         max-width: 44ch;
+        line-height: 1.5rem;
+        padding-left: 0.3rem;
+    }
+
+    .editor-content {
+        line-height: 1.5rem;
     }
 
     .blog-header {
-        padding-bottom: 25px;
+        padding-bottom: 24px;
     }
     .article {
         display: block;
     }
-    .article-div {
-        padding-bottom: 10px;
-    }
     .article img {
         width: 298.667px;
-        height: 168px;
-        margin: -10px 0 20px 0;
+        height: 164px;
+        margin: 0 0 24px 0;
         object-fit: contain;
         max-width: 100%;
     }
+
     .article-div p {
         font-size: 14.5px;
     }
@@ -640,13 +644,14 @@ code {
     }
     footer {
         display: block;
+        padding-top: 0.3rem;
     }
     footer ul {
         display: block;
-        padding-bottom: 7px;
+        padding-bottom: 0.8rem;
     }
     footer li {
-        line-height: 21px;
+        line-height: 24px;
     }
     footer ul a {
         letter-spacing: none;
@@ -712,7 +717,9 @@ code {
     .nav-link div {
         min-width: 0;
     }
-}
 
-@media only screen and (max-width: 425px) {
+    .lines {
+        top: 3.7rem;
+        padding-right: 0.3rem;
+    }
 }
