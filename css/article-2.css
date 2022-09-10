@@ -282,9 +282,13 @@ body::-webkit-scrollbar {
     text-align: right;
 }
 
+.actual-date {
+    white-space: nowrap;
+}
+
 img {
     max-width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .article-subheading {
@@ -347,11 +351,6 @@ blockquote::before {
 .marker {
     margin-right: 1rem;
 }
-
-figure {
-    margin-bottom: 1.5rem;
-}
-
 .img-standard {
     padding: 0.6rem 0;
     background-color: var(--background-color);
@@ -360,7 +359,7 @@ figure {
 .line-break {
     display: flex;
     height: 1.5rem;
-    margin: 1.5rem 0;
+    margin: 0 0 1.5rem;
     border-width: 0px;
     color: var(--line-break);
     opacity: 80%;
@@ -404,6 +403,7 @@ footer {
 .color-theme-name {
     position: relative;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .color-theme-name:focus-within {
@@ -443,6 +443,14 @@ footer {
 .theme-picker > option {
     background-color: var(--background-color);
     color: var(--secondary-text);
+}
+
+.lines {
+    position: absolute;
+    top: 8.8rem;
+    text-align: right;
+    padding: 0 1.5rem;
+    color: var(--editor-line-number);
 }
 
 @media (max-width: 599px) {
@@ -532,10 +540,22 @@ footer {
     .social-links {
         display: flex;
         flex-direction: column;
-        padding-bottom: 1.5rem;
+        padding-bottom: 1rem;
     }
 
     .bullet {
         display: none;
+    }
+
+    .lines {
+        position: absolute;
+        top: 4.3rem;
+        text-align: right;
+        padding-left: 0.8rem;
+        color: var(--editor-line-number);
+    }
+
+    .line-break {
+        margin: 0 0 1.2rem;
     }
 }

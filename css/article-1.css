@@ -664,7 +664,7 @@ code {
 .lines {
     position: absolute;
     top: 8.1rem;
-    text-align: center;
+    text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
 }
@@ -813,6 +813,7 @@ code {
 
     .lines {
         top: 3.7rem;
+        text-align: right;
         padding-right: 0.2rem;
         padding-left: 0.9rem;
     }
