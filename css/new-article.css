@@ -548,6 +548,10 @@ footer {
     body::-webkit-scrollbar {
         display: none;
     }
+
+    .scroll-bar::-webkit-scrollbar {
+        display: none;
+    }
     .container {
         margin-top: 1px;
     }
