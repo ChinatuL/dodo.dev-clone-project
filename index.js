@@ -60,14 +60,27 @@ getTheme();
 
 const getName = () => {
     const retrieveTheme = localStorage.getItem("colorName");
-    document.getElementById("color-scheme-name").innerHTML = retrieveTheme;
+    if (retrieveTheme === null) {
+        document.getElementById("color-scheme-name").innerHTML = "Monokai";
+    } else {
+        document.getElementById("color-scheme-name").innerHTML = retrieveTheme;
+    }
 };
 
 getName();
 
 const getFavicon = () => {
     retrieveFavicon = localStorage.getItem("favicon-tag");
-    document.getElementById("favicon").setAttribute("href", retrieveFavicon);
+    console.log(retrieveFavicon);
+    if (retrieveFavicon === null) {
+        document
+            .getElementById("favicon")
+            .setAttribute("href", "../images/favicon-monokai.png");
+    } else {
+        document
+            .getElementById("favicon")
+            .setAttribute("href", retrieveFavicon);
+    }
 };
 
 getFavicon();
