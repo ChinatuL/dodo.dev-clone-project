@@ -29,6 +29,7 @@
     --code-punctuation: #ffffff;
     --code-string: #e6db74;
     --code-keyword: #f92672;
+    --text-selection-color: #878b9180;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -63,6 +64,7 @@
     --code-punctuation: #d4d4d4;
     --code-string: #ce9178;
     --code-keyword: #569cd6;
+    --text-selection-color: #264f78;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -96,6 +98,7 @@
     --code-punctuation: #000000;
     --code-string: #a31515;
     --code-keyword: #0000ff;
+    --text-selection-color: #add6ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -129,6 +132,7 @@
     --code-punctuation: #e1e4e8;
     --code-string: #9ecbff;
     --code-keyword: #f97583;
+    --text-selection-color: #3392ff44;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -163,6 +167,7 @@
     --code-punctuation: var(--body-text);
     --code-string: #032f62;
     --code-keyword: #d73a49;
+    --text-selection-color: #0366d625;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -197,6 +202,7 @@
     --code-punctuation: #333333;
     --code-string: #2aa198;
     --code-keyword: #268bd2;
+    --text-selection-color: #eee8d5;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -241,6 +247,9 @@ body::-webkit-scrollbar {
 
 *::-webkit-scrollbar-thumb:active {
     background: var(--color-scrollbar-thumb-active);
+}
+*::selection {
+    background-color: var(--text-selection-color);
 }
 .container {
     max-width: 81ch;

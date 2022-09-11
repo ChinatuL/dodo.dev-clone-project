@@ -20,6 +20,7 @@
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
     --code-string: #e6db74;
+    --text-selection-color: #878b9180;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -46,6 +47,7 @@
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
     --code-string: #ce9178;
+    --text-selection-color: #264f78;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -71,6 +73,7 @@
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
     --code-string: #a31515;
+    --text-selection-color: #add6ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -96,6 +99,7 @@
     --color-scrollbar-thumb-active: #6a737d88;
     --color-scrollbar-shadow: #00000088;
     --code-string: #9ecbff;
+    --text-selection-color: #3392ff44;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -122,6 +126,7 @@
     --color-scrollbar-thumb-active: #959da588;
     --color-scrollbar-shadow: #6a737d33;
     --code-string: #032f62;
+    --text-selection-color: #0366d625;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -148,6 +153,7 @@
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
     --code-string: #2aa198;
+    --text-selection-color: #eee8d5;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -175,6 +181,10 @@
 
 *::-webkit-scrollbar-thumb:active {
     background: var(--color-scrollbar-thumb-active);
+}
+
+*::selection {
+    background-color: var(--text-selection-color);
 }
 
 a {

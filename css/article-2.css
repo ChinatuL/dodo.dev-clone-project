@@ -21,6 +21,7 @@
     --color-scrollbar-shadow: #000000;
     --color-blockquote: var(--line-break);
     --color-blockquote-symbol: var(--line-break);
+    --text-selection-color: #878b9180;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -48,6 +49,7 @@
     --color-scrollbar-shadow: #000000;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: var(--line-break);
+    --text-selection-color: #264f78;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -74,6 +76,7 @@
     --color-scrollbar-shadow: #dddddd;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: #0451a5;
+    --text-selection-color: #add6ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -100,6 +103,7 @@
     --color-scrollbar-shadow: #00000088;
     --color-blockquote: #85e89d;
     --color-blockquote-symbol: var(--color-blockquote);
+    --text-selection-color: #3392ff44;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -127,6 +131,7 @@
     --color-scrollbar-shadow: #6a737d33;
     --color-blockquote: #22863a;
     --color-blockquote-symbol: var(--color-blockquote);
+    --text-selection-color: #0366d625;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -154,6 +159,7 @@
     --color-scrollbar-shadow: #dddddd;
     --color-blockquote: #859900;
     --color-blockquote-symbol: var(--color-blockquote);
+    --text-selection-color: #eee8d5;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -182,6 +188,10 @@
 
 *::-webkit-scrollbar-thumb:active {
     background: var(--color-scrollbar-thumb-active);
+}
+
+*::selection {
+    background-color: var(--text-selection-color);
 }
 
 a {

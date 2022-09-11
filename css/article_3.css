@@ -26,6 +26,7 @@
     --color-blockquote-symbol: var(--line-break);
     --code-background-color: #22231e;
     --code-color: var(--secondary-text);
+    --text-selection-color: #878b9180;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -55,6 +56,7 @@
     --color-blockquote-symbol: var(--line-break);
     --code-background-color: #1c1c1c;
     --code-color: var(--secondary-text);
+    --text-selection-color: #264f78;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -84,6 +86,7 @@
     --color-blockquote-symbol: #0451a5;
     --code-background-color: #fbfbfb;
     --code-color: var(--secondary-text);
+    --text-selection-color: #add6ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -112,7 +115,8 @@
     --color-blockquote: #85e89d;
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #202428;
-    --code-color: var(--secondary-text)
+    --code-color: var(--secondary-text);
+    --text-selection-color: #3392ff44;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -143,6 +147,7 @@
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #fcfcfc;
     --code-color: var(--secondary-text);
+    --text-selection-color: #0366d625;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -172,7 +177,8 @@
     --color-blockquote: #859900;
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #f9f1dc;
-    --code-color: var(--secondary-text)
+    --code-color: var(--secondary-text);
+    --text-selection-color: #eee8d5;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -199,6 +205,10 @@
 
 *::-webkit-scrollbar-thumb:active {
     background: var(--color-scrollbar-thumb-active);
+}
+
+*::selection {
+    background-color: var(--text-selection-color);
 }
 
 a {
