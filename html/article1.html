@@ -96,10 +96,10 @@
                     <img class="article1-img" src="../images/number-of-ones-cover-1280x.png" alt="">
 
                     <article class="main-article">
-                        <p>In this post, I'll explain my solution to the programming puzzle from <a class="green-link"
+                        <p class="paragraph">In this post, I'll explain my solution to the programming puzzle from <a class="green-link"
                                 href="https://buttondown.email/cassidoo/archive/science-is-not-a-boys-game-its-not-a-girls-game/" target="_blank">the latest issue</a> of <a class="green-link" href="https://twitter.com/cassidoo" target="_blank">@cassidoo</a>'s
                             newsletter.</p>
-                        <p>The task is simple:</p>
+                        <p class="paragraph">The task is simple:</p>
                         <div class="text-1-content">
                             <div class="text-3-content">
                                 <p>
@@ -108,23 +108,22 @@
                                 </p>
                             </div>
                         </div>
-                        <p>Perhaps the most obvious solution is to just loop over the numbers, convert them to strings,
+                        <p class="paragraph-padding">Perhaps the most obvious solution is to just loop over the numbers, convert them to strings,
                             and count the digits. But the larger the input number, the slower it gets. So, rather than
                             counting, we can calculate the result.</p>
                         <h2>Idea</h2>
-                        <p>Let's start with the number of times that the digit 1 appears in the 0-9 range. It's just
+                        <p class="paragraph">Let's start with the number of times that the digit 1 appears in the 0-9 range. It's just
                             one. The number 1.</p>
-                        <p>Now, let's try 0-99. Here we have the same thing, with the difference being that it's
+                        <p class="paragraph">Now, let's try 0-99. Here we have the same thing, with the difference being that it's
                             repeated 10 times:</p>
-
 <pre class="codes scroll-bar">
     <code>
         1, 11, 21, 31, 41, 51, 61, 71, 81, 91
         ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑   ↑ (10)  
     </code>
 </pre>
-                        <p>So, the units (rightmost digit) contributes to the sum with a total of 10 occurrences.</p>
-                        <p>However, the range 10-19 is special, because each number there always begins with 1:</p>
+                        <p class="paragraph">So, the units (rightmost digit) contributes to the sum with a total of 10 occurrences.</p>
+                        <p class="paragraph">However, the range 10-19 is special, because each number there always begins with 1:</p>
 <pre class="codes scroll-bar">
     <code class="">
         10, 11, 12, 13, 14, 15, 16, 17, 18, 19
@@ -132,13 +131,15 @@
     </code>
 </pre>
                         <div>
-                            <p>In total, the digit 1 appears 20 times in the numbers up to 99:</p>
-                            <div>10 times as a digit in the units column</div>
-                            <div>10 times as a digit in the tens column</div>
+                            <p class="paragraph">In total, the digit 1 appears 20 times in the numbers up to 99:</p>
+                            <ul>
+                                <li class="list">10 times as a digit in the units column</li>
+                                <li class="list">10 times as a digit in the tens column</li>
+                            </ul>
                         </div>
                         <hr class="hr-color">
                         </hr>
-                        <p>If we look at the numbers 0-999, we'll start to see patterns. Now, 1 appears in the units
+                        <p class="paragraph">If we look at the numbers 0-999, we'll start to see patterns. Now, 1 appears in the units
                             column not 10, but 100 times:</p>
 <pre class="codes scroll-bar">
     <code>
@@ -146,23 +147,23 @@
         ↑   ↑   ↑      ↑    ↑    ↑      ↑    ↑    ↑      ↑ (100)
     </code>
 </pre>
-                        <p>Notice how we can just take the last digit off the number and get the number of times 1 will
+                        <p class="paragraph">Notice how we can just take the last digit off the number and get the number of times 1 will
                             appear at the units position. For example, if we have 236, we can take the 6 out and know
                             that
                             1 will surely appear 23 times as a units digit. In this case, however, we must add one,
                             because 231 is also
                             part of the collection. If the end number was 230, we wouldn't have that.</p>
-                        <p>Now, we can do the same, but for the tens. If we remove the 36 from 236, we get 2. So we know
+                        <p class="paragraph">Now, we can do the same, but for the tens. If we remove the 36 from 236, we get 2. So we know
                             that the digit 1 will cycle 2 times in the tens column:</p>
 <pre class="codes">
     <code>
         10-19, 110-119
         ↑  ↑    ↑   ↑
     </code>
- </pre>
-                        <p>But since the tens digit is 3, which is bigger than 1, we get one extra cycle, namely
+</pre>
+                        <p class="paragraph">But since the tens digit is 3, which is bigger than 1, we get one extra cycle, namely
                             210-219. If we had 206, 0 is less than 1, so we wouldn't get that extra cycle.</p>
-                        <p>The special case is when the digit is 1. If we have 216, then we get an incomplete extra
+                        <p class="paragraph">The special case is when the digit is 1. If we have 216, then we get an incomplete extra
                             cycle of only 7 repetitions, rather than 10. We go through 210-216, not 210-219. So the
                             occurrences of 1 in the tens column depends on columns to the right. This time, we have to
                             remove digits from the left side. For the number 216, we remove 21 from it and get 6. We
@@ -170,7 +171,7 @@
                             0 in the units, it still counts. We end up with 7, which is the number of ones in the
                             incomplete cycle. Here's the entire calculation:
                         </p>
-    <pre class="codes scroll-bar">
+<pre class="codes scroll-bar scroll-bar-1">
     <code>
         236
         ││└  23*1 +   1*1 extra (because 6 > 1) =  24
@@ -178,15 +179,15 @@
         └── 0*100 + 1*100 extra (because 2 > 1) = 100
                                         total = 154
     </code>
-    </pre>
-                        <p>Notice how we have a multiplier for each digit, and it increases exponentially: 1 for units,
+</pre>
+                        <p class="paragraph">Notice how we have a multiplier for each digit, and it increases exponentially: 1 for units,
                             10 for tens, 100 for hundreds.</p>
 
                         <h2>Implementation</h2>
-                        <p>Let's start with the multiplier. In code, we can loop over the digits in reverse to get it:
+                        <p class="paragraph">Let's start with the multiplier. In code, we can loop over the digits in reverse to get it:
                         </p>
 
-    <pre class="codes scroll-bar">
+    <pre class="codes scroll-bar scroll-bar-2">
         <code class="space-before">
         <span class="code-punctuation">[</span><span class="code-constant">6</span class="code-punctuation">,<span></span> <span class="code-constant">3</span><span class="code-punctuation">,</span> <span class="code-constant">2</span><span class="code-punctuation"><span class="code-punctuation">]</span></span>.<span class="code-function">forEach</span><span class="code-punctuation">(</span><span class="code-punctuation">(digit</span><span class="code-punctuation">,</span> <span class="code-punctuation">i)</span> <span class="operator">=></span> <span class="code-punctuation">{</span>
         <span class="keyword">let</span> <span class="code-punctuation">mul</span> <span class="operator">=</span> <span class="code-punctuation">Math.</span><span class="code-function">pow</span><span class="code-punctuation">(</span><span class="code-constant">10</span><span class="code-punctuation">, i</span><span class="code-punctuatuion">)</span><span class="code-punctuatuion">;</span> <span class="code-comment">// 1, 10, 100</span> 
@@ -194,20 +195,20 @@
         
         </code>
     </pre>
-                        <p>Now, we have to be able to take digits out of the number. In our first iteration, for the
+                        <p class="paragraph">Now, we have to be able to take digits out of the number. In our first iteration, for the
                             units, we have to take 23 out of <span class="red-text">236</span>.
                             We can do that by dividing the number by 10, getting <span class="red-text">23</span>.
                             We can then round it down with <span class="red-text">Math.floor()</span> to get <span class="red-text">23</span>.
                         </p>
-                        <p>
+                        <p class="paragraph">
                             For the tens, we have to get 2 out of <span class="red-text">236</span>.
                             We can do that by dividing by <span class="red-text">100</span>, getting <span class="red-text">23.6</span>, and rounding down to <span class="red-text">2</span>.
                         </p>
-                        <p>
+                        <p class="paragraph">
                             Basically, we multiply our multiplier by 10, divide, then floor,
                             and we have successfully taken out the necessary digits:
                         </p>
-<div class="codes scroll-bar code-divs">
+<div class="codes scroll-bar scroll-bar-3 code-divs">
     <pre>
     <code>
         236
@@ -217,7 +218,7 @@
     </code>
     <pre>
 </div>
-                        <p>
+                        <p class="paragraph">
                             All that's left now is to apply the multiplier to those numbers and we
                             get the number of complete cycles with a 1 that each digit goes through:
                         </p>
@@ -229,7 +230,7 @@
         └── 0*100 = 0
     </code>
 </pre>
-                        <p>
+                        <p class="paragraph">
                             In code, we can do it like this:
                         </p>
 <pre class="codes scroll-bar">
@@ -238,7 +239,7 @@
         <span class="keyword">let</span> <span class="code-punctuation">ones</span> <span class="operator">=</span> <span class="code-punctuation">cycles</span> <span class="operator">*</span> <span class="code-punctuation">mul;</span>
     </code>
 </pre>
-                        <p>
+                        <p class="paragraph">
                             Now, we have to handle cases where the digit is greater than 1. That's when we have one
                             extra cycle:
                         </p>
@@ -250,7 +251,7 @@
         └─ 0 < 1 => no extra cycle (we don't reach 210)
     </code>
 </pre>
-                        <p>
+                        <p class="paragraph">
                             We add an extra <span class="red-text">if</span> statement:
                         </p>
 <pre class="codes scroll-bar">
@@ -263,12 +264,11 @@
         }
     </code>
 </pre>
-                         
-                        <p>
+                        <p class="paragraph">
                             Finally, we have the edge case where the digit is exactly <span class="red-text">1</span>.
                             This is where we have an incomplete cycle and the result depends on the digits to the right:
                         </p>
-    <pre class="codes scroll-bar">
+<pre class="codes scroll-bar">
     <code>
         216
         └─ just 10-16, not 10-19, so we extract 6
@@ -276,18 +276,18 @@
         136
         └── just 100-136, not 100-199, so we extract 36
     </code>
-    </pre>
-                        <p>
+</pre>
+                        <p class="paragraph">
                             We can get digits on the right by applying <span class="red-text">%</span>, the <a class="green-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder" target="_blank">remainder operator</a>, to the number and the
                             multiplier:
                         </p>
-    <pre class="codes scroll-bar">
+<pre class="codes scroll-bar">
     <code>
         216 % 10  = divide by 10 and get the remainder  => 6
         136 % 100 = divide by 100 and get the remainder => 36
     </code>
-    </pre>
-                        <p>
+</pre>
+                        <p class="paragraph">
                             However, we must add 1 to that remainder, because we
                             need to count the 0 as well. In other words, for the tens, we have:
                         </p>
@@ -297,10 +297,10 @@
         └┴───────────────────────────────── this counts as well
     </code>
 </pre>
-                        <p>
+                        <p class="paragraph">
                             So we need to extend our <span class="red-text">if</span> statement:
                         </p>
-        <pre class="codes scroll-bar">
+<pre class="codes scroll-bar">
         <code>
         <span class="keyword">if</span> <span class="code-punctuation">(digit </span><span class="operator">></span> <span class="code-constant">1</span><span class="code-punctuation">) {</span>
             <span class="code-punctuation">ones</span> <span class="operator">+=</span> <span class="code-punctuation">mul;</span> <span class="code-comment">// add one extra cycle</span>
@@ -308,11 +308,11 @@
             ones</span> <span class="operator">+=</span> <span class="code-punctuation">(n</span> <span class="operator">%</span> <span class="code-punctuation">mul)</span> <span class="operator">+</span> <span class="code-constant">1</span><span class="code-punctuation">;</span> <span class="code-comment">// incomplete cycle</span>
         }
         </code>
-        </pre>
-                        <p>
+</pre>
+                        <p class="paragraph">
                             Put together, our logic looks like this:
                         </p>
-        <pre class="codes scroll-bar">
+    <pre class="codes scroll-bar">
         <code>
         <span class="keyword">let</span> <span class="code-punctuation">n</span> <span class="operator">=</span> <span class="code-constant">236</span><span class="code-punctuation">;</span>
         <span class="keyword">let</span> <span class="code-punctuation">strings</span> <span class="operator">=</span> <span class="code-punctuation">n.</span><span class="code-function">toString</span><span class="code-punctuation">().</span><span class="yellow-text"><span class="code-punctuation">split</span></span>(<span class="string">""</span><span class="code-punctuation">);</span>       <span class="code-comment">// ["2", "3", "6"]</span>
@@ -337,13 +337,13 @@
         <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(sum);</span> <span class="code-comment">// 154</span>
         </code>
     </pre>
-                        <p>
+                        <p class="paragraph">
                             Now, we can wrap that logic in an easily reusable function and use <a class="reduce" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" target="_blank">reduce()</a> to accumulate
                             the sum:
                         </p>
-     <pre class="codes scroll-bar">
-       <code>
-       <span class="keyword">function</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(n) {</span>
+    <pre class="codes scroll-bar">
+        <code>
+        <span class="keyword">function</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(n) {</span>
         <span class="keyword">return</span> <span class="code-punctuation">n</span>
                 <span class="code-punctuation">.</span><span class="code-function">toString</span><span class="code-punctuation">()</span>
                 <span class="code-punctuation">.</span><span class="code-function">split</span><span class="code-punctuation">(</span><span class="string">""</span><span class="code-punctuation">)</span>
@@ -364,12 +364,11 @@
         <span class="code-punctuation">} </span>
         </code>
     </pre>
-                        <p>
+                        <p class="paragraph">
                             Here are some examples:
                         </p>
-                        <div class="codes scroll-bar">
-<pre>
-  <code>
+<pre class="codes scroll-bar">
+    <code>
        <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">14</span><span class="code-punctuation">));</span>   <span class="code-comment"> // 7</span> 
        <span class="code-punctuation">console.</span><span class="code-function">log</span>(<span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">420</span><span class="code-punctuation">));</span>  <span class="code-comment"> // 192</span>
        <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">1337</span><span class="code-punctuation">));</span> <span class="code-comment"> // 812</span>
@@ -377,20 +376,15 @@
        <span class="code-punctuation">console.</span><span class="code-function">log</span><span class="code-punctuation">(</span><span class="code-function">numberOfOnes</span><span class="code-punctuation">(</span><span class="code-constant">65536</span><span class="code-punctuation">));</span><span class="code-comment"> // 36714</span>
     </code>
 </pre>
-                        
-                        </div>
-                        <p>
+
+                        <p class="paragraph">
                             Play around with the code <a class="green-link" href="https://codepen.io/dodov/pen/poLLNwy?editors=0012" target="_blank">on CodePen!</a>
                         </p>
-                        <p>
+                        <p class="paragraph">
                             Also, make sure to subscribe to <a class="green-link" href="https://cassidoo.co/newsletter/" target="_blank">rendezvous with cassidoo</a>
                             for similar puzzles and useful web
                             development content.
                         </p>
-
-
-
-
                     </article>
                     <hr>
                     </hr>

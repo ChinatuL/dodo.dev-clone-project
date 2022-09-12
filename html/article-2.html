@@ -472,7 +472,7 @@
             function countLines() {
                 document.getElementById("lines").innerHTML = "";
                 var el = document.getElementById("editor-content");
-                var editorHeight = el.offsetHeight;
+                var editorHeight = el.offsetHeight + 24;
                 var lineHeight = parseInt(el.style.lineHeight);
                 var lines = parseInt(editorHeight / lineHeight);
                 let lineNumber = 0;

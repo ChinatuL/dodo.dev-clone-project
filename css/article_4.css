@@ -233,6 +233,7 @@ body {
 }
 body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
+    width: 14px;
 }
 *::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
@@ -305,12 +306,13 @@ body::-webkit-scrollbar {
 
 .editor {
     background-color: var(--editor-background);
-    padding: 2rem 5rem;
+    padding: 1.5rem 5rem;
 }
 
 #heading {
     display: flex;
     justify-content: space-between;
+    padding-top: 0.5rem;
 }
 h1 {
     font-size: 1.25rem;
@@ -342,7 +344,7 @@ h1 {
     cursor: zoom-in;
 }
 .text-3 {
-    padding-top: 1.2rem;
+    padding-top: 1.5rem;
     color: var(--body-text);
 }
 .anchortag-1 {
@@ -380,7 +382,11 @@ h1 {
 .editor-1 {
     background-color: var(--code-background-color);
     color: var(--secondary-text);
-    padding: 1.3rem 4rem;
+    padding: 1.5rem 4rem;
+}
+
+.editor-2 {
+    padding: 1.5rem 4rem 0;
 }
 .editor-text2 {
     color: var(--code-function-color);
@@ -399,12 +405,13 @@ h1 {
     border-left: 1px solid var(--scrollbar-border);
     border-right: 1px solid var(--scrollbar-border);
     width: 97%;
-    height: 100px;
+    height: 6rem;
     overflow-x: auto;
 }
 
 .scroll-bar::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
+    height: 14px;
 }
 
 .scrollbar-text {
@@ -524,7 +531,7 @@ footer {
 
 .lines {
     position: absolute;
-    top: 8.5rem;
+    top: 9rem;
     text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);

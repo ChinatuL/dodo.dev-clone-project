@@ -187,6 +187,7 @@ body {
 }
 body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
+    width: 14px;
 }
 .container {
     max-width: 81ch;

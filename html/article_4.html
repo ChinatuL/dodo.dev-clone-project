@@ -182,7 +182,7 @@
                             >:
                         </p>
                     </div>
-                    <div class="editor-1">
+                    <div class="editor-2">
                         <div class="scroll-bar">
                             <p class="scrollbar-text editor-1-text">
                                 <span class="text-red">if</span>
@@ -366,14 +366,14 @@
             function countLines() {
                 document.getElementById("lines").innerHTML = "";
                 var el = document.getElementById("editor-content");
-                var editorHeight = el.offsetHeight;
+                var editorHeight = el.offsetHeight - 48;
                 var lineHeight = parseInt(el.style.lineHeight);
                 var lines = parseInt(editorHeight / lineHeight);
                 let lineNumber = 0;
                 document.getElementById("line-number").innerHTML =
                     lines + " lines";
                 let i = 1;
-                while (i < lines) {
+                while (i <= lines) {
                     let newDiv = document.createElement("div");
                     newDiv.setAttribute("class", "lines-1");
                     newDiv.addEventListener("click", handleScroll);

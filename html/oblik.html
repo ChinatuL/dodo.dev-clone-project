@@ -244,7 +244,7 @@
                 var lines = parseInt(editorHeight / lineHeight);
                 let lineNumber = 0;
                 let i = 1;
-                while (i < lines) {
+                while (i <= lines) {
                     let newDiv = document.createElement("div");
                     newDiv.setAttribute("class", "lines-1");
                     newDiv.addEventListener("click", handleScroll);
