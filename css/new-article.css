@@ -233,6 +233,7 @@ body {
 }
 body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
+    width: 14px;
 }
 *::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
@@ -343,8 +344,13 @@ h1 {
     object-fit: contain;
     cursor: zoom-in;
 }
+
+.text-3-first {
+    padding-top: 1.8rem;
+}
+
 .text-3 {
-    padding-top: 1.2rem;
+    padding-top: 1.5rem;
     color: var(--body-text);
 }
 .anchortag-1 {
@@ -360,11 +366,11 @@ figcaption {
     justify-content: center;
     color: var(--secondary-text);
     font-size: 0.82rem;
-    padding: 0;
+    padding-bottom: 0.4rem;
 }
 h2 {
-    padding-top: 2rem;
-    padding-bottom: 1.2rem;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
     color: var(--body-text);
     font-size: 1.25rem;
 }
@@ -377,11 +383,11 @@ h2 {
 .editor-1 {
     background-color: var(--code-background-color);
     color: var(--secondary-text);
-    padding: 1.3rem 4rem;
+    padding: 0 4rem;
 }
 
 .warning-code .scroll-bar {
-    height: 230px;
+    height: 15rem;
     color: var(--secondary-text);
 }
 
@@ -389,7 +395,7 @@ h2 {
     border-left: 1px solid var(--scrollbar-border);
     border-right: 1px solid var(--scrollbar-border);
     width: 100%;
-    height: 100px;
+    height: 4.5rem;
     overflow-x: auto;
     overflow-y: hidden;
 }
@@ -399,6 +405,7 @@ h2 {
 
 .scroll-bar::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
+    height: 14px;
 }
 .editor-text2 {
     color: var(--code-function-color);
@@ -413,9 +420,6 @@ h2 {
     color: var(--body-text);
 }
 
-.text-3-padding {
-    padding-bottom: 1.2rem;
-}
 .text-1-content {
     display: flex;
     overflow: hidden;
@@ -437,6 +441,12 @@ h2 {
 .text-20 {
     padding-left: 1.5rem;
 }
+
+.requests-response {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
 .text-60 {
     padding-left: 0.75rem;
     white-space: nowrap;

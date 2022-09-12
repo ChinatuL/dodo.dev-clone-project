@@ -86,7 +86,7 @@
                             class="image"
                         />
                     </div>
-                    <p class="text-3">
+                    <p class="text-3 text-3-first">
                         I was working on a PHP site that suddenly started
                         returning 502 Bad Gateway and 504 Gateway Timeout errors
                         after an update that worked fine locally and on the
@@ -186,7 +186,6 @@
                     </div>
                     <div class="editor-1 warning-code">
                             <div class="scroll-bar">
-                                <p class="scrollbar-text">
                                     <pre>
                                         <code class="warning-text">
     WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 8 children, there are 0 idle, and 16 total children
@@ -198,7 +197,6 @@
     WARNING: [pool www] server reached pm.max_children setting (50), consider raising it
                                     </code>
                                     </pre>
-                                </p>
                             </div>
                     </div>
                     <div class="editor">
@@ -281,7 +279,7 @@
                             request per second. This meant:
                         </p>
                     </div>
-                    <div class="editor-1">
+                    <div class="editor-1 requests-response">
                         <div class="editor-text6 text-20 text-60">
                             <p class="text-20">2 * 60 = 120 requests per minute</p>
                             <p class="text-60">120 / 2 = 60 requests per server</p>
@@ -310,7 +308,7 @@
                             had 6 servers, rather than 2, we would've had:
                         </p>
                     </div>
-                    <div class="editor-1">
+                    <div class="editor-1 requests-response">
                         <div class="editor-text6 text-20 text-60">
                             <p class="text-20">2 * 60 = 120 requests per minute</p>
                             <p class="text-60">120 / 6 = 20 requests per server</p>
@@ -473,14 +471,14 @@
             function countLines() {
                 document.getElementById("lines").innerHTML = "";
                 var el = document.getElementById("editor-content");
-                var editorHeight = el.offsetHeight - 24;
+                var editorHeight = el.offsetHeight - 48;
                 var lineHeight = parseInt(el.style.lineHeight);
                 var lines = parseInt(editorHeight / lineHeight);
                 let lineNumber = 0;
                 document.getElementById("line-number").innerHTML =
                     lines + " lines";
                 let i = 1;
-                while (i < lines) {
+                while (i <= lines) {
                     let newDiv = document.createElement("div");
                     newDiv.setAttribute("class", "lines-1");
                     newDiv.addEventListener("click", handleScroll);

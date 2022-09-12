@@ -229,6 +229,7 @@ body {
 }
 body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
+    width: 14px;
 }
 .container {
     max-width: 81ch;
@@ -284,9 +285,17 @@ body::-webkit-scrollbar {
 
 .editor {
     background-color: var(--editor-background);
-    padding: 2rem 5rem;
+    padding: 1.5rem 5rem;
     /* height: 100%; */
     /* height: 100vh; */
+}
+
+.first-editor {
+    padding-top: 2rem;
+}
+
+.second-editor {
+    padding-top: 1.5rem;
 }
 
 #heading {
@@ -324,13 +333,11 @@ h1 {
 }
 .text-1 {
     color: var(--body-text);
-    padding: 1.5rem 0;
+    padding: 1.7rem 0 1.5rem;
 }
 .text-1-content {
     display: flex;
     overflow: hidden;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
     color: var(--color-blockquote);
 }
 
@@ -354,8 +361,12 @@ i {
 }
 h2 {
     color: var(--body-text);
-    padding: 1rem 0;
+    padding-top: 1.5rem;
     font-size: 1.25rem;
+}
+
+.edge {
+    padding-top: 2rem;
 }
 .text-2 {
     color: var(--body-text);
@@ -378,17 +389,16 @@ figcaption {
     padding: 0;
 }
 .text-3 {
-    padding-top: 1.2rem;
+    padding-top: 1.5rem;
     color: var(--body-text);
 }
 .text-6 {
-    padding-top: 0.5rem;
     color: var(--body-text);
 }
 .editor-1 {
     background-color: var(--code-background-color);
     color: var(--code-color);
-    padding: 1.3rem 4rem;
+    padding: 1.5rem 4rem;
 }
 .example {
     margin: 1.5rem 0;
@@ -412,13 +422,12 @@ figcaption {
     color: var(--body-text);
 }
 .counter {
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     counter-reset: counter-list;
     padding-left: 1rem;
 }
 .counter .list {
     position: relative;
-    padding-bottom: 1rem;
     padding-left: 0.9rem;
     color: var(--body-text);
 }
