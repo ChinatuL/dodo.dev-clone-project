@@ -384,6 +384,7 @@ article {
     display: none;
 }
 
+/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
@@ -455,6 +456,7 @@ footer {
     color: var(--secondary-text);
 }
 
+/* Line numbers */
 .lines {
     position: absolute;
     top: 8.5rem;
@@ -473,6 +475,7 @@ footer {
     color: var(--editor-line-number-hover);
 }
 
+/* Mobile view */
 @media (max-width: 599px) {
     body::-webkit-scrollbar {
         display: none;
