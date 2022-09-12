@@ -1,3 +1,4 @@
+/* Global styles */
 :root,
 :root.monokai {
     --background-color: #1e1f1c;
@@ -19,9 +20,9 @@
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
+    --text-selection-color: #878b9180;
     --color-blockquote: var(--line-break);
     --color-blockquote-symbol: var(--line-break);
-    --text-selection-color: #878b9180;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -47,9 +48,9 @@
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
+    --text-selection-color: #264f78;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: var(--line-break);
-    --text-selection-color: #264f78;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -74,9 +75,9 @@
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
+    --text-selection-color: #add6ff;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: #0451a5;
-    --text-selection-color: #add6ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -101,9 +102,9 @@
     --color-scrollbar-thumb-hover: #6a737d44;
     --color-scrollbar-thumb-active: #6a737d88;
     --color-scrollbar-shadow: #00000088;
+    --text-selection-color: #3392ff44;
     --color-blockquote: #85e89d;
     --color-blockquote-symbol: var(--color-blockquote);
-    --text-selection-color: #3392ff44;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -129,9 +130,9 @@
     --color-scrollbar-thumb-hover: #959da544;
     --color-scrollbar-thumb-active: #959da588;
     --color-scrollbar-shadow: #6a737d33;
+    --text-selection-color: #0366d625;
     --color-blockquote: #22863a;
     --color-blockquote-symbol: var(--color-blockquote);
-    --text-selection-color: #0366d625;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -157,9 +158,9 @@
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
+    --text-selection-color: #eee8d5;
     --color-blockquote: #859900;
     --color-blockquote-symbol: var(--color-blockquote);
-    --text-selection-color: #eee8d5;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -169,8 +170,8 @@
 *::before,
 *::after {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
 }
 
 *::-webkit-scrollbar-corner,
@@ -216,10 +217,11 @@ body::-webkit-scrollbar {
 }
 
 .container {
-    max-width: 81ch;
     margin: 4.5rem auto;
+    max-width: 81ch;
 }
 
+/* Header/Navbar */
 .nav-list {
     display: flex;
     margin: 0 auto;
@@ -236,9 +238,9 @@ body::-webkit-scrollbar {
 }
 
 .nav-link {
+    color: var(--navbar-text);
     font-family: var(--font-sans);
     font-size: 0.8rem;
-    color: var(--navbar-text);
 }
 
 .nav-link div {
@@ -264,6 +266,7 @@ body::-webkit-scrollbar {
     background-color: var(--inactive-navbar-background);
 }
 
+/* Main */
 .editor {
     min-height: 100vh;
     padding: 2rem 8ch 5rem;
@@ -298,8 +301,8 @@ body::-webkit-scrollbar {
 }
 
 img {
-    max-width: 100%;
     margin-bottom: 2rem;
+    max-width: 100%;
     cursor: zoom-in;
 }
 
@@ -354,9 +357,9 @@ blockquote p {
 
 blockquote::before {
     content: "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >";
+    margin-right: 2ch;
     width: 1ch;
     height: 1.5rem;
-    margin-right: 2ch;
     color: var(--color-blockquote-symbol);
 }
 
@@ -370,12 +373,12 @@ blockquote::before {
 
 .line-break {
     display: flex;
-    height: 1.5rem;
-    margin: 0 0 1.5rem;
-    border-width: 0px;
-    color: var(--line-break);
     opacity: 80%;
     overflow: hidden !important;
+    margin: 0 0 1.5rem;
+    border-width: 0px;
+    height: 1.5rem;
+    color: var(--line-break);
 }
 
 .line-break::before {
@@ -385,10 +388,11 @@ blockquote::before {
 
 .line-break::after {
     content: "-------------------------------------------------------";
-    font-variant-ligatures: none;
     overflow-wrap: anywhere;
+    font-variant-ligatures: none;
 }
 
+/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
@@ -440,15 +444,15 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    border: none;
-    background: none;
-    color: var(--body-text);
     opacity: 0;
     -webkit-appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--body-text);
     font-size: 1rem;
     font-weight: 500;
     font-family: "Fira code", monospace;
-    cursor: pointer;
 }
 
 .theme-picker:focus,
@@ -461,17 +465,18 @@ footer {
     color: var(--secondary-text);
 }
 
+/* Line numbers */
 .lines {
     position: absolute;
     top: 8.8rem;
-    text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
+    text-align: right;
 }
 
 .lines-1:hover {
-    color: var(--editor-line-number-hover);
     cursor: pointer;
+    color: var(--editor-line-number-hover);
 }
 
 .lines-1:active,
@@ -479,20 +484,10 @@ footer {
     color: var(--editor-line-number-hover);
 }
 
+/* Mobile view */
 @media (max-width: 599px) {
     body::-webkit-scrollbar {
         display: none;
-    }
-    .editor {
-        padding-left: 5ch;
-        padding-right: 2ch;
-    }
-    .editor-content {
-        max-width: 40ch;
-    }
-
-    .container {
-        margin-top: 1px;
     }
 
     nav {
@@ -514,6 +509,19 @@ footer {
 
     .nav-link div {
         min-width: 0;
+    }
+
+    .container {
+        margin-top: 1px;
+    }
+
+    .editor {
+        padding-left: 5ch;
+        padding-right: 2ch;
+    }
+
+    .editor-content {
+        max-width: 40ch;
     }
 
     .title h1 {
@@ -543,10 +551,10 @@ footer {
     }
 
     img {
+        object-fit: contain;
         width: 18.6rem;
         max-width: 100%;
         height: 10.5rem;
-        object-fit: contain;
         background-color: var(--background-color);
     }
 
@@ -559,8 +567,8 @@ footer {
     }
 
     footer {
-        min-height: 0;
         flex-direction: column;
+        min-height: 0;
     }
 
     .social-links {
@@ -576,9 +584,9 @@ footer {
     .lines {
         position: absolute;
         top: 4.3rem;
-        text-align: right;
         padding-left: 0.8rem;
         color: var(--editor-line-number);
+        text-align: right;
     }
 
     .line-break {
