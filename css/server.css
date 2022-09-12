@@ -1,3 +1,5 @@
+/* Global styles */
+
 :root,
 :root.monokai {
     --background-color: #1e1f1c;
@@ -213,6 +215,7 @@ body::-webkit-scrollbar {
     margin: 4.5rem auto;
 }
 
+/* Header/Navbar */
 .nav-list {
     display: flex;
     margin: 0 auto;
@@ -234,6 +237,7 @@ body::-webkit-scrollbar {
     padding: 0.3rem 0 0.3rem 0.5rem;
 }
 
+/* Main */
 .editor {
     min-height: 100vh;
     padding: 2rem 8ch 5rem;
@@ -334,6 +338,7 @@ input[type="text"]:active {
     overflow-wrap: anywhere;
 }
 
+/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
@@ -406,6 +411,7 @@ footer {
     color: var(--secondary-text);
 }
 
+/* Line numbers */
 .lines {
     position: absolute;
     top: 8.5rem;
@@ -424,6 +430,7 @@ footer {
     color: var(--editor-line-number-hover);
 }
 
+/* Mobile view */
 @media (max-width: 599px) {
     body::-webkit-scrollbar {
         display: none;
