@@ -1,3 +1,4 @@
+/* Global styles */
 :root,
 :root.monokai {
     --background-color: #1e1f1c;
@@ -156,8 +157,8 @@
 *::before,
 *::after {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
 }
 
 *::-webkit-scrollbar-corner,
@@ -203,10 +204,11 @@ body::-webkit-scrollbar {
 }
 
 .container {
-    max-width: 81ch;
     margin: 4.5rem auto;
+    max-width: 81ch;
 }
 
+/* Header/Navbar */
 .nav-list {
     display: flex;
     margin: 0 auto;
@@ -239,11 +241,11 @@ body::-webkit-scrollbar {
 }
 
 .article-tab a {
+    vertical-align: middle;
     margin-left: 0.2rem;
     padding: 0.2rem 0.2rem 0;
     color: var(--navbar-text);
     font-weight: normal;
-    vertical-align: middle;
 }
 
 .article-tab a:hover {
@@ -251,6 +253,7 @@ body::-webkit-scrollbar {
     background-color: var(--inactive-navbar-background);
 }
 
+/* Main */
 .editor {
     min-height: 100vh;
     padding: 2rem 8ch 5rem;
@@ -279,8 +282,8 @@ body::-webkit-scrollbar {
 }
 
 img {
-    max-width: 100%;
     margin-bottom: 1.5rem;
+    max-width: 100%;
     cursor: zoom-in;
 }
 
@@ -298,6 +301,7 @@ img {
     color: var(--accent-hover);
 }
 
+/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
@@ -349,15 +353,15 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    border: none;
-    background: none;
-    color: var(--body-text);
     opacity: 0;
     -webkit-appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--body-text);
     font-size: 1rem;
     font-weight: 500;
     font-family: "Fira code", monospace;
-    cursor: pointer;
 }
 
 .theme-picker:focus,
@@ -373,14 +377,14 @@ footer {
 .lines {
     position: absolute;
     top: 8.5rem;
-    text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
+    text-align: right;
 }
 
 .lines-1:hover {
-    color: var(--editor-line-number-hover);
     cursor: pointer;
+    color: var(--editor-line-number-hover);
 }
 
 .lines-1:active,
@@ -388,19 +392,10 @@ footer {
     color: var(--editor-line-number-hover);
 }
 
+/* Mobile view */
 @media (max-width: 599px) {
     body::-webkit-scrollbar {
         display: none;
-    }
-    .editor {
-        padding: 2rem 5ch 5rem;
-    }
-    .editor-content {
-        max-width: 40ch;
-    }
-
-    .container {
-        margin-top: 1px;
     }
 
     nav {
@@ -421,6 +416,17 @@ footer {
 
     .nav-link div {
         min-width: 0;
+    }
+
+    .container {
+        margin-top: 1px;
+    }
+
+    .editor {
+        padding: 2rem 5ch 5rem;
+    }
+    .editor-content {
+        max-width: 40ch;
     }
 
     .title h1 {
@@ -450,16 +456,16 @@ footer {
     }
 
     img {
+        object-fit: contain;
         width: 18.6rem;
         max-width: 100%;
         height: 10.5rem;
-        object-fit: contain;
         background-color: var(--background-color);
     }
 
     footer {
-        min-height: 0;
         flex-direction: column;
+        min-height: 0;
     }
 
     .social-links {
@@ -475,8 +481,8 @@ footer {
     .lines {
         position: absolute;
         top: 4.1rem;
-        text-align: right;
         padding-left: 1rem;
         color: var(--editor-line-number);
+        text-align: right;
     }
 }
