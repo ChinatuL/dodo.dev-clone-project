@@ -605,7 +605,11 @@ footer {
     .editor {
         display: block;
         justify-content: flex-start;
-        padding: 2rem 4rem 2rem 3rem;
+        padding: 2rem 2rem 2rem 3rem;
+    }
+    figcaption {
+        font-size: 0.72rem;
+        text-align: center;
     }
     .editor1-text2 {
         padding-bottom: 1.3rem;
