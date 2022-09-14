@@ -306,7 +306,7 @@ main {
 }
 
 .line-break::after {
-    content: "-------------------------------------------------------";
+    content: "-------------------------------------------------------------";
     overflow-wrap: anywhere;
     font-variant-ligatures: none;
 }
