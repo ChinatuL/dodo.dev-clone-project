@@ -1,5 +1,13 @@
 # dodov.dev Clone Project
 
+![GitHub](https://img.shields.io/github/license/ChinatuL/dodo.dev-clone-project?color=gr&style=for-the-badge)
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ChinatuL/dodo.dev-clone-project?color=gr&style=for-the-badge)
+
+![GitHub contributors](https://img.shields.io/github/contributors/ChinatuL/dodo.dev-clone-project?style=for-the-badge)
+
+![GitHub closed issues](https://img.shields.io/github/issues-closed/ChinatuL/dodo.dev-clone-project?color=gr&style=for-the-badge)
+
 > A simple clone of the personal website of Hristiyan Dodov, a full-stack developer at [Oblik Studio](https://oblik.studio/).
 
 ## Features
