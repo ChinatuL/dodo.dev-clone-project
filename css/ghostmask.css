@@ -424,7 +424,7 @@ footer {
     display: none;
 
     
-/* Mobile view */
+/* Mobile view. */
 }
 @media screen and (max-width: 599px) {
     .mobile-view {

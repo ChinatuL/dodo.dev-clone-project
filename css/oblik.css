@@ -330,7 +330,7 @@ p {
     overflow-wrap: anywhere;
 }
 
-/* Footer */
+/* Footer. */
 footer {
     display: flex;
     justify-content: space-between;
