@@ -1,3 +1,4 @@
+/* Global styles */
 :root,
 :root.monokai {
     --background-color: #1e1f1c;
@@ -197,26 +198,27 @@ li {
 header {
     margin-top: 4.5rem;
 }
+
+/* Header/Navbar */
 .nav-list {
     display: flex;
     margin: 0 auto;
 }
 
 .nav-item {
+    margin-right: 0.1rem;
     background-color: var(--editor-background);
     font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
+
 }
+
 .nav-item a {
     text-decoration: none;
     font-weight: normal;
 }
 .nav-item a:hover {
     color: var(--navbar-text);
-}
-
-.nav-item {
-    margin-right: 0.1rem;
 }
 
 .nav-item:nth-of-type(1),
@@ -241,6 +243,11 @@ header {
     padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
+.article-tab a:hover {
+    border-radius: 5px;
+    background-color: var(--inactive-navbar-background);
+}
+
 .article-tab {
     padding: 0.35rem 0.5rem 0;
     font: italic 0.8rem var(--font-sans);
@@ -258,19 +265,18 @@ header {
     vertical-align: middle;
 }
 
-.article-tab a:hover {
-    border-radius: 5px;
-    background-color: var(--inactive-navbar-background);
-}
+
 main {
-    color: var(--body-text);
     margin: auto;
+    color: var(--body-text);
 }
+
+/* Main */
 .editor {
-    min-height: 100vh;
-    background-color: var(--editor-background);
     padding-left: 5rem;
     padding-right: 5rem;
+    background-color: var(--editor-background);
+    min-height: 100vh;
 }
 h1 {
     font-size: 20px;
@@ -304,11 +310,11 @@ p {
 .line-break {
     display: flex;
     height: 1.5rem;
-    margin: 1rem 0;
     border-width: 0px;
+    overflow: hidden !important;
     color: var(--line-break);
     opacity: 80%;
-    overflow: hidden !important;
+     margin: 1rem 0;
 }
 
 .line-break::before {
@@ -322,6 +328,7 @@ p {
     overflow-wrap: anywhere;
 }
 
+/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
@@ -413,11 +420,10 @@ footer {
     color: var(--editor-line-number-hover);
 }
 
+/* Mobile view */
 .mobile-view {
     display: none;
 }
-
-/*mobile-view*/
 @media screen and (max-width: 599px) {
     .mobile-view {
         display: block;

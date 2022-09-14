@@ -1,3 +1,4 @@
+/* Global styles */
 :root,
 :root.monokai {
     --background-color: #1e1f1c;
@@ -202,6 +203,8 @@ li {
 header {
     margin-top: 4.5rem;
 }
+
+/* Header/Navbar */
 .nav-list {
     display: flex;
     margin: 0 auto;
@@ -211,6 +214,7 @@ header {
     background-color: var(--editor-background);
     font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
+        margin-right: 0.1rem;
 }
 .nav-item a {
     text-decoration: none;
@@ -218,10 +222,6 @@ header {
 }
 .nav-item a:hover {
     color: var(--navbar-text);
-}
-
-.nav-item {
-    margin-right: 0.1rem;
 }
 
 .nav-item:nth-of-type(1),
@@ -257,10 +257,9 @@ header {
 
 .article-tab a {
     margin-left: 0.2rem;
+    vertical-align: middle;
     padding: 0.2rem 0.2rem 0;
     color: var(--navbar-text);
-    font-weight: normal;
-    vertical-align: middle;
 }
 
 .article-tab a:hover {
@@ -268,14 +267,17 @@ header {
     background-color: var(--inactive-navbar-background);
 }
 main {
-    color: var(--body-text);
     margin: auto;
+    color: var(--body-text);
+    
 }
+
+/* Main */
 .editor {
-    min-height: 100vh;
     background-color: var(--editor-background);
     padding-left: 5rem;
     padding-right: 5rem;
+    min-height: 100vh;
 }
 h1 {
     font-size: 20px;
@@ -311,10 +313,10 @@ p {
     display: flex;
     height: 1.5rem;
     margin: 1.5rem 0;
+    overflow: hidden !important;
     border-width: 0px;
     color: var(--line-break);
     opacity: 80%;
-    overflow: hidden !important;
 }
 
 .line-break::before {
@@ -328,6 +330,7 @@ p {
     overflow-wrap: anywhere;
 }
 
+/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
@@ -342,8 +345,8 @@ footer {
 }
 
 .social-link a {
-    text-decoration: none;
     border-bottom: 1px solid var(--accent);
+    text-decoration: none;
     color: var(--accent);
 }
 
