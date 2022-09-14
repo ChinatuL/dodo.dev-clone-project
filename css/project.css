@@ -154,9 +154,9 @@
 }
 
 * {
-    padding: 0;
     margin: 0;
     box-sizing: border-box;
+    padding: 0;
 }
 *::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
@@ -181,9 +181,9 @@
 
 body {
     background-color: var(--background-color);
-    font-family: "Fira Code", monospace;
     width: 100%;
     color: var(--secondary-text);
+    font-family: "Fira Code", monospace;
     font-weight: 500;
 }
 body::-webkit-scrollbar {
@@ -192,8 +192,8 @@ body::-webkit-scrollbar {
 }
 
 .container {
-    max-width: 81ch;
     margin: 4.5rem auto 0;
+    max-width: 81ch;
 }
 li {
     list-style: none;
@@ -234,9 +234,9 @@ li {
 }
 
 .nav-link {
+    color: var(--navbar-text);
     font-family: var(--font-sans);
     font-size: 0.8rem;
-    color: var(--navbar-text);
 }
 
 .nav-link div {
@@ -248,11 +248,11 @@ main {
 }
 
 .editor {
-    max-width: 81ch;
-    background-color: var(--editor-background);
-    min-height: 100vh;
     margin: auto;
+    max-width: 81ch;
+    min-height: 100vh;
     padding-bottom: 4rem;
+    background-color: var(--editor-background);
 }
 .first-paragraph {
     margin-left: 3rem;
@@ -260,10 +260,10 @@ main {
     color: var(--secondary-text);
 }
 h1 {
-    font-size: 20px;
+    margin-left: 3rem;
     padding-top: 30px;
     padding-left: 50px;
-    margin-left: 3rem;
+    font-size: 20px;
 }
 h2 {
     font-size: 18px;
@@ -271,8 +271,8 @@ h2 {
 
 h1,
 h2 {
-    font-weight: 700;
     color: var(--body-text);
+    font-weight: 700;
 }
 .image:hover {
     cursor: pointer;
@@ -297,8 +297,8 @@ p {
     color: var(--accent-hover);
 }
 a {
-    text-decoration: none;
     color: var(--accent);
+    text-decoration: none;
 }
 a:hover {
     color: var(--accent-hover);
@@ -318,20 +318,20 @@ hr {
 }
 .footer-part {
     display: flex;
-    gap: 30px;
     justify-content: space-between;
+    gap: 30px;
 }
 
 .line-break {
     display: flex;
-    height: 1.5rem;
-    margin: 1.5rem;
-    padding-left: 5.3rem;
-    padding-right: 4.4rem;
-    border-width: 0px;
-    color: var(--line-break);
     opacity: 80%;
     overflow: hidden !important;
+    margin: 1.5rem;
+    border-width: 0px;
+    height: 1.5rem;
+    padding-left: 5.3rem;
+    padding-right: 4.4rem;
+    color: var(--line-break);
 }
 
 .line-break::before {
@@ -340,9 +340,9 @@ hr {
 }
 
 .line-break::after {
+    overflow-wrap: anywhere;
     content: "--------------------------------------------------------------";
     font-variant-ligatures: none;
-    overflow-wrap: anywhere;
 }
 footer {
     display: flex;
@@ -398,15 +398,15 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
     border: none;
     background: none;
     color: var(--body-text);
-    opacity: 0;
+    cursor: pointer;
     -webkit-appearance: none;
     font-size: 1rem;
     font-weight: 500;
     font-family: "Fira code", monospace;
-    cursor: pointer;
 }
 
 .theme-picker:focus,
@@ -422,9 +422,9 @@ footer {
 .lines {
     position: absolute;
     top: 8.5rem;
-    text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
+    text-align: right;
 }
 
 .lines-1:hover {
@@ -451,6 +451,19 @@ footer {
     .desktop-view {
         display: none;
     }
+    .nav-list {
+        flex: 0 0 auto;
+    }
+
+    .nav-item {
+        flex: 0 0 auto;
+        min-width: 25%;
+    }
+
+    .nav-link div {
+        min-width: 0;
+    }
+
     body::-webkit-scrollbar {
         display: none;
     }
@@ -465,20 +478,6 @@ footer {
     .container {
         margin-top: 1px;
     }
-
-    .nav-list {
-        flex: 0 0 auto;
-    }
-
-    .nav-item {
-        flex: 0 0 auto;
-        min-width: 25%;
-    }
-
-    .nav-link div {
-        min-width: 0;
-    }
-
     h1 {
         font-size: 17.5px;
     }
@@ -503,9 +502,9 @@ footer {
     }
 
     .mobile-paragraph {
-        padding-left: 2.5rem;
-        padding-bottom: 1rem;
         padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 2.5rem;
     }
     .second {
         padding-top: 30px;
@@ -531,9 +530,9 @@ footer {
     }
 
     footer {
+        flex-direction: column;
         min-height: 0;
         padding-left: 4ch;
-        flex-direction: column;
         font-size: 14px;
     }
     .social-links {
@@ -548,9 +547,9 @@ footer {
 
     .lines {
         top: 4rem;
-        text-align: center;
         padding-right: 1rem;
         padding-left: 0.5rem;
+        text-align: center;
     }
 
     .line-break {

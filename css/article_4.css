@@ -1,4 +1,4 @@
-/* -------------------------------------------GLOBAL STYLING------------------------------------------- */
+/* Global styling */
 :root,
 :root.monokai {
     --background-color: #1e1f1c;
@@ -14,13 +14,14 @@
     --line-break: #88846f;
     --accent: #a6e22e;
     --accent-hover: #4e94ce;
-    --anchortag-orange-color: #fd971f;
     --color-focus: #75715e;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
+    --text-selection-color: #878b9180;
+    --anchortag-orange-color: #fd971f;
     --color-blockquote: var(--line-break);
     --color-blockquote-symbol: var(--line-break);
     --code-background-color: #22231e;
@@ -29,7 +30,6 @@
     --code-punctuation: #ffffff;
     --code-string: #e6db74;
     --code-keyword: #f92672;
-    --text-selection-color: #878b9180;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -49,13 +49,14 @@
     --line-break: #6a9955;
     --accent: #4ec9b0;
     --accent-hover: #4e94ce;
-    --anchortag-orange-color: #ce9178;
     --color-focus: #007fd4;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #79797966;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
+    --text-selection-color: #264f78;
+    --anchortag-orange-color: #ce9178;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: var(--line-break);
     --code-background-color: #1c1c1c;
@@ -64,7 +65,6 @@
     --code-punctuation: #d4d4d4;
     --code-string: #ce9178;
     --code-keyword: #569cd6;
-    --text-selection-color: #264f78;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -83,13 +83,14 @@
     --line-break: #008000;
     --accent: #267f99;
     --accent-hover: #0000ff;
-    --anchortag-orange-color: #800000;
     --color-focus: #0090f1;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
+    --text-selection-color: #add6ff;
+    --anchortag-orange-color: #800000;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: #0451a5;
     --code-background-color: #fbfbfb;
@@ -98,7 +99,6 @@
     --code-punctuation: #000000;
     --code-string: #a31515;
     --code-keyword: #0000ff;
-    --text-selection-color: #add6ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -118,12 +118,13 @@
     --accent: #96d0ff;
     --accent-hover: #4e94ce;
     --color-focus: #005cc5;
-    --anchortag-orange-color: #9ecbff;
     --color-scrollbar-border: #1b1f23;
     --color-scrollbar-thumb: #6a737d33;
     --color-scrollbar-thumb-hover: #6a737d44;
     --color-scrollbar-thumb-active: #6a737d88;
     --color-scrollbar-shadow: #00000088;
+    --text-selection-color: #3392ff44;
+    --anchortag-orange-color: #9ecbff;
     --color-blockquote: #85e89d;
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #202428;
@@ -132,7 +133,6 @@
     --code-punctuation: #e1e4e8;
     --code-string: #9ecbff;
     --code-keyword: #f97583;
-    --text-selection-color: #3392ff44;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -152,13 +152,14 @@
     --line-break: #6a737d;
     --accent: #032f62;
     --accent-hover: #0000ff;
-    --anchortag-orange-color: #032f62;
     --color-focus: #2188ff;
     --color-scrollbar-border: #ffffff;
     --color-scrollbar-thumb: #959da533;
     --color-scrollbar-thumb-hover: #959da544;
     --color-scrollbar-thumb-active: #959da588;
     --color-scrollbar-shadow: #6a737d33;
+    --text-selection-color: #0366d625;
+    --anchortag-orange-color: #032f62;
     --color-blockquote: #22863a;
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #fcfcfc;
@@ -167,7 +168,6 @@
     --code-punctuation: var(--body-text);
     --code-string: #032f62;
     --code-keyword: #d73a49;
-    --text-selection-color: #0366d625;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -187,13 +187,14 @@
     --line-break: #93a1a1;
     --accent: #268bd2;
     --accent-hover: #0000ff;
-    --anchortag-orange-color: #2aa198;
     --color-focus: #d3af86;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
     --color-scrollbar-thumb-hover: #646464b3;
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
+    --text-selection-color: #eee8d5;
+    --anchortag-orange-color: #2aa198;
     --color-blockquote: #859900;
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #f9f1dc;
@@ -202,7 +203,6 @@
     --code-punctuation: #333333;
     --code-string: #2aa198;
     --code-keyword: #268bd2;
-    --text-selection-color: #eee8d5;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -211,29 +211,8 @@
 *::before,
 *::after {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
-}
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-/* ---------------------------------------------------------------------------------------------------------------- */
-
-body {
-    background-color: var(--background-color);
-    /* color: var(--body-text); */
-    font-family: var(--font-mono);
-    line-height: 1.5rem;
-    overflow-x: hidden;
-}
-body::-webkit-scrollbar {
-    border-left: 1px solid var(--color-scrollbar-border);
-    width: 14px;
+    padding: 0;
 }
 *::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
@@ -252,10 +231,31 @@ body::-webkit-scrollbar {
 *::selection {
     background-color: var(--text-selection-color);
 }
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background-color: var(--background-color);
+    /* color: var(--body-text); */
+    font-family: var(--font-mono);
+    line-height: 1.5rem;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    border-left: 1px solid var(--color-scrollbar-border);
+    width: 14px;
+}
 .container {
     max-width: 81ch;
     margin: 5rem auto;
 }
+
+/* Header/Navbar */
 .nav-list {
     display: flex;
     margin: 0 auto;
@@ -272,11 +272,10 @@ body::-webkit-scrollbar {
 }
 
 .nav-link {
+    color: var(--navbar-text);
     font-family: var(--font-sans);
     font-size: 0.8rem;
-    color: var(--navbar-text);
 }
-
 .nav-link div {
     width: 7.5rem;
     padding: 0.3rem 0 0.3rem 0.5rem;
@@ -288,11 +287,11 @@ body::-webkit-scrollbar {
 }
 
 .article-tab a {
+    vertical-align: middle;
     margin-left: 0.2rem;
     padding: 0.2rem 0.2rem 0;
     color: var(--navbar-text);
     font-weight: normal;
-    vertical-align: middle;
 }
 
 .article-tab a:hover {
@@ -304,9 +303,10 @@ body::-webkit-scrollbar {
     color: var(--active-navbar-text);
 }
 
+/* Main */
 .editor {
-    background-color: var(--editor-background);
     padding: 1.5rem 5rem;
+    background-color: var(--editor-background);
 }
 
 #heading {
@@ -315,9 +315,9 @@ body::-webkit-scrollbar {
     padding-top: 0.5rem;
 }
 h1 {
+    color: var(--body-text);
     font-size: 1.25rem;
     font-weight: bold;
-    color: var(--body-text);
 }
 .heading-text {
     color: var(--secondary-text);
@@ -325,22 +325,22 @@ h1 {
 }
 
 .time {
+    color: var(--secondary-text);
     font-size: 0.8rem;
     white-space: nowrap;
-    color: var(--secondary-text);
 }
 .time1 {
+    color: var(--secondary-text);
     font-size: 0.8rem;
     text-align: right;
-    color: var(--secondary-text);
 }
 .image-container {
     padding-top: 1.5rem;
 }
 .image {
+    object-fit: contain;
     width: 100%;
     height: 100%;
-    object-fit: contain;
     cursor: zoom-in;
 }
 .text-3 {
@@ -348,12 +348,12 @@ h1 {
     color: var(--body-text);
 }
 .anchortag-1 {
-    color: var(--accent);
     border-bottom: 2px solid var(--accent);
+    color: var(--accent);
 }
 .anchortag-1:hover {
-    color: var(--accent-hover);
     border-bottom: 2px solid var(--accent-hover);
+    color: var(--accent-hover);
 }
 
 .text-1-content {
@@ -380,9 +380,9 @@ h1 {
     color: var(--anchortag-orange-color);
 }
 .editor-1 {
+    padding: 1.5rem 4rem;
     background-color: var(--code-background-color);
     color: var(--secondary-text);
-    padding: 1.5rem 4rem;
 }
 
 .editor-2 {
@@ -402,11 +402,11 @@ h1 {
 }
 
 .scroll-bar {
+    overflow-x: auto;
     border-left: 1px solid var(--scrollbar-border);
     border-right: 1px solid var(--scrollbar-border);
     width: 97%;
     height: 6rem;
-    overflow-x: auto;
 }
 
 .scroll-bar::-webkit-scrollbar {
@@ -434,24 +434,26 @@ h2 {
 
 .line-break {
     display: flex;
-    height: 1.5rem;
-    margin: 0 0 1.5rem;
-    border-width: 0px;
-    color: var(--line-break);
     opacity: 80%;
     overflow: hidden !important;
+    margin: 0 0 1.5rem;
+    border-width: 0px;
+    height: 1.5rem;
+    color: var(--line-break);
 }
 
 .line-break::before {
-    content: "//";
     padding-right: 0.5rem;
+    content: "//";
 }
 
 .line-break::after {
     content: "-------------------------------------------------------";
-    font-variant-ligatures: none;
     overflow-wrap: anywhere;
+    font-variant-ligatures: none;
 }
+
+/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
@@ -508,15 +510,15 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    border: none;
-    background: none;
-    color: var(--body-text);
     opacity: 0;
     -webkit-appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--body-text);
     font-size: 1rem;
     font-weight: 500;
     font-family: "Fira code", monospace;
-    cursor: pointer;
 }
 
 .theme-picker:focus,
@@ -529,17 +531,18 @@ footer {
     color: var(--secondary-text);
 }
 
+/* Line numbers */
 .lines {
     position: absolute;
     top: 9rem;
-    text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
+    text-align: right;
 }
 
 .lines-1:hover {
-    color: var(--editor-line-number-hover);
     cursor: pointer;
+    color: var(--editor-line-number-hover);
 }
 
 .lines-1:active,
@@ -604,12 +607,11 @@ footer {
         padding-bottom: 1.3rem;
     }
     .editor-1 {
-        /* background-color: var(--editor-background); */
         padding: 1.5rem 2rem 1.5rem 3rem;
     }
     footer {
-        min-height: 0;
         flex-direction: column;
+        min-height: 0;
     }
 
     .social-links {
@@ -632,8 +634,8 @@ footer {
         margin: 0 auto;
     }
     h2 {
-        white-space: nowrap;
         font-size: 1.1rem;
+        white-space: nowrap;
     }
     #heading {
         display: block;
