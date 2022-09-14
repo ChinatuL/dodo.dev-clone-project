@@ -1,4 +1,4 @@
-/* Global styles */
+/* Global styling */
 :root,
 :root.monokai {
     --background-color: #1e1f1c;
@@ -21,8 +21,15 @@
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
     --text-selection-color: #878b9180;
+    --anchortag-orange-color: #fd971f;
     --color-blockquote: var(--line-break);
     --color-blockquote-symbol: var(--line-break);
+    --code-background-color: #22231e;
+    --code-color: var(--secondary-text);
+    --code-function-color: #66d9ef;
+    --code-punctuation: #ffffff;
+    --code-string: #e6db74;
+    --code-keyword: #f92672;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -49,8 +56,15 @@
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
     --text-selection-color: #264f78;
+    --anchortag-orange-color: #ce9178;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: var(--line-break);
+    --code-background-color: #1c1c1c;
+    --code-color: var(--secondary-text);
+    --code-function-color: #dcdcaa;
+    --code-punctuation: #d4d4d4;
+    --code-string: #ce9178;
+    --code-keyword: #569cd6;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -76,8 +90,15 @@
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
     --text-selection-color: #add6ff;
+    --anchortag-orange-color: #800000;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: #0451a5;
+    --code-background-color: #fbfbfb;
+    --code-color: var(--secondary-text);
+    --code-function-color: #795e26;
+    --code-punctuation: #000000;
+    --code-string: #a31515;
+    --code-keyword: #0000ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -103,8 +124,15 @@
     --color-scrollbar-thumb-active: #6a737d88;
     --color-scrollbar-shadow: #00000088;
     --text-selection-color: #3392ff44;
+    --anchortag-orange-color: #9ecbff;
     --color-blockquote: #85e89d;
     --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #202428;
+    --code-color: var(--secondary-text);
+    --code-function-color: #b392f0;
+    --code-punctuation: #e1e4e8;
+    --code-string: #9ecbff;
+    --code-keyword: #f97583;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -131,8 +159,15 @@
     --color-scrollbar-thumb-active: #959da588;
     --color-scrollbar-shadow: #6a737d33;
     --text-selection-color: #0366d625;
+    --anchortag-orange-color: #032f62;
     --color-blockquote: #22863a;
     --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #fcfcfc;
+    --code-color: var(--secondary-text);
+    --code-function-color: #6f42c1;
+    --code-punctuation: var(--body-text);
+    --code-string: #032f62;
+    --code-keyword: #d73a49;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -159,13 +194,19 @@
     --color-scrollbar-thumb-active: #00000099;
     --color-scrollbar-shadow: #dddddd;
     --text-selection-color: #eee8d5;
+    --anchortag-orange-color: #2aa198;
     --color-blockquote: #859900;
     --color-blockquote-symbol: var(--color-blockquote);
+    --code-background-color: #f9f1dc;
+    --code-color: var(--secondary-text);
+    --code-function-color: #268bd2;
+    --code-punctuation: #333333;
+    --code-string: #2aa198;
+    --code-keyword: #268bd2;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
 }
-
 *,
 *::before,
 *::after {
@@ -173,16 +214,13 @@
     box-sizing: border-box;
     padding: 0;
 }
-
 *::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
     display: none;
 }
-
 *::-webkit-scrollbar-thumb {
     background: var(--color-scrollbar-thumb);
 }
-
 *::-webkit-scrollbar-thumb:hover {
     background: var(--color-scrollbar-thumb-hover);
 }
@@ -190,11 +228,9 @@
 *::-webkit-scrollbar-thumb:active {
     background: var(--color-scrollbar-thumb-active);
 }
-
 *::selection {
     background-color: var(--text-selection-color);
 }
-
 a {
     text-decoration: none;
 }
@@ -205,20 +241,18 @@ li {
 
 body {
     background-color: var(--background-color);
-    color: var(--body-text);
+    /* color: var(--body-text); */
     font-family: var(--font-mono);
-    font-weight: 500;
     line-height: 1.5rem;
+    overflow-x: hidden;
 }
-
 body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
     width: 14px;
 }
-
 .container {
-    margin: 4.5rem auto;
     max-width: 81ch;
+    margin: 5rem auto;
 }
 
 /* Header/Navbar */
@@ -242,10 +276,9 @@ body::-webkit-scrollbar {
     font-family: var(--font-sans);
     font-size: 0.8rem;
 }
-
 .nav-link div {
-    min-width: 7.5rem;
-    padding: 0.4rem 0 0.4rem 0.5rem;
+    width: 7.5rem;
+    padding: 0.3rem 0 0.3rem 0.5rem;
 }
 
 .article-tab {
@@ -254,11 +287,11 @@ body::-webkit-scrollbar {
 }
 
 .article-tab a {
+    vertical-align: middle;
     margin-left: 0.2rem;
     padding: 0.2rem 0.2rem 0;
     color: var(--navbar-text);
     font-weight: normal;
-    vertical-align: middle;
 }
 
 .article-tab a:hover {
@@ -266,109 +299,137 @@ body::-webkit-scrollbar {
     background-color: var(--inactive-navbar-background);
 }
 
+.article-name {
+    color: var(--active-navbar-text);
+}
+
 /* Main */
 .editor {
-    min-height: 100vh;
-    padding: 2rem 8ch 5rem;
+    padding: 1.5rem 5rem;
     background-color: var(--editor-background);
 }
 
-.main-header {
+#heading {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 1.5rem;
+    padding-top: 0.5rem;
 }
-
-.title h1 {
+h1 {
     color: var(--body-text);
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: bold;
 }
-
-.title p {
-    max-width: 44ch;
+.heading-text {
     color: var(--secondary-text);
+    font-size: medium;
 }
 
-.publish-date {
+.time {
+    color: var(--secondary-text);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+.time1 {
     color: var(--secondary-text);
     font-size: 0.8rem;
     text-align: right;
 }
-
-.actual-date {
-    white-space: nowrap;
+.image-container {
+    padding-top: 1.5rem;
 }
-
-img {
-    margin-bottom: 2rem;
-    max-width: 100%;
+.image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
     cursor: zoom-in;
 }
-
-.article-subheading {
-    padding: 1.5rem 0;
-    font-size: 1.25rem;
-    font-weight: 700;
+.text-3 {
+    padding-top: 1.5rem;
+    color: var(--body-text);
 }
-
-.article-content > p {
-    padding-bottom: 1.5rem;
-}
-
-code {
-    color: var(--code);
-    font: inherit;
-}
-
-.article-link {
-    border-bottom: 1px solid var(--accent);
+.anchortag-1 {
+    border-bottom: 2px solid var(--accent);
     color: var(--accent);
 }
-
-.article-link:hover {
-    border-bottom: 1px solid var(--accent-hover);
+.anchortag-1:hover {
+    border-bottom: 2px solid var(--accent-hover);
     color: var(--accent-hover);
 }
 
-.article-list {
-    padding-bottom: 1.5rem;
-}
-
-.article-list > li {
-    display: flex;
-}
-
-.article-list > li::before {
-    content: "-";
-    padding-right: 1rem;
-    color: var(--accent);
-}
-
-blockquote {
+.text-1-content {
     display: flex;
     overflow: hidden;
+    margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    color: var(--article3-gray-text);
 }
 
-blockquote p {
-    color: var(--color-blockquote);
-}
-
-blockquote::before {
+.text-1-content::before {
     content: "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >";
-    margin-right: 2ch;
     width: 1ch;
     height: 1.5rem;
+    margin-right: 2ch;
     color: var(--color-blockquote-symbol);
 }
 
-.marker {
-    margin-right: 1rem;
+.text-3-content {
+    color: var(--color-blockquote);
 }
-.img-standard {
-    padding: 0.5rem 0 1rem;
-    background-color: var(--background-color);
+
+.highlighted-text {
+    color: var(--anchortag-orange-color);
+}
+.editor-1 {
+    padding: 1.5rem 4rem;
+    background-color: var(--code-background-color);
+    color: var(--secondary-text);
+}
+
+.editor-2 {
+    padding: 1.5rem 4rem 0;
+}
+.editor-text2 {
+    color: var(--code-function-color);
+}
+.editor-text3 {
+    color: var(--code-punctuation);
+}
+.editor-1-text {
+    color: var(--code-string);
+}
+.editor-text4 {
+    color: var(--body-text);
+}
+
+.scroll-bar {
+    overflow-x: auto;
+    border-left: 1px solid var(--scrollbar-border);
+    border-right: 1px solid var(--scrollbar-border);
+    width: 97%;
+    height: 6rem;
+}
+
+.scroll-bar::-webkit-scrollbar {
+    border-left: 1px solid var(--color-scrollbar-border);
+    height: 14px;
+}
+
+.scrollbar-text {
+    width: 650px;
+}
+.text-red {
+    color: var(--code-keyword);
+}
+.editor-text5 {
+    color: var(--text-light-gray);
+}
+h2 {
+    color: var(--body-text);
+    /* padding: 1rem 0; */
+    font-size: 1.25rem;
+}
+.editor-text6 {
+    color: var(--text-light-gray);
 }
 
 .line-break {
@@ -382,8 +443,8 @@ blockquote::before {
 }
 
 .line-break::before {
-    content: "//";
     padding-right: 0.5rem;
+    content: "//";
 }
 
 .line-break::after {
@@ -416,6 +477,10 @@ footer {
     color: var(--accent-hover);
 }
 
+.social-link span {
+    color: var(--body-text);
+}
+
 .bullet {
     color: var(--secondary-text);
 }
@@ -423,6 +488,7 @@ footer {
 .color-theme-name {
     position: relative;
     cursor: pointer;
+    color: var(--body-text);
     white-space: nowrap;
 }
 
@@ -431,8 +497,8 @@ footer {
 }
 
 .arrow {
-    color: var(--accent);
     font-size: 1rem;
+    color: var(--accent);
 }
 
 .color-theme-name:hover,
@@ -468,7 +534,7 @@ footer {
 /* Line numbers */
 .lines {
     position: absolute;
-    top: 8.8rem;
+    top: 9rem;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
     text-align: right;
@@ -484,10 +550,18 @@ footer {
     color: var(--editor-line-number-hover);
 }
 
-/* Mobile view */
-@media (max-width: 599px) {
+/* MEDIA QUERIES */
+@media screen and (max-width: 600px) {
     body::-webkit-scrollbar {
         display: none;
+    }
+
+    .scroll-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .container {
+        margin-top: 1px;
     }
 
     nav {
@@ -511,61 +585,30 @@ footer {
         min-width: 0;
     }
 
-    .container {
-        margin-top: 1px;
+    h1 {
+        font-size: 17.5px;
     }
-
-    .editor {
-        padding-left: 5ch;
-        padding-right: 2ch;
-    }
-
-    .editor-content {
-        max-width: 40ch;
-    }
-
-    .title h1 {
-        font-size: 1.09rem;
-    }
-
     p {
-        line-height: 1.4;
+        font-size: 14px;
     }
-
-    p,
-    footer {
-        font-size: 0.875rem;
+    #heading {
+        display: block;
+        justify-content: flex-start;
     }
-
-    header {
-        flex-direction: column;
-    }
-
-    .publish-date p {
-        font-size: 0.71rem;
-        text-align: left;
-    }
-
-    .publish-date > p:nth-of-type(2) {
+    .time1 {
         display: none;
     }
-
-    img {
-        object-fit: contain;
-        width: 18.6rem;
-        max-width: 100%;
-        height: 10.5rem;
-        background-color: var(--background-color);
+    .editor {
+        display: block;
+        justify-content: flex-start;
+        padding: 2rem 4rem 2rem 3rem;
     }
-
-    .article-subheading {
-        font-size: 1.09rem;
+    .editor1-text2 {
+        padding-bottom: 1.3rem;
     }
-
-    blockquote div p {
-        line-height: 1.5rem;
+    .editor-1 {
+        padding: 1.5rem 2rem 1.5rem 3rem;
     }
-
     footer {
         flex-direction: column;
         min-height: 0;
@@ -574,7 +617,7 @@ footer {
     .social-links {
         display: flex;
         flex-direction: column;
-        padding-bottom: 1rem;
+        padding-bottom: 1.5rem;
     }
 
     .bullet {
@@ -582,14 +625,34 @@ footer {
     }
 
     .lines {
-        position: absolute;
-        top: 4.3rem;
-        padding-left: 0.8rem;
-        color: var(--editor-line-number);
-        text-align: right;
+        top: 4rem;
+        padding-left: 0.7rem;
     }
-
-    .line-break {
-        margin: 0 0 1.2rem;
+}
+@media screen and (max-width: 300px) {
+    .container {
+        margin: 0 auto;
+    }
+    h2 {
+        font-size: 1.1rem;
+        white-space: nowrap;
+    }
+    #heading {
+        display: block;
+        justify-content: flex-start;
+    }
+    .time1 {
+        display: none;
+    }
+    .editor {
+        display: block;
+        justify-content: flex-start;
+        padding: 2rem 4rem 0 2rem;
+    }
+    .editor1-text2 {
+        padding-bottom: 1.3rem;
+    }
+    .editor-1 {
+        padding: 1.5rem 2rem;
     }
 }

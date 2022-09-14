@@ -26,15 +26,11 @@
     --color-blockquote-symbol: var(--line-break);
     --code-background-color: #22231e;
     --code-color: var(--secondary-text);
-    --code-function-color: #66d9ef;
-    --code-punctuation: #ffffff;
-    --code-string: #e6db74;
-    --code-keyword: #f92672;
+    --article3-heading-paragraph: #cacabe;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
 }
-
 :root.dark-plus {
     --background-color: #252526;
     --editor-background: #1e1e1e;
@@ -56,15 +52,11 @@
     --color-scrollbar-thumb-active: #bfbfbf66;
     --color-scrollbar-shadow: #000000;
     --text-selection-color: #264f78;
-    --anchortag-orange-color: #ce9178;
     --color-blockquote: var(--body-text);
     --color-blockquote-symbol: var(--line-break);
     --code-background-color: #1c1c1c;
     --code-color: var(--secondary-text);
-    --code-function-color: #dcdcaa;
-    --code-punctuation: #d4d4d4;
-    --code-string: #ce9178;
-    --code-keyword: #569cd6;
+    --anchortag-orange-color: #ce9178;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -83,6 +75,7 @@
     --line-break: #008000;
     --accent: #267f99;
     --accent-hover: #0000ff;
+
     --color-focus: #0090f1;
     --color-scrollbar-border: #7f7f7f4d;
     --color-scrollbar-thumb: #64646466;
@@ -95,10 +88,6 @@
     --color-blockquote-symbol: #0451a5;
     --code-background-color: #fbfbfb;
     --code-color: var(--secondary-text);
-    --code-function-color: #795e26;
-    --code-punctuation: #000000;
-    --code-string: #a31515;
-    --code-keyword: #0000ff;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -129,10 +118,6 @@
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #202428;
     --code-color: var(--secondary-text);
-    --code-function-color: #b392f0;
-    --code-punctuation: #e1e4e8;
-    --code-string: #9ecbff;
-    --code-keyword: #f97583;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -164,10 +149,6 @@
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #fcfcfc;
     --code-color: var(--secondary-text);
-    --code-function-color: #6f42c1;
-    --code-punctuation: var(--body-text);
-    --code-string: #032f62;
-    --code-keyword: #d73a49;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -199,10 +180,6 @@
     --color-blockquote-symbol: var(--color-blockquote);
     --code-background-color: #f9f1dc;
     --code-color: var(--secondary-text);
-    --code-function-color: #268bd2;
-    --code-punctuation: #333333;
-    --code-string: #2aa198;
-    --code-keyword: #268bd2;
     --font-sans: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
@@ -218,9 +195,11 @@
 *::-webkit-scrollbar-button {
     display: none;
 }
+
 *::-webkit-scrollbar-thumb {
     background: var(--color-scrollbar-thumb);
 }
+
 *::-webkit-scrollbar-thumb:hover {
     background: var(--color-scrollbar-thumb-hover);
 }
@@ -228,9 +207,11 @@
 *::-webkit-scrollbar-thumb:active {
     background: var(--color-scrollbar-thumb-active);
 }
+
 *::selection {
     background-color: var(--text-selection-color);
 }
+
 a {
     text-decoration: none;
 }
@@ -276,6 +257,7 @@ body::-webkit-scrollbar {
     font-family: var(--font-sans);
     font-size: 0.8rem;
 }
+
 .nav-link div {
     width: 7.5rem;
     padding: 0.3rem 0 0.3rem 0.5rem;
@@ -307,12 +289,22 @@ body::-webkit-scrollbar {
 .editor {
     padding: 1.5rem 5rem;
     background-color: var(--editor-background);
+
+    /* height: 100%; */
+    /* height: 100vh; */
+}
+
+.first-editor {
+    padding-top: 2rem;
+}
+
+.second-editor {
+    padding-top: 1.5rem;
 }
 
 #heading {
     display: flex;
     justify-content: space-between;
-    padding-top: 0.5rem;
 }
 h1 {
     color: var(--body-text);
@@ -320,17 +312,17 @@ h1 {
     font-weight: bold;
 }
 .heading-text {
-    color: var(--secondary-text);
+    color: var(--article3-heading-paragraph);
     font-size: medium;
 }
 
 .time {
-    color: var(--secondary-text);
+    color: var(--article3-heading-paragraph);
     font-size: 0.8rem;
     white-space: nowrap;
 }
 .time1 {
-    color: var(--secondary-text);
+    color: var(--article3-heading-paragraph);
     font-size: 0.8rem;
     text-align: right;
 }
@@ -343,9 +335,25 @@ h1 {
     height: 100%;
     cursor: zoom-in;
 }
-.text-3 {
-    padding-top: 1.5rem;
+.text-1 {
+    padding: 1.7rem 0 1.5rem;
     color: var(--body-text);
+}
+.text-1-content {
+    display: flex;
+    overflow: hidden;
+    color: var(--color-blockquote);
+}
+
+.text-1-content::before {
+    content: "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >";
+    margin-right: 2ch;
+    width: 1ch;
+    height: 1.5rem;
+    color: var(--color-blockquote-symbol);
+}
+i {
+    font-weight: bold;
 }
 .anchortag-1 {
     border-bottom: 2px solid var(--accent);
@@ -355,96 +363,97 @@ h1 {
     border-bottom: 2px solid var(--accent-hover);
     color: var(--accent-hover);
 }
-
-.text-1-content {
-    display: flex;
-    overflow: hidden;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--article3-gray-text);
+h2 {
+    padding-top: 1.5rem;
+    font-size: 1.25rem;
+    color: var(--body-text);
 }
 
-.text-1-content::before {
-    content: "> > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >";
-    width: 1ch;
-    height: 1.5rem;
-    margin-right: 2ch;
-    color: var(--color-blockquote-symbol);
+.edge {
+    padding-top: 2rem;
 }
-
-.text-3-content {
-    color: var(--color-blockquote);
+.text-2 {
+    color: var(--body-text);
 }
-
+.text-4 {
+    padding-top: 1.5rem;
+    color: var(--body-text);
+}
 .highlighted-text {
     color: var(--anchortag-orange-color);
+}
+.text-4-content {
+    padding-top: 1.5rem;
+}
+figcaption {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    color: var(--secondary-text);
+    font-size: 0.82rem;
+}
+.text-3 {
+    padding-top: 1.5rem;
+    color: var(--body-text);
+}
+.text-6 {
+    color: var(--body-text);
 }
 .editor-1 {
     padding: 1.5rem 4rem;
     background-color: var(--code-background-color);
+    color: var(--code-color);
+}
+.example {
+    margin: 1.5rem 0;
+}
+
+.text-7 {
     color: var(--secondary-text);
+    white-space: nowrap;
 }
-
-.editor-2 {
-    padding: 1.5rem 4rem 0;
+.text-8 {
+    display: flex;
+    padding-top: 1.3rem;
 }
-.editor-text2 {
-    color: var(--code-function-color);
+.hyphen {
+    padding-right: 1rem;
+    color: var(--accent);
 }
-.editor-text3 {
-    color: var(--code-punctuation);
-}
-.editor-1-text {
-    color: var(--code-string);
-}
-.editor-text4 {
+.text-8-content {
     color: var(--body-text);
 }
-
-.scroll-bar {
-    overflow-x: auto;
-    border-left: 1px solid var(--scrollbar-border);
-    border-right: 1px solid var(--scrollbar-border);
-    width: 97%;
-    height: 6rem;
+.counter {
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    counter-reset: counter-list;
 }
-
-.scroll-bar::-webkit-scrollbar {
-    border-left: 1px solid var(--color-scrollbar-border);
-    height: 14px;
-}
-
-.scrollbar-text {
-    width: 650px;
-}
-.text-red {
-    color: var(--code-keyword);
-}
-.editor-text5 {
-    color: var(--text-light-gray);
-}
-h2 {
+.counter .list {
+    position: relative;
+    padding-left: 0.9rem;
     color: var(--body-text);
-    /* padding: 1rem 0; */
-    font-size: 1.25rem;
 }
-.editor-text6 {
-    color: var(--text-light-gray);
+.list::before {
+    position: absolute;
+    left: -1.1rem;
+    color: var(--accent);
+    counter-increment: counter-list;
+    content: counter(counter-list);
 }
 
 .line-break {
     display: flex;
     opacity: 80%;
     overflow: hidden !important;
-    margin: 0 0 1.5rem;
+    margin: 1.5rem 0;
     border-width: 0px;
     height: 1.5rem;
     color: var(--line-break);
 }
 
 .line-break::before {
-    padding-right: 0.5rem;
     content: "//";
+    padding-right: 0.5rem;
 }
 
 .line-break::after {
@@ -497,13 +506,13 @@ footer {
 }
 
 .arrow {
-    font-size: 1rem;
     color: var(--accent);
+    font-size: 1rem;
 }
 
 .color-theme-name:hover,
 .color-theme-name:hover .arrow {
-    color: #4e94ce;
+    color: var(--accent-hover);
 }
 
 .theme-picker {
@@ -514,8 +523,8 @@ footer {
     -webkit-appearance: none;
     border: none;
     background: none;
-    cursor: pointer;
     color: var(--body-text);
+    cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
     font-family: "Fira code", monospace;
@@ -534,7 +543,7 @@ footer {
 /* Line numbers */
 .lines {
     position: absolute;
-    top: 9rem;
+    top: 9.2rem;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
     text-align: right;
@@ -555,11 +564,6 @@ footer {
     body::-webkit-scrollbar {
         display: none;
     }
-
-    .scroll-bar::-webkit-scrollbar {
-        display: none;
-    }
-
     .container {
         margin-top: 1px;
     }
@@ -584,8 +588,8 @@ footer {
     .nav-link div {
         min-width: 0;
     }
-
-    h1 {
+    h1,
+    h2 {
         font-size: 17.5px;
     }
     p {
@@ -609,15 +613,23 @@ footer {
     .editor-1 {
         padding: 1.5rem 2rem 1.5rem 3rem;
     }
+    .text-1-content {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .text-7 {
+        overflow: auto;
+    }
     footer {
-        flex-direction: column;
         min-height: 0;
+        flex-direction: column;
+        font-size: 14px;
     }
 
     .social-links {
         display: flex;
         flex-direction: column;
-        padding-bottom: 1.5rem;
+        padding-bottom: 1.2rem;
     }
 
     .bullet {
@@ -625,8 +637,15 @@ footer {
     }
 
     .lines {
-        top: 4rem;
+        position: absolute;
+        top: 4.2rem;
         padding-left: 0.7rem;
+        color: var(--editor-line-number);
+        text-align: right;
+    }
+
+    .line-break {
+        margin: 1rem 0;
     }
 }
 @media screen and (max-width: 300px) {
@@ -634,8 +653,8 @@ footer {
         margin: 0 auto;
     }
     h2 {
-        font-size: 1.1rem;
         white-space: nowrap;
+        font-size: 1.15rem;
     }
     #heading {
         display: block;
@@ -654,5 +673,12 @@ footer {
     }
     .editor-1 {
         padding: 1.5rem 2rem;
+    }
+    .text-1-content {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .text-7 {
+        overflow: auto;
     }
 }
