@@ -10,35 +10,32 @@ const pickName = (theName) => {
     switch (theName) {
         case "dark-plus":
             colorName.innerHTML = "Dark+";
-            faviconTag.setAttribute("href", "../images/favicon-dark-plus.png");
+            faviconTag.setAttribute("href", "./images/favicon-dark-plus.png");
             break;
         case "light-plus":
             colorName.innerHTML = "Light+";
-            faviconTag.setAttribute("href", "../images/favicon-light-plus.png");
+            faviconTag.setAttribute("href", "./images/favicon-light-plus.png");
             break;
         case "monokai":
             colorName.innerHTML = "Monokai";
-            faviconTag.setAttribute("href", "../images/favicon-monokai.png");
+            faviconTag.setAttribute("href", "./images/favicon-monokai.png");
             break;
         case "github-dark":
             colorName.innerHTML = "Github Dark";
-            faviconTag.setAttribute(
-                "href",
-                "../images/favicon-github-dark.png"
-            );
+            faviconTag.setAttribute("href", "./images/favicon-github-dark.png");
             break;
         case "github-light":
             colorName.innerHTML = "Github Light";
             faviconTag.setAttribute(
                 "href",
-                "../images/favicon-github-light.png"
+                "./images/favicon-github-light.png"
             );
             break;
         case "solarized-light":
             colorName.innerHTML = "Solarized Light";
             faviconTag.setAttribute(
                 "href",
-                "../images/favicon-solarized-light.png"
+                "./images/favicon-solarized-light.png"
             );
             break;
     }
@@ -75,7 +72,7 @@ const getFavicon = () => {
     if (retrieveFavicon === null) {
         document
             .getElementById("favicon")
-            .setAttribute("href", "../images/favicon-monokai.png");
+            .setAttribute("href", "./images/favicon-monokai.png");
     } else {
         document
             .getElementById("favicon")

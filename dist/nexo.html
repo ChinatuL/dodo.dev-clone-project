@@ -8,10 +8,10 @@
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="../images/favicon-monokai.png"
+            href="./images/favicon-monokai.png"
             id="favicon"
         />
-        <link rel="stylesheet" href="../css/nexo.css" />
+        <link rel="stylesheet" href="./css/nexo.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -72,7 +72,7 @@
                             <div class="flex">
                                 <div class="nexo">
                                     <img
-                                        src="../images/nexo-logo.svg"
+                                        src="./images/nexo-logo.svg"
                                         alt="nexo-logo"
                                         width="100px"
                                         class="image"
@@ -104,7 +104,7 @@
                                 <div class="nexo">
                                     <a href="./nexo.html"
                                         ><img
-                                            src="../images/nexo-logo.svg"
+                                            src="./images/nexo-logo.svg"
                                             alt="nexo-logo"
                                             width="100px"
                                             class="mobile-image"
@@ -233,7 +233,7 @@
             function countLines() {
                 document.getElementById("lines").innerHTML = "";
                 var el = document.getElementById("editor-content");
-                var editorHeight = el.offsetHeight + 48;
+                var editorHeight = el.offsetHeight;
                 var lineHeight = parseInt(el.style.lineHeight);
                 var lines = parseInt(editorHeight / lineHeight);
                 let lineNumber = 0;

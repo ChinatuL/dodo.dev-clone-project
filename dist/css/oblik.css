@@ -175,23 +175,28 @@
 *::-webkit-scrollbar-thumb:active {
     background: var(--color-scrollbar-thumb-active);
 }
+
 *::selection {
     background-color: var(--text-selection-color);
 }
+
 body {
     background-color: var(--background-color);
     font-family: "Fira Code", monospace;
     width: 100%;
     font-weight: 500;
 }
+
 body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
     width: 14px;
 }
+
 .container {
     max-width: 81ch;
     margin: auto;
 }
+
 li {
     list-style-type: none;
 }
@@ -206,13 +211,11 @@ header {
 }
 
 .nav-item {
-    margin-right: 0.1rem;
     background-color: var(--editor-background);
     font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
-
+    margin-right: 0.1rem;
 }
-
 .nav-item a {
     text-decoration: none;
     font-weight: normal;
@@ -243,11 +246,6 @@ header {
     padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
-.article-tab a:hover {
-    border-radius: 5px;
-    background-color: var(--inactive-navbar-background);
-}
-
 .article-tab {
     padding: 0.35rem 0.5rem 0;
     font: italic 0.8rem var(--font-sans);
@@ -259,13 +257,15 @@ header {
 
 .article-tab a {
     margin-left: 0.2rem;
+    vertical-align: middle;
     padding: 0.2rem 0.2rem 0;
     color: var(--navbar-text);
-    font-weight: normal;
-    vertical-align: middle;
 }
 
-
+.article-tab a:hover {
+    border-radius: 5px;
+    background-color: var(--inactive-navbar-background);
+}
 main {
     margin: auto;
     color: var(--body-text);
@@ -273,15 +273,16 @@ main {
 
 /* Main */
 .editor {
+    background-color: var(--editor-background);
     padding-left: 5rem;
     padding-right: 5rem;
-    background-color: var(--editor-background);
     min-height: 100vh;
 }
 h1 {
     font-size: 20px;
     font-weight: 700;
 }
+
 .flex {
     display: flex;
     flex-direction: row;
@@ -310,11 +311,11 @@ p {
 .line-break {
     display: flex;
     height: 1.5rem;
-    border-width: 0px;
+    margin: 1.5rem 0;
     overflow: hidden !important;
+    border-width: 0px;
     color: var(--line-break);
     opacity: 80%;
-     margin: 1rem 0;
 }
 
 .line-break::before {
@@ -328,7 +329,7 @@ p {
     overflow-wrap: anywhere;
 }
 
-/* Footer */
+/* Footer. */
 footer {
     display: flex;
     justify-content: space-between;
@@ -343,8 +344,8 @@ footer {
 }
 
 .social-link a {
-    text-decoration: none;
     border-bottom: 1px solid var(--accent);
+    text-decoration: none;
     color: var(--accent);
 }
 
@@ -353,14 +354,14 @@ footer {
     color: var(--accent-hover);
 }
 
+.bullet {
+    color: var(--secondary-text);
+}
+
 .color-theme-name {
     position: relative;
     cursor: pointer;
     white-space: nowrap;
-}
-
-.color-theme-name:focus-within {
-    outline: 1px solid var(--color-focus);
 }
 
 .arrow {
@@ -371,6 +372,10 @@ footer {
 .color-theme-name:hover,
 .color-theme-name:hover .arrow {
     color: #4e94ce;
+}
+
+.color-theme-name:focus-within {
+    outline: 1px solid var(--color-focus);
 }
 
 .theme-picker {
@@ -398,16 +403,13 @@ footer {
     color: #cfcfc2;
 }
 
-.bullet {
-    color: var(--secondary-text);
-}
-
 .lines {
     position: absolute;
-    top: 8.5rem;
+    top: 8.2rem;
     text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
+    line-height: 1.5rem;
 }
 
 .lines-1:hover {
@@ -419,13 +421,11 @@ footer {
 .lines-1:focus {
     color: var(--editor-line-number-hover);
 }
-
 .mobile-view {
     display: none;
-
-    
-/* Mobile view. */
 }
+
+/*mobile-view*/
 @media screen and (max-width: 599px) {
     .mobile-view {
         display: block;
@@ -475,7 +475,8 @@ footer {
 
     .article-tab {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
+        white-space: nowrap;
     }
 
     .article-tab span {
@@ -497,7 +498,7 @@ footer {
     .mobile-flex {
         display: flex;
         flex-direction: row;
-        padding-left: 20px;
+        padding-left: 10px;
         padding-top: 2rem;
     }
     .mobile-image {
@@ -506,9 +507,9 @@ footer {
     }
 
     .mobile-paragraph {
-        padding-left: 2.5rem;
-        padding-bottom: 1rem;
+        padding-left: 2rem;
         padding-top: 1rem;
+        line-height: 1.5rem;
     }
     .second {
         font-size: 20px;
@@ -529,6 +530,7 @@ footer {
         font-size: 17.5px;
         color: var(--body-text);
     }
+
     .line-break {
         padding-left: 4ch;
     }
@@ -536,7 +538,6 @@ footer {
     footer {
         min-height: 0;
         padding-left: 4ch;
-        padding-bottom: 2rem;
         flex-direction: column;
         font-size: 14px;
     }
@@ -549,7 +550,6 @@ footer {
     .bullet {
         display: none;
     }
-
     .lines {
         top: 3.9rem;
     }

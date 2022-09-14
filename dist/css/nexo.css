@@ -152,6 +152,7 @@
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
 }
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -177,10 +178,10 @@
 *::selection {
     background-color: var(--text-selection-color);
 }
+
 body {
     width: 100%;
     background-color: var(--background-color);
-    color: #f8f8f2;
     font-family: "Fira Code", monospace;
     font-weight: 500;
 }
@@ -188,7 +189,6 @@ body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
     width: 14px;
 }
-
 .container {
     margin: auto;
     max-width: 81ch;
@@ -267,7 +267,7 @@ header {
 }
 main {
     margin: auto;
-    color: var(--secondary-text);
+    color: var(--body-text);
 }
 .editor {
     min-height: 100vh;
@@ -276,10 +276,10 @@ main {
     background-color: var(--editor-background);
 }
 h1 {
-    color: var(--body-text);
     font-size: 20px;
     font-weight: 700;
 }
+
 .flex {
     display: flex;
     flex-direction: row;
@@ -287,9 +287,14 @@ h1 {
     padding-top: 2rem;
 }
 p {
+    color: var(--secondary-text);
     line-height: 1.5rem;
+    font-weight: 500;
 }
-
+.page-link {
+    color: var(--body-text);
+    text-decoration: none;
+}
 .project-link {
     border-bottom: 1px solid var(--accent);
     color: var(--accent);
@@ -299,11 +304,12 @@ p {
     border-bottom: 1px solid var(--accent-hover);
     color: var(--accent-hover);
 }
+
 .line-break {
     display: flex;
-    margin: 1.5rem 0;
     opacity: 80%;
     overflow: hidden !important;
+    margin: 1.5rem 0;
     border-width: 0px;
     height: 1.5rem;
     color: var(--line-break);
@@ -354,6 +360,10 @@ footer {
     white-space: nowrap;
 }
 
+.color-theme-name:focus-within {
+    outline: 1px solid var(--color-focus);
+}
+
 .arrow {
     color: var(--accent);
     font-size: 1rem;
@@ -362,10 +372,6 @@ footer {
 .color-theme-name:hover,
 .color-theme-name:hover .arrow {
     color: #4e94ce;
-}
-
-.color-theme-name:focus-within {
-    outline: 1px solid var(--color-focus);
 }
 
 .theme-picker {
@@ -395,10 +401,11 @@ footer {
 
 .lines {
     position: absolute;
-    top: 8.5rem;
+    top: 8.3rem;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
     text-align: right;
+    line-height: 1.5rem;
 }
 
 .lines-1:hover {
@@ -410,6 +417,7 @@ footer {
 .lines-1:focus {
     color: var(--editor-line-number-hover);
 }
+
 .mobile-view {
     display: none;
 }
@@ -449,10 +457,6 @@ footer {
         display: none;
     }
 
-    .nav-list {
-        flex: 0 0 auto;
-    }
-
     .nav-item {
         flex: 0 0 auto;
         min-width: 25%;
@@ -465,6 +469,7 @@ footer {
     .article-tab {
         display: flex;
         justify-content: space-between;
+        white-space: nowrap;
     }
 
     .article-tab span {
@@ -496,8 +501,8 @@ footer {
 
     .mobile-paragraph {
         padding-top: 1rem;
-        padding-bottom: 1rem;
         padding-left: 2.5rem;
+        line-height: 1.5rem;
     }
     .second {
         margin-left: 1.5rem;
@@ -509,7 +514,6 @@ footer {
         margin-left: 1rem;
         padding-left: 20px;
     }
-
     .mobile-link {
         color: var(--accent);
         text-decoration-line: underline;
@@ -518,6 +522,7 @@ footer {
         color: var(--body-text);
         font-size: 17.5px;
     }
+
     .line-break {
         padding-left: 4ch;
     }
@@ -525,7 +530,6 @@ footer {
     footer {
         flex-direction: column;
         min-height: 0;
-        padding-bottom: 2rem;
         padding-left: 4ch;
         font-size: 14px;
     }

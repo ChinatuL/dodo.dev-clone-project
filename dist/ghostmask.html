@@ -8,10 +8,10 @@
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="../images/favicon-monokai.png"
+            href="./images/favicon-monokai.png"
             id="favicon"
         />
-        <link rel="stylesheet" href="../css/oblik.css" />
+        <link rel="stylesheet" href="./css/ghostmask.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -19,7 +19,7 @@
             rel="stylesheet"
         />
 
-        <title>Oblik &bull; Project &bull; Hristiyan Dodov</title>
+        <title>Ghostmask &bull; Project &bull; Hristiyan Dodov</title>
     </head>
     <body onload="countLines()">
         <main>
@@ -44,9 +44,7 @@
                             </li>
                             <li class="nav-item">
                                 <div class="article-tab">
-                                    <span class="article-name"
-                                        >oblik-toolkit</span
-                                    >
+                                    <span class="article-name">ghostmask</span>
                                     <a href="./project.html"
                                         ><svg
                                             width="16"
@@ -72,77 +70,65 @@
                     >
                         <div class="desktop-view">
                             <div class="flex">
-                                <div class="oblik">
-                                    <a href="#">
-                                        <img
-                                            src="../images/oblik-logo.svg"
-                                            alt="oblik-logo"
-                                            width="100px"
-                                            class="image"
-                                        />
-                                    </a>
+                                <div class="ghostmask">
+                                    <img
+                                        src="./images/ghostmask-logo.svg"
+                                        alt="ghostmask"
+                                        width="100px"
+                                        class="image"
+                                    />
                                 </div>
 
-                                <div class="oblik-text">
-                                    <h1>Oblik Toolkit</h1>
+                                <div class="ghostmask-text">
+                                    <h1>GhostMask</h1>
                                     <p>
-                                        JavaScript functionality we use in
-                                        <a
-                                            href="https://oblik.studio/"
-                                            class="project-link"
-                                            >Oblik</a
-                                        >
-                                        for our projects, packaged in small and
-                                        reusable modules.
+                                        Browser extension for displaying and
+                                        manipulating
+                                        <br />
+                                        design files directly in the browser.
                                     </p>
                                     <p>
                                         <a
-                                            href="https://oblik.dev/"
-                                            target="_blank"
+                                            href="https://chrome.google.com/webstore/detail/ghostmask/hocnmmdgenefilfpnkbfopcihmekhamf"
                                             class="project-link"
-                                            >oblik.dev</a
+                                            target="_blank"
+                                            >Chrome.google.com</a
                                         >
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <!--mobile-view-->
                         <div class="mobile-view">
-                            <div class="mobile-flex">
-                                <div class="oblik">
-                                    <a href="./oblik.html">
-                                        <img
-                                            src="../images/oblik-logo.svg"
-                                            alt="oblik-logo"
-                                            width="100px"
-                                            class="mobile-image"
-                                        />
-                                    </a>
+                            <div class="mobile">
+                                <div class="mobile-flex">
+                                    <div class="ghostmask">
+                                        <a href="./ghostmask.html"
+                                            ><img
+                                                src="./images/ghostmask-logo.svg"
+                                                alt="ghostmask"
+                                                width="100px"
+                                                class="mobile-image"
+                                            />
+                                        </a>
+                                    </div>
+                                    <div class="mobile-text">
+                                        <h3>Ghostmask</h3>
+                                        <p>
+                                            <a
+                                                href="https://chrome.google.com/webstore/detail/ghostmask/hocnmmdgenefilfpnkbfopcihmekhamf"
+                                                target="_blank"
+                                                class="mobile-link"
+                                                >Chrome.google.com</a
+                                            >
+                                        </p>
+                                    </div>
                                 </div>
-
-                                <div class="mobile-text">
-                                    <h3>Oblik Toolkit</h3>
-                                    <p>
-                                        <a
-                                            href="https://oblik.dev/"
-                                            target="_blank"
-                                            class="mobile-link"
-                                            >oblik.dev</a
-                                        >
-                                    </p>
-                                </div>
+                                <p class="mobile-paragraph">
+                                    Browser extension for displaying and <br />
+                                    manipulating design files directly in <br />
+                                    the browser.
+                                </p>
                             </div>
-                            <p class="mobile-paragraph">
-                                JavaScript functionality we use in
-                                <a
-                                    href="https://oblik.studio/"
-                                    class="mobile-link"
-                                    >oblik</a
-                                >
-                                <br />
-                                for our projects, packaged in small and <br />
-                                reusable modules.
-                            </p>
                         </div>
                         <hr class="line-break" />
                         <footer>
@@ -183,8 +169,16 @@
                                         class="theme-picker"
                                         id="theme-select"
                                     >
-                                        <option value="dark-plus">Dark+</option>
-                                        <option value="light-plus">
+                                        <option
+                                            value="dark-plus"
+                                            id="dark-plus"
+                                        >
+                                            Dark+
+                                        </option>
+                                        <option
+                                            value="light-plus"
+                                            id="light-plus"
+                                        >
                                             Light+
                                         </option>
                                         <option value="monokai" id="monokai">
@@ -239,7 +233,7 @@
             function countLines() {
                 document.getElementById("lines").innerHTML = "";
                 var el = document.getElementById("editor-content");
-                var editorHeight = el.offsetHeight + 48;
+                var editorHeight = el.offsetHeight - 24;
                 var lineHeight = parseInt(el.style.lineHeight);
                 var lines = parseInt(editorHeight / lineHeight);
                 let lineNumber = 0;

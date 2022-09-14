@@ -1,4 +1,3 @@
-/* Global styles */
 :root,
 :root.monokai {
     --background-color: #1e1f1c;
@@ -153,11 +152,10 @@
         system-ui, Ubuntu, sans-serif;
     --font-mono: Fira Code, monospace;
 }
-
 * {
-    padding: 0;
     margin: 0;
     box-sizing: border-box;
+    padding: 0;
 }
 *::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
@@ -179,22 +177,21 @@
 *::selection {
     background-color: var(--text-selection-color);
 }
-
 body {
-    background-color: var(--background-color);
-    font-family: "Fira Code", monospace;
     width: 100%;
+    background-color: var(--background-color);
+    color: #f8f8f2;
+    font-family: "Fira Code", monospace;
     font-weight: 500;
 }
-
 body::-webkit-scrollbar {
     border-left: 1px solid var(--color-scrollbar-border);
     width: 14px;
 }
 
 .container {
-    max-width: 81ch;
     margin: auto;
+    max-width: 81ch;
 }
 
 li {
@@ -203,8 +200,6 @@ li {
 header {
     margin-top: 4.5rem;
 }
-
-/* Header/Navbar */
 .nav-list {
     display: flex;
     margin: 0 auto;
@@ -214,14 +209,17 @@ header {
     background-color: var(--editor-background);
     font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI,
         system-ui, Ubuntu, sans-serif;
-        margin-right: 0.1rem;
 }
 .nav-item a {
-    text-decoration: none;
     font-weight: normal;
+    text-decoration: none;
 }
 .nav-item a:hover {
     color: var(--navbar-text);
+}
+
+.nav-item {
+    margin-right: 0.1rem;
 }
 
 .nav-item:nth-of-type(1),
@@ -236,9 +234,9 @@ header {
 }
 
 .nav-link {
+    color: var(--navbar-text);
     font-family: var(--font-sans);
     font-size: 0.8rem;
-    color: var(--navbar-text);
 }
 
 .nav-link div {
@@ -256,10 +254,11 @@ header {
 }
 
 .article-tab a {
-    margin-left: 0.2rem;
     vertical-align: middle;
+    margin-left: 0.2rem;
     padding: 0.2rem 0.2rem 0;
     color: var(--navbar-text);
+    font-weight: normal;
 }
 
 .article-tab a:hover {
@@ -268,55 +267,46 @@ header {
 }
 main {
     margin: auto;
-    color: var(--body-text);
-    
+    color: var(--secondary-text);
 }
-
-/* Main */
 .editor {
-    background-color: var(--editor-background);
+    min-height: 100vh;
     padding-left: 5rem;
     padding-right: 5rem;
-    min-height: 100vh;
+    background-color: var(--editor-background);
 }
 h1 {
+    color: var(--body-text);
     font-size: 20px;
     font-weight: 700;
 }
-
 .flex {
     display: flex;
     flex-direction: row;
-    padding-top: 2rem;
     gap: 20px;
+    padding-top: 2rem;
 }
 p {
-    color: var(--secondary-text);
     line-height: 1.5rem;
-    font-weight: 500;
 }
-.page-link {
-    color: var(--body-text);
-    text-decoration: none;
-}
+
 .project-link {
-    text-decoration: none;
     border-bottom: 1px solid var(--accent);
     color: var(--accent);
+    text-decoration: none;
 }
 .project-link:hover {
     border-bottom: 1px solid var(--accent-hover);
     color: var(--accent-hover);
 }
-
 .line-break {
     display: flex;
-    height: 1.5rem;
     margin: 1.5rem 0;
+    opacity: 80%;
     overflow: hidden !important;
     border-width: 0px;
+    height: 1.5rem;
     color: var(--line-break);
-    opacity: 80%;
 }
 
 .line-break::before {
@@ -326,11 +316,10 @@ p {
 
 .line-break::after {
     content: "--------------------------------------------------------------";
-    font-variant-ligatures: none;
     overflow-wrap: anywhere;
+    font-variant-ligatures: none;
 }
 
-/* Footer. */
 footer {
     display: flex;
     justify-content: space-between;
@@ -346,8 +335,8 @@ footer {
 
 .social-link a {
     border-bottom: 1px solid var(--accent);
-    text-decoration: none;
     color: var(--accent);
+    text-decoration: none;
 }
 
 .social-link a:hover {
@@ -366,8 +355,8 @@ footer {
 }
 
 .arrow {
-    font-size: 1rem;
     color: var(--accent);
+    font-size: 1rem;
 }
 
 .color-theme-name:hover,
@@ -383,15 +372,15 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    border: none;
-    background: none;
-    color: var(--body-text);
     opacity: 0;
     -webkit-appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--body-text);
     font-size: 1rem;
     font-weight: 500;
     font-family: "Fira code", monospace;
-    cursor: pointer;
 }
 
 .theme-picker:focus,
@@ -407,14 +396,15 @@ footer {
 .lines {
     position: absolute;
     top: 8.5rem;
-    text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
+    text-align: right;
+    line-height: 1.5rem;
 }
 
 .lines-1:hover {
-    color: var(--editor-line-number-hover);
     cursor: pointer;
+    color: var(--editor-line-number-hover);
 }
 
 .lines-1:active,
@@ -476,7 +466,6 @@ footer {
     .article-tab {
         display: flex;
         justify-content: space-between;
-        white-space: nowrap;
     }
 
     .article-tab span {
@@ -498,8 +487,8 @@ footer {
     .mobile-flex {
         display: flex;
         flex-direction: row;
-        padding-left: 10px;
         padding-top: 2rem;
+        padding-left: 20px;
     }
     .mobile-image {
         padding-left: 25px;
@@ -507,18 +496,18 @@ footer {
     }
 
     .mobile-paragraph {
-        padding-left: 2rem;
-        padding-bottom: 1rem;
         padding-top: 1rem;
+        padding-left: 2.5rem;
+        line-height: 1.5rem;
     }
     .second {
-        font-size: 20px;
+        margin-left: 1.5rem;
         padding-top: 30px;
         padding-left: 20px;
-        margin-left: 1.5rem;
+        font-size: 20px;
     }
     .second-paragraph {
-        margin-left: 1.5rem;
+        margin-left: 1rem;
         padding-left: 20px;
     }
 
@@ -527,19 +516,17 @@ footer {
         text-decoration-line: underline;
     }
     h3 {
-        font-size: 17.5px;
         color: var(--body-text);
+        font-size: 17.5px;
     }
-
     .line-break {
         padding-left: 4ch;
     }
 
     footer {
+        flex-direction: column;
         min-height: 0;
         padding-left: 4ch;
-        padding-bottom: 2rem;
-        flex-direction: column;
         font-size: 14px;
     }
     .social-links {
@@ -551,6 +538,7 @@ footer {
     .bullet {
         display: none;
     }
+
     .lines {
         top: 3.9rem;
     }
