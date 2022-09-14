@@ -154,9 +154,9 @@
 }
 
 * {
-    padding: 0;
     margin: 0;
     box-sizing: border-box;
+    padding: 0;
 }
 *::-webkit-scrollbar-corner,
 *::-webkit-scrollbar-button {
@@ -180,9 +180,9 @@
 }
 
 body {
+    width: 100%;
     background-color: var(--background-color);
     font-family: "Fira Code", monospace;
-    width: 100%;
     font-weight: 500;
 }
 body::-webkit-scrollbar {
@@ -190,9 +190,9 @@ body::-webkit-scrollbar {
     width: 14px;
 }
 .container {
-    max-width: 81ch;
     margin: auto;
-}
+    max-width: 81ch;
+    }
 
 li {
     list-style-type: none;
@@ -211,8 +211,8 @@ header {
         system-ui, Ubuntu, sans-serif;
 }
 .nav-item a {
-    text-decoration: none;
-    font-weight: normal;
+        font-weight: normal;
+        text-decoration: none;
 }
 .nav-item a:hover {
     color: var(--navbar-text);
@@ -234,9 +234,9 @@ header {
 }
 
 .nav-link {
+    color: var(--navbar-text);
     font-family: var(--font-sans);
     font-size: 0.8rem;
-    color: var(--navbar-text);
 }
 
 .nav-link div {
@@ -254,11 +254,11 @@ header {
 }
 
 .article-tab a {
+    vertical-align: middle;
     margin-left: 0.2rem;
     padding: 0.2rem 0.2rem 0;
     color: var(--navbar-text);
     font-weight: normal;
-    vertical-align: middle;
 }
 
 .article-tab a:hover {
@@ -266,14 +266,14 @@ header {
     background-color: var(--inactive-navbar-background);
 }
 main {
-    color: var(--body-text);
     margin: auto;
+    color: var(--body-text);
 }
 .editor {
     min-height: 100vh;
-    background-color: var(--editor-background);
     padding-left: 5rem;
     padding-right: 5rem;
+    background-color: var(--editor-background);
 }
 h1 {
     font-size: 20px;
@@ -283,8 +283,8 @@ h1 {
 .flex {
     display: flex;
     flex-direction: row;
-    padding-top: 2rem;
     gap: 20px;
+    padding-top: 2rem;
 }
 p {
     color: var(--secondary-text);
@@ -296,9 +296,9 @@ p {
     text-decoration: none;
 }
 .project-link {
-    text-decoration: none;
     border-bottom: 1px solid var(--accent);
     color: var(--accent);
+    text-decoration: none;
 }
 .project-link:hover {
     border-bottom: 1px solid var(--accent-hover);
@@ -307,12 +307,12 @@ p {
 
 .line-break {
     display: flex;
-    height: 1.5rem;
-    margin: 1.5rem 0;
-    border-width: 0px;
-    color: var(--line-break);
     opacity: 80%;
     overflow: hidden !important;
+    margin: 1.5rem 0;
+    border-width: 0px;
+    height: 1.5rem;
+    color: var(--line-break);
 }
 
 .line-break::before {
@@ -322,8 +322,8 @@ p {
 
 .line-break::after {
     content: "--------------------------------------------------------------";
-    font-variant-ligatures: none;
     overflow-wrap: anywhere;
+    font-variant-ligatures: none;
 }
 
 footer {
@@ -340,9 +340,9 @@ footer {
 }
 
 .social-link a {
-    text-decoration: none;
     border-bottom: 1px solid var(--accent);
     color: var(--accent);
+    text-decoration: none;
 }
 
 .social-link a:hover {
@@ -365,8 +365,8 @@ footer {
 }
 
 .arrow {
-    font-size: 1rem;
     color: var(--accent);
+    font-size: 1rem;
 }
 
 .color-theme-name:hover,
@@ -378,15 +378,15 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    border: none;
-    background: none;
-    color: var(--body-text);
     opacity: 0;
     -webkit-appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--body-text);
     font-size: 1rem;
     font-weight: 500;
     font-family: "Fira code", monospace;
-    cursor: pointer;
 }
 
 .theme-picker:focus,
@@ -402,14 +402,14 @@ footer {
 .lines {
     position: absolute;
     top: 8.3rem;
-    text-align: right;
     padding: 0 1.5rem;
     color: var(--editor-line-number);
+    text-align: right;
 }
 
 .lines-1:hover {
-    color: var(--editor-line-number-hover);
     cursor: pointer;
+    color: var(--editor-line-number-hover);
 }
 
 .lines-1:active,
@@ -490,8 +490,8 @@ footer {
     .mobile-flex {
         display: flex;
         flex-direction: row;
-        padding-left: 20px;
         padding-top: 2rem;
+        padding-left: 20px;
     }
     .mobile-image {
         padding-left: 25px;
@@ -499,16 +499,17 @@ footer {
     }
 
     .mobile-paragraph {
-        padding-left: 2.5rem;
-        padding-bottom: 1rem;
         padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 2.5rem;
+        
     }
     .second {
-        font-size: 20px;
+        margin-left: 1.5rem;
         padding-top: 30px;
         padding-left: 20px;
-        margin-left: 1.5rem;
-    }
+        font-size: 20px;
+            }
     .second-paragraph {
         margin-left: 1rem;
         padding-left: 20px;
@@ -518,19 +519,19 @@ footer {
         text-decoration-line: underline;
     }
     h3 {
-        font-size: 17.5px;
         color: var(--body-text);
+        font-size: 17.5px;
     }
 
     .line-break {
         padding-left: 4ch;
     }
 
-    footer {
-        min-height: 0;
-        padding-left: 4ch;
-        padding-bottom: 2rem;
+    footer { 
         flex-direction: column;
+        min-height: 0;
+        padding-bottom: 2rem;
+        padding-left: 4ch;
         font-size: 14px;
     }
     .social-links {
