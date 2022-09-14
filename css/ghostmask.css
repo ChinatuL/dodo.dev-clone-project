@@ -420,9 +420,11 @@ footer {
     color: var(--editor-line-number-hover);
 }
 
-/* Mobile view */
 .mobile-view {
     display: none;
+
+    
+/* Mobile view */
 }
 @media screen and (max-width: 599px) {
     .mobile-view {
