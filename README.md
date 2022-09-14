@@ -19,9 +19,13 @@
 ## Screenshots of clone
 
 -   Desktop
-    ![](./images/desktop-view.png)
+    ![](./dist/images/desktop-view.png)
 -   Mobile
-    ![](./images/mobile-design.png)
+    ![](./dist/images/mobile-design.png)
+
+## Live Site:
+
+[Click here for live site](https://group-5-dodov-clone.netlify.app/)
 
 ## Technologies Used:
 
