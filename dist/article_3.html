@@ -463,19 +463,18 @@
 
             function handleScroll(e) {
                 e.preventDefault();
-                var j = Number(e.target.textContent);
-                var k = j * 24 + 135;
-                var d = 8 * 24;
+                const j = Number(e.target.textContent);
+                const k = j * 24 + 135;
+                const d = 8 * 24;
                 scrollToPosition(k - d);
             }
 
             function countLines() {
                 document.getElementById("lines").innerHTML = "";
-                var el = document.getElementById("editor-content");
-                var editorHeight = el.offsetHeight + 24;
-                var lineHeight = parseInt(el.style.lineHeight);
-                var lines = parseInt(editorHeight / lineHeight);
-                let lineNumber = 0;
+                const el = document.getElementById("editor-content");
+                const editorHeight = el.offsetHeight + 24;
+                const lineHeight = parseInt(el.style.lineHeight);
+                const lines = parseInt(editorHeight / lineHeight);
                 document.getElementById("line-number").innerHTML =
                     lines + " lines";
                 let i = 1;
